@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C# EF codefirst 迁移 Migrations问题记录</title>
+    <url>/posts/d75e1abd/</url>
+    <content><![CDATA[<div class="note info">
+            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
+          </div>
+<div class="note info">
+            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
+          </div>
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+<p>Migration的命令如下：</p>
+<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
+<h4 id="1-启动Migrations"><a href="#1-启动Migrations" class="headerlink" title="1 启动Migrations"></a>1 启动Migrations</h4><p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations</code> 进行 启用migration用来初始化数据库；</p>
+<p>​    如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
+<h4 id="2-迁移Migrations"><a href="#2-迁移Migrations" class="headerlink" title="2  迁移Migrations"></a>2  迁移Migrations</h4><p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
+<h4 id="3-更新到数据库"><a href="#3-更新到数据库" class="headerlink" title="3 更新到数据库"></a>3 更新到数据库</h4><p>  使用 <code>Update-Databse</code> 进行数据库更新；</p>
+<p>操作过程中遇到问题：</p>
+<h4 id="SQL-Server问题汇总："><a href="#SQL-Server问题汇总：" class="headerlink" title="SQL Server问题汇总："></a>SQL Server问题汇总：</h4><ol>
+<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1) </li>
+</ol>
+<p>分析原因：    <div class="note danger">
+            <p>Target database is: ‘<code>*****</code>‘ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
+          </div></p>
+<p>经断点调试发现：以下位置代码中的连接字符串</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>与下面的字符串不符</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>改正后，出现以下问题：</p>
+<div class="note danger">
+            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904): </p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
+          </div>
+]]></content>
+      <categories>
+        <category>C#</category>
+        <category>Migrations</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>migrations</tag>
+        <tag>sql server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo美化</title>
+    <url>/posts/5966023/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>C#</title>
+    <url>/posts/59760/</url>
+    <content><![CDATA[<h1 id="关于C-相关问题的汇总"><a class="header-anchor" href="#关于C-相关问题的汇总">¶</a>关于C#相关问题的汇总</h1>
+<div class="tabs" id="贴吧"><ul class="nav-tabs"><li class="tab active"><a href="#贴吧-1">android开发吧</a></li><li class="tab"><a href="#贴吧-2">java吧</a></li><li class="tab"><a href="#贴吧-3">c++吧</a></li><li class="tab"><a href="#贴吧-4">c语言</a></li><li class="tab"><a href="#贴吧-5">神奇海螺</a></li></ul><div class="tab-content"><div class="tab-pane active" id="贴吧-1"><p>有问题为什么不先问问隔壁Java吧呢？</p></div><div class="tab-pane" id="贴吧-2"><p>有问题为什么不先问问隔壁C++吧呢？</p></div><div class="tab-pane" id="贴吧-3"><p>有问题为什么不先问问隔壁C语言吧呢？</p></div><div class="tab-pane" id="贴吧-4"><p>有问题为什么不先问问神奇海螺吧呢？</p></div><div class="tab-pane" id="贴吧-5"><p>有问必答不知道</p></div></div></div>
+<p>H<sub>2</sub>O  Hot<sup>TM</sup></p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>halcon</title>
+    <url>/posts/8239749c/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>halcon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL Server相关问题汇总</title>
+    <url>/posts/453677/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Sql Server</category>
+      </categories>
+      <tags>
+        <tag>Sql sever</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/16107/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
+<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Demo</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>上位机通过MX component version4组件与三菱PLC通信解决办法，最新MX component version5支持X64</title>
     <url>/posts/0/</url>
     <content><![CDATA[<blockquote>
@@ -207,129 +330,6 @@ ActProgTypeLib类使用代码如下：</p>
         <tag>C#</tag>
         <tag>PLC</tag>
         <tag>MX Component</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>C# EF codefirst 迁移 Migrations问题记录</title>
-    <url>/posts/d75e1abd/</url>
-    <content><![CDATA[<div class="note info">
-            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
-          </div>
-<div class="note info">
-            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
-          </div>
-<blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-<p>Migration的命令如下：</p>
-<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
-<h4 id="1-启动Migrations"><a href="#1-启动Migrations" class="headerlink" title="1 启动Migrations"></a>1 启动Migrations</h4><p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations</code> 进行 启用migration用来初始化数据库；</p>
-<p>​    如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
-<h4 id="2-迁移Migrations"><a href="#2-迁移Migrations" class="headerlink" title="2  迁移Migrations"></a>2  迁移Migrations</h4><p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
-<h4 id="3-更新到数据库"><a href="#3-更新到数据库" class="headerlink" title="3 更新到数据库"></a>3 更新到数据库</h4><p>  使用 <code>Update-Databse</code> 进行数据库更新；</p>
-<p>操作过程中遇到问题：</p>
-<h4 id="SQL-Server问题汇总："><a href="#SQL-Server问题汇总：" class="headerlink" title="SQL Server问题汇总："></a>SQL Server问题汇总：</h4><ol>
-<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1) </li>
-</ol>
-<p>分析原因：    <div class="note danger">
-            <p>Target database is: ‘<code>*****</code>‘ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
-          </div></p>
-<p>经断点调试发现：以下位置代码中的连接字符串</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>与下面的字符串不符</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>改正后，出现以下问题：</p>
-<div class="note danger">
-            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904): </p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
-          </div>
-]]></content>
-      <categories>
-        <category>C#</category>
-        <category>Migrations</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>migrations</tag>
-        <tag>sql server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>halcon</title>
-    <url>/posts/8239749c/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>halcon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo美化</title>
-    <url>/posts/5966023/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C#</title>
-    <url>/posts/59760/</url>
-    <content><![CDATA[<h1 id="关于C-相关问题的汇总"><a class="header-anchor" href="#关于C-相关问题的汇总">¶</a>关于C#相关问题的汇总</h1>
-<div class="tabs" id="贴吧"><ul class="nav-tabs"><li class="tab active"><a href="#贴吧-1">android开发吧</a></li><li class="tab"><a href="#贴吧-2">java吧</a></li><li class="tab"><a href="#贴吧-3">c++吧</a></li><li class="tab"><a href="#贴吧-4">c语言</a></li><li class="tab"><a href="#贴吧-5">神奇海螺</a></li></ul><div class="tab-content"><div class="tab-pane active" id="贴吧-1"><p>有问题为什么不先问问隔壁Java吧呢？</p></div><div class="tab-pane" id="贴吧-2"><p>有问题为什么不先问问隔壁C++吧呢？</p></div><div class="tab-pane" id="贴吧-3"><p>有问题为什么不先问问隔壁C语言吧呢？</p></div><div class="tab-pane" id="贴吧-4"><p>有问题为什么不先问问神奇海螺吧呢？</p></div><div class="tab-pane" id="贴吧-5"><p>有问必答不知道</p></div></div></div>
-<p>H<sub>2</sub>O  Hot<sup>TM</sup></p>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL Server相关问题汇总</title>
-    <url>/posts/453677/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Sql Server</category>
-      </categories>
-      <tags>
-        <tag>Sql sever</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
-<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Demo</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
