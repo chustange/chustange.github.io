@@ -231,20 +231,16 @@ ActProgTypeLib类使用代码如下：</p>
           </blockquote>
 <p>Migration的命令如下：</p>
 <div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
-<h4 id="1-启动Migrations"><a class="header-anchor" href="#1-启动Migrations">¶</a>1 启动Migrations</h4>
-<p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations </code> 进行 启用migration用来初始化数据库；</p>
-<p>​	如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
-<h4 id="2-迁移Migrations"><a class="header-anchor" href="#2-迁移Migrations">¶</a>2  迁移Migrations</h4>
-<p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
-<h4 id="3-更新到数据库"><a class="header-anchor" href="#3-更新到数据库">¶</a>3 更新到数据库</h4>
-<p>使用 <code> Update-Databse</code> 进行数据库更新；</p>
+<h4 id="1-启动Migrations"><a href="#1-启动Migrations" class="headerlink" title="1 启动Migrations"></a>1 启动Migrations</h4><p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations</code> 进行 启用migration用来初始化数据库；</p>
+<p>​    如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
+<h4 id="2-迁移Migrations"><a href="#2-迁移Migrations" class="headerlink" title="2  迁移Migrations"></a>2  迁移Migrations</h4><p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
+<h4 id="3-更新到数据库"><a href="#3-更新到数据库" class="headerlink" title="3 更新到数据库"></a>3 更新到数据库</h4><p>  使用 <code>Update-Databse</code> 进行数据库更新；</p>
 <p>操作过程中遇到问题：</p>
-<h4 id="SQL-Server问题汇总："><a class="header-anchor" href="#SQL-Server问题汇总：">¶</a>SQL Server问题汇总：</h4>
-<ol>
-<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1)</li>
+<h4 id="SQL-Server问题汇总："><a href="#SQL-Server问题汇总：" class="headerlink" title="SQL Server问题汇总："></a>SQL Server问题汇总：</h4><ol>
+<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1) </li>
 </ol>
-<p>分析原因：	<div class="note danger">
-            <p>Target database is: ‘<code>*****</code>’ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
+<p>分析原因：    <div class="note danger">
+            <p>Target database is: ‘<code>*****</code>‘ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
           </div></p>
 <p>经断点调试发现：以下位置代码中的连接字符串</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
@@ -252,7 +248,7 @@ ActProgTypeLib类使用代码如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>改正后，出现以下问题：</p>
 <div class="note danger">
-            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904):</p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
+            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904): </p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
           </div>
 ]]></content>
       <categories>
