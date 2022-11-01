@@ -6,7 +6,7 @@
   <link href="https://chustange.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://chustange.github.io/project/"/>
-  <updated>2022-11-01T09:36:15.518Z</updated>
+  <updated>2022-11-01T09:42:44.130Z</updated>
   <id>https://chustange.github.io/project/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://chustange.github.io/project/posts/cdc7432d/"/>
     <id>https://chustange.github.io/project/posts/cdc7432d/</id>
     <published>2022-11-01T08:46:26.383Z</published>
-    <updated>2022-11-01T09:36:15.518Z</updated>
+    <updated>2022-11-01T09:42:44.130Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>问题点：</p><ol><li>什么是Active x控件；</li><li>能用它做哪些事情；</li><li>从此次经历中学到什么；</li></ol></blockquote><h4 id="关于Active-x控件"><a class="header-anchor" href="#关于Active-x控件">¶</a>关于Active x控件</h4><p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>问题点：</p><ol><li>什么是Active x控件；</li><li>能用它做哪些事情；</li><li>从此次经历中学到什么；</li></ol></blockquote><h4 id="关于Active-x控件"><a href="#关于Active-x控件" class="headerlink" title="关于Active x控件"></a>关于Active x控件</h4><p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>]]></content>
     
     
     <summary type="html">以下是在了解创建Active X控件及显示简单图片的相关过程</summary>

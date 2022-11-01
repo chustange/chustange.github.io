@@ -1,129 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C# EF codefirst 迁移 Migrations问题记录</title>
-    <url>/posts/d75e1abd/</url>
-    <content><![CDATA[<div class="note info">
-            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
-          </div>
-<div class="note info">
-            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
-          </div>
-<blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-<p>Migration的命令如下：</p>
-<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
-<h4 id="1-启动Migrations"><a href="#1-启动Migrations" class="headerlink" title="1 启动Migrations"></a>1 启动Migrations</h4><p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations</code> 进行 启用migration用来初始化数据库；</p>
-<p>​    如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
-<h4 id="2-迁移Migrations"><a href="#2-迁移Migrations" class="headerlink" title="2  迁移Migrations"></a>2  迁移Migrations</h4><p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
-<h4 id="3-更新到数据库"><a href="#3-更新到数据库" class="headerlink" title="3 更新到数据库"></a>3 更新到数据库</h4><p>  使用 <code>Update-Databse</code> 进行数据库更新；</p>
-<p>操作过程中遇到问题：</p>
-<h4 id="SQL-Server问题汇总："><a href="#SQL-Server问题汇总：" class="headerlink" title="SQL Server问题汇总："></a>SQL Server问题汇总：</h4><ol>
-<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1) </li>
-</ol>
-<p>分析原因：    <div class="note danger">
-            <p>Target database is: ‘<code>*****</code>‘ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
-          </div></p>
-<p>经断点调试发现：以下位置代码中的连接字符串</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>与下面的字符串不符</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>改正后，出现以下问题：</p>
-<div class="note danger">
-            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904): </p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
-          </div>
-]]></content>
-      <categories>
-        <category>C#</category>
-        <category>Migrations</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>migrations</tag>
-        <tag>sql server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo美化</title>
-    <url>/posts/5966023/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>C#</title>
-    <url>/posts/59760/</url>
-    <content><![CDATA[<h1 id="关于C-相关问题的汇总"><a class="header-anchor" href="#关于C-相关问题的汇总">¶</a>关于C#相关问题的汇总</h1>
-<div class="tabs" id="贴吧"><ul class="nav-tabs"><li class="tab active"><a href="#贴吧-1">android开发吧</a></li><li class="tab"><a href="#贴吧-2">java吧</a></li><li class="tab"><a href="#贴吧-3">c++吧</a></li><li class="tab"><a href="#贴吧-4">c语言</a></li><li class="tab"><a href="#贴吧-5">神奇海螺</a></li></ul><div class="tab-content"><div class="tab-pane active" id="贴吧-1"><p>有问题为什么不先问问隔壁Java吧呢？</p></div><div class="tab-pane" id="贴吧-2"><p>有问题为什么不先问问隔壁C++吧呢？</p></div><div class="tab-pane" id="贴吧-3"><p>有问题为什么不先问问隔壁C语言吧呢？</p></div><div class="tab-pane" id="贴吧-4"><p>有问题为什么不先问问神奇海螺吧呢？</p></div><div class="tab-pane" id="贴吧-5"><p>有问必答不知道</p></div></div></div>
-<p>H<sub>2</sub>O  Hot<sup>TM</sup></p>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>halcon</title>
-    <url>/posts/8239749c/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>halcon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL Server相关问题汇总</title>
-    <url>/posts/453677/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Sql Server</category>
-      </categories>
-      <tags>
-        <tag>Sql sever</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
-<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Demo</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>上位机通过MX component version4组件与三菱PLC通信解决办法，最新MX component version5支持X64</title>
     <url>/posts/0/</url>
     <content><![CDATA[<blockquote>
@@ -333,320 +210,27 @@ ActProgTypeLib类使用代码如下：</p>
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<ol>
-<li>查看本地git绑定的用户名和邮箱：</li>
-</ol>
-<blockquote>
-<p><code>git config user.name</code></p>
-<p><code>git config user.email</code></p>
-</blockquote>
+    <title>如何创建Active X控件及操作流程</title>
+    <url>/posts/cdc7432d/</url>
+    <content><![CDATA[<blockquote>
+<p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>问题点：</p>
 <ol>
-<li>①  修改本地git绑定的用户名和邮箱(全局)：</li>
-</ol>
-<blockquote>
-<p><code>git config --global user.name “chustange”</code><br><code>git config --global user.email “chustange@163.com”</code></p>
-</blockquote>
-<p>​            ②  根据不同的项目绑定不同的用户名和邮箱：进入项目根目录(去掉–global即可)：</p>
-<blockquote>
-<p><code>git config  user.name “chustange”</code><br><code>git config  user.email “chustange@163.com”</code></p>
-</blockquote>
-<ol>
-<li>克隆现有的仓库，若没有自定义本地仓库名称，则默认远程仓库名称</li>
-</ol>
-<blockquote>
-<p><code>git clone 远程仓库URL （本地仓库自定义名称）</code></p>
-</blockquote>
-<ol>
-<li>查看仓库所有分支</li>
-</ol>
-<blockquote>
-<p><code>git branch -a</code></p>
-</blockquote>
-<ol>
-<li>新建分支并切换至新分支：</li>
-</ol>
-<blockquote>
-<p><code>git checkout -b 分支名</code></p>
-</blockquote>
-<ol>
-<li>推送本地分支到远程分支(远程分支与本地分支同名)：</li>
-</ol>
-<blockquote>
-<p> <code>git push origin 分支名:分支名</code></p>
-</blockquote>
-<ol>
-<li>让本地分支与远程分支建立关联：</li>
-</ol>
-<blockquote>
-<p> <code>git branch --set-upstream-to=origin/分支名</code></p>
-</blockquote>
-<p>注：如第七步操作未执行，拉取远程代码需执行：<em><code>git pull origin</code></em> 分支名，需标明拉取远程的具体分支名。</p>
-<ol>
-<li>查询所有分支</li>
-</ol>
-<blockquote>
-<p><code>git branch -a</code></p>
-</blockquote>
-<ol>
-<li>切换至其他分支：</li>
-</ol>
-<blockquote>
-<p> <code>git checkout 分支名</code></p>
-</blockquote>
-<ol>
-<li>删除分支：先切换到非删除的分支，同个分支一般先删除远程分支再删除本地分支</li>
-</ol>
-<p>①删除远程分支</p>
-<blockquote>
-<p><code>git push origin --delete 分支名</code></p>
-</blockquote>
-<p>②删除本地分支</p>
-<blockquote>
-<p><code>git branch -d XX ：普通删除分支</code><br><code>git branch -D XX ：强制删除分支</code></p>
-</blockquote>
-<ol>
-<li>查看本地仓库当前代码状态：</li>
-</ol>
-<blockquote>
-<p><code>git status</code></p>
-</blockquote>
-<ol>
-<li>添加要提交的代码文件</li>
-</ol>
-<p>①添加所有文件：</p>
-<blockquote>
-<p><code>git add .</code></p>
-</blockquote>
-<p>②自定义添加多个文件，文件之间用空格隔开：</p>
-<blockquote>
-<p> <code>git add file1 file2 file3</code></p>
-</blockquote>
-<ol>
-<li>提交到本地仓库：</li>
-</ol>
-<blockquote>
-<p> <code>git commit -m “描述语句”</code></p>
-</blockquote>
-<ol>
-<li>执行第13点后，要执行一下 <em><code>git pull</code></em>，合并分支最新代码，查看是否会冲突，若会冲突：</li>
-</ol>
-<p>方法①：点进冲突文件进行修改冲突的代码然后再重新执行第12点；</p>
-<p>方法②：回滚代码：</p>
-<blockquote>
-<ol>
-<li><em><code>git stash</code></em> //这是将本地代码回滚至上一次提交的时候，就是没有自己新改的代码；</li>
-<li><em><code>git pull origin 分支名</code></em>//将远程的代码拉下来,“origin 分支名”一般可以省略；</li>
-<li><em><code>git stash pop</code></em> //将上面git stash回滚的代码释放出来，相当于将自己修改的代码与下拉的代码合并；</li>
-<li>重新从第12点开始执行；</li>
+<li>什么是Active x控件；</li>
+<li>能用它做哪些事情；</li>
+<li>从此次经历中学到什么；</li>
 </ol>
 </blockquote>
-<p>14、push到远程仓库：</p>
-<blockquote>
-<p><code>git push origin 分支名</code>//将远程的代码上传上去,“origin 分支名”一般可以省略；</p>
-</blockquote>
-<p>15、合并分支代码：如main分支合并至dev分支，则先切换至dev分支：</p>
-<blockquote>
-<p><code>git merge main</code> //表示将main分支合并至dev分支</p>
-</blockquote>
-<p>打开README.md修改冲突内容，然后再提交按第12、13、14、15点：</p>
+<h4 id="关于Active-x控件"><a href="#关于Active-x控件" class="headerlink" title="关于Active x控件"></a>关于Active x控件</h4><p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="binomial-filter（操作员）"><a href="#binomial-filter（操作员）" class="headerlink" title="binomial_filter（操作员）"></a>binomial_filter（操作员）</h1><h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>binomial_filter</code>— 使用二项式滤镜平滑图像。</p>
-<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">**binomial_filter**</span>(<span class="strong">*Image*</span> : <span class="strong">*ImageBinomial*</span> : <span class="strong">*MaskWidth*</span>, <span class="strong">*MaskHeight*</span> : )</span><br></pre></td></tr></table></figure>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述: __"></a>描述: <strong><strong>__</strong></strong></h2><p><code>binomial_filter</code>平滑图像<a href="#Image"><em><code>Image</code></em></a>使用掩码大小为<a href="#MaskWidth"><em><code>MaskWidth</code></em></a> <em> [</em><code>MaskHeight</code><em>](#MaskHeight)像素，并返回[</em><code>ImageBinomial</code><em>](#ImageBinomial).二项式滤波器是高斯滤波器的一个非常好的近似值，仅使用整数运算即可非常有效地实现。因此，非常快。设 m =<code>binomial_filter</code>[</em><code>MaskHeight</code><em>](#MaskHeight)和 n =[</em><code>MaskWidth</code>*](#MaskWidth).然后，滤波系数$b_ij$由二项式系数$(^l_k)=\frac{l!}{k!({1-k})!}$给出</p>
-<p>如下：</p>
-<p>$b_ij=\frac{1}{2^{n+m-2}}(^{m-1}_i)(^{n-1}_j)$</p>
-<p>在这里，i = 0， …， m-1 和 j = 0， …， n-1。二项式滤波器执行与高斯滤波器大致相同的平滑处理，其$\sigma={\sqrt{n-1}\over{2}}$，其中为简单起见，假定 m = n。具体而言，n和$\sigma$之间的关系是：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">n</th>
-<th style="text-align:center">$\sigma$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">0.7523</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1.0317</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">1.2505</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">1.4365</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1.6010</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">1.7502</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">1.8876</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">2.0157</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">2.1361</td>
-</tr>
-<tr>
-<td style="text-align:center">21</td>
-<td style="text-align:center">2.2501</td>
-</tr>
-<tr>
-<td style="text-align:center">23</td>
-<td style="text-align:center">2.3586</td>
-</tr>
-<tr>
-<td style="text-align:center">25</td>
-<td style="text-align:center">2.4623</td>
-</tr>
-<tr>
-<td style="text-align:center">27</td>
-<td style="text-align:center">2.5618</td>
-</tr>
-<tr>
-<td style="text-align:center">29</td>
-<td style="text-align:center">2.6576</td>
-</tr>
-<tr>
-<td style="text-align:center">31</td>
-<td style="text-align:center">2.7500</td>
-</tr>
-<tr>
-<td style="text-align:center">33</td>
-<td style="text-align:center">2.8395</td>
-</tr>
-<tr>
-<td style="text-align:center">35</td>
-<td style="text-align:center">2.9262</td>
-</tr>
-<tr>
-<td style="text-align:center">37</td>
-<td style="text-align:center">3.0104</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>如果为<a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>，n 和$\sigma$之间的上述关系仍然保持并引用行和列方向中的平滑量。</p>
-<p><code>binomial_filter</code>可以在 OpenCL 设备上为所有受支持的映像类型执行。</p>
-<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>请注意，如果使用具有简化域的图像作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
-<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
-<li>支持开放CL计算设备。</li>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在通道级别自动并行化。</li>
-<li>在域级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>Image</code></strong>（input_object）（(multichannel-)image(-array) object<code>→</code> (byte<em> / uint2</em> / real<em>) **允许用于计算设备</em></p>
-<p>输入图像。</p>
-<p><strong><code>ImageBinomial</code></strong>（output_object）(multichannel-)image(-array) object<code>→</code> (byte / uint2 / real)</p>
-<p>平滑图像。</p>
-<p><strong><code>MaskWidth</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>筛选器宽度。</p>
-<p><strong>默认值：</strong>5</p>
-<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
-<p><strong><code>MaskHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>滤镜高度。</p>
-<p><strong>默认值：</strong>5</p>
-<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>binomial_filter</code>[<code>set_system(&#39;no_object_result&#39;,&lt;Result&gt;)</code>].如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><p>read_image<code>,</code>grab_image</p>
-<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><p>regiongrowing ,threshold,sub_image,dyn_threshold,auto_threshold</p>
-<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><p>gauss_filter,smooth_image,derivate_gauss,isotropic_diffusion</p>
-<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><p>mean_image,anisotropic_diffusion,sigma_image,gen_lowpass</p>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="threshold（算子）"><a href="#threshold（算子）" class="headerlink" title="threshold（算子）"></a>threshold（算子）</h1><p><a href=".\OCR初学习(一">ddd</a>.md)</p>
-<h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>threshold</code>— 使用全局阈值分割图像。</p>
-<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p><strong>threshold</strong>(<em>Image</em> : <em>Region</em> : <em>MinGray</em>, <em>MaxGray</em> : )</p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><code>threshold</code>从输入图像中选择灰度值 g 满足以下条件的像素：</p>
-<p>满足条件的图像的所有点都作为一个区域返回。如果传递了多个灰度值间隔（元组<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>），则为每个间隔返回一个单独的区域。对于矢量场图像，阈值不应用于灰度值，而是应用于矢量的长度。</p>
-<h2 id="注意力"><a href="#注意力" class="headerlink" title="注意力"></a>注意力</h2><p>对于整数类型的输入图像，浮点值<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>被截断。</p>
-<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在内部数据级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>Image</code></strong>（input_object）单通道利马吉（-数组） 对象<code>→</code>（字节 / 方向 / 循环 / 整数1 / 整数2 / uint2 / int4 / int8 / 实数 / vector_field）</p>
-<p>输入图像。</p>
-<p><strong><code>Region</code></strong>（output_object）区域（-数组） 对象<code>→</code></p>
-<p>分段区域。</p>
-<p><strong><code>MinGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
-<p>灰度值的阈值较低。</p>
-<p><strong>默认值：</strong>128.0</p>
-<p><strong>建议值：</strong>0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
-<p><strong><code>MaxGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
-<p>灰度值的上限阈值。</p>
-<p><strong>默认值：</strong>255.0</p>
-<p><strong>建议值：</strong>0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
-<p><strong>限制：</strong><code>MaxGray &gt;= MinGray</code></p>
-<h2 id="示例（软件开发）"><a href="#示例（软件开发）" class="headerlink" title="示例（软件开发）"></a>示例（软件开发）</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;fabrik&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_dir</span><span class="params">(Image,EdgeAmp,EdgeDir,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">threshold</span><span class="params">(EdgeAmp,Seg,<span class="number">50</span>,<span class="number">255</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">skeleton</span><span class="params">(Seg,Rand)</span></span></span><br><span class="line"><span class="function"><span class="title">connection</span><span class="params">(Rand,Lines)</span></span></span><br><span class="line"><span class="function"><span class="title">select_shape</span><span class="params">(Lines,Edges,<span class="string">&#x27;area&#x27;</span>,<span class="string">&#x27;and&#x27;</span>,<span class="number">10</span>,<span class="number">1000000</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h2><p>设 A 为输入区域的面积。则运行时复杂度为 O（A）。</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><code>threshold</code>如果所有参数都正确，则返回 2 （H_MSG_TRUE）。有关输入图像和输出区域的行为可以通过设置标志的值来确定<em>“no_object_result”</em>,<em>“empty_region_result”</em>和<em>“store_empty_region”</em>跟<a href="set_system.html"><code>set_system</code></a>.如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">histo_to_thresh`, , , , , ,`min_max_gray``sobel_amp``binomial_filter``gauss_filter``reduce_domain``fill_interlace</span><br></pre></td></tr></table></figure>
-<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">connection`, , , , , , ,`dilation1``erosion1``opening``closing``rank_region``shape_trans``skeleton</span><br></pre></td></tr></table></figure>
-<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">class_2dim_sup`, , , , , ,`hysteresis_threshold``dyn_threshold``binary_threshold``char_threshold``auto_threshold``dual_threshold</span><br></pre></td></tr></table></figure>
-<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">zero_crossing`, ,`background_seg``regiongrowing</span><br></pre></td></tr></table></figure>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="fill-interlace（算子）"><a href="#fill-interlace（算子）" class="headerlink" title="fill_interlace（算子）"></a>fill_interlace（算子）</h1><h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>fill_interlace</code>— 插值 2 个视频半图像。</p>
-<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p><strong>fill_interlace</strong>(<em>ImageCamera</em> : <em>ImageFilled</em> : <em>Mode</em> : )</p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>算子计算插值的完整图像，或从由两个半图像组成的视频图像中删除奇数/偶数行。如果使用摄像机记录图像，则它由在不同时间记录的两半图像组成，但以数字形式存储在一个图像中。这可能会导致进一步处理中的多个错误。为了减少这些错误，修改了视频图像。每隔一行就会被重新计算或删除。参数<code>fill_interlace</code><a href="#Mode"><em><code>Mode</code></em></a>确定是否必须对偶数（“偶数”、“有效”）或奇数（“奇数”、“rmodd”）行号执行此操作。如果选择“偶数”或“奇数”，则生成的行中的灰度值将分别计算为当前像素上方或下方的直接相邻节点的平均值。如果选择“rmeven”或“rmodd”，则会删除偶数或奇数行数（在这种情况下，生成的图像仅是输入图像的一半）。的值“开关”<a href="#Mode"><em><code>Mode</code></em></a>使奇数线和偶数线被交换。</p>
-<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>请注意，如果使用域缩小的图像（即使用<em><code>reduce_domain</code></em>处理过的图像）作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
-<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在通道级别自动并行化。</li>
-<li>在域级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>ImageCamera</code></strong>（input_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
-<p>灰色图像，由两个半图像组成。</p>
-<p><strong><code>ImageFilled</code></strong>（output_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
-<p>带有插值/删除线的完整图像。</p>
-<p><strong><code>Mode</code></strong>（input_control）字符串<code>→</code> （字符串）</p>
-<p>指示是否应替换/删除偶数行或奇数行。</p>
-<p><strong>默认值：</strong> “奇数”</p>
-<p><strong>值列表：</strong>“偶数”，“奇数”，“精灵”、“rmodd”、“切换”</p>
-<h2 id="示例（软件开发）"><a href="#示例（软件开发）" class="headerlink" title="示例（软件开发）"></a>示例（软件开发）</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;video_image&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">fill_interlace</span><span class="params">(Image,New,<span class="string">&#x27;odd&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_amp</span><span class="params">(New,Sobel,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h2><p>对于每个像素：O（2）。</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>fill_interlace</code><a href="set_system.html"><code>set_system(&#39;no_object_result&#39;,)</code></a>.如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">read_image`,`grab_image</span><br></pre></td></tr></table></figure>
-<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><p>sobel_amp,edges_image,regiongrowing,diff_of_gauss,threshold,dyn_threshold,auto_threshold,mean_image,binomial_filter,gauss_filter,anisotropic_diffusion<code>sigma_image</code>median_image</p>
-<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">median_image`, , ,`binomial_filter``gauss_filter``crop_part</span><br></pre></td></tr></table></figure>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
-]]></content>
+      <categories>
+        <category>C++</category>
+        <category>MFC</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>MFC</tag>
+        <tag>Active X</tag>
+      </tags>
   </entry>
   <entry>
     <title>MarkDown数学公式资料归档</title>
@@ -1847,6 +1431,163 @@ c &amp; c &amp; \cdots &amp; c<br>
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="binomial-filter（操作员）"><a href="#binomial-filter（操作员）" class="headerlink" title="binomial_filter（操作员）"></a>binomial_filter（操作员）</h1><h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>binomial_filter</code>— 使用二项式滤镜平滑图像。</p>
+<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">**binomial_filter**</span>(<span class="strong">*Image*</span> : <span class="strong">*ImageBinomial*</span> : <span class="strong">*MaskWidth*</span>, <span class="strong">*MaskHeight*</span> : )</span><br></pre></td></tr></table></figure>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述: __"></a>描述: <strong><strong>__</strong></strong></h2><p><code>binomial_filter</code>平滑图像<a href="#Image"><em><code>Image</code></em></a>使用掩码大小为<a href="#MaskWidth"><em><code>MaskWidth</code></em></a> <em> [</em><code>MaskHeight</code><em>](#MaskHeight)像素，并返回[</em><code>ImageBinomial</code><em>](#ImageBinomial).二项式滤波器是高斯滤波器的一个非常好的近似值，仅使用整数运算即可非常有效地实现。因此，非常快。设 m =<code>binomial_filter</code>[</em><code>MaskHeight</code><em>](#MaskHeight)和 n =[</em><code>MaskWidth</code>*](#MaskWidth).然后，滤波系数$b_ij$由二项式系数$(^l_k)=\frac{l!}{k!({1-k})!}$给出</p>
+<p>如下：</p>
+<p>$b_ij=\frac{1}{2^{n+m-2}}(^{m-1}_i)(^{n-1}_j)$</p>
+<p>在这里，i = 0， …， m-1 和 j = 0， …， n-1。二项式滤波器执行与高斯滤波器大致相同的平滑处理，其$\sigma={\sqrt{n-1}\over{2}}$，其中为简单起见，假定 m = n。具体而言，n和$\sigma$之间的关系是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center">$\sigma$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0.7523</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1.0317</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1.2505</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1.4365</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1.6010</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">1.7502</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">1.8876</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">2.0157</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">2.1361</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">2.2501</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">2.3586</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">2.4623</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">2.5618</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:center">2.6576</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">2.7500</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">2.8395</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">2.9262</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">3.0104</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如果为<a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>，n 和$\sigma$之间的上述关系仍然保持并引用行和列方向中的平滑量。</p>
+<p><code>binomial_filter</code>可以在 OpenCL 设备上为所有受支持的映像类型执行。</p>
+<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>请注意，如果使用具有简化域的图像作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
+<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
+<li>支持开放CL计算设备。</li>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在通道级别自动并行化。</li>
+<li>在域级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>Image</code></strong>（input_object）（(multichannel-)image(-array) object<code>→</code> (byte<em> / uint2</em> / real<em>) **允许用于计算设备</em></p>
+<p>输入图像。</p>
+<p><strong><code>ImageBinomial</code></strong>（output_object）(multichannel-)image(-array) object<code>→</code> (byte / uint2 / real)</p>
+<p>平滑图像。</p>
+<p><strong><code>MaskWidth</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>筛选器宽度。</p>
+<p><strong>默认值：</strong>5</p>
+<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
+<p><strong><code>MaskHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>滤镜高度。</p>
+<p><strong>默认值：</strong>5</p>
+<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>binomial_filter</code>[<code>set_system(&#39;no_object_result&#39;,&lt;Result&gt;)</code>].如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><p>read_image<code>,</code>grab_image</p>
+<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><p>regiongrowing ,threshold,sub_image,dyn_threshold,auto_threshold</p>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><p>gauss_filter,smooth_image,derivate_gauss,isotropic_diffusion</p>
+<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><p>mean_image,anisotropic_diffusion,sigma_image,gen_lowpass</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="fill-interlace（算子）"><a href="#fill-interlace（算子）" class="headerlink" title="fill_interlace（算子）"></a>fill_interlace（算子）</h1><h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>fill_interlace</code>— 插值 2 个视频半图像。</p>
+<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p><strong>fill_interlace</strong>(<em>ImageCamera</em> : <em>ImageFilled</em> : <em>Mode</em> : )</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>算子计算插值的完整图像，或从由两个半图像组成的视频图像中删除奇数/偶数行。如果使用摄像机记录图像，则它由在不同时间记录的两半图像组成，但以数字形式存储在一个图像中。这可能会导致进一步处理中的多个错误。为了减少这些错误，修改了视频图像。每隔一行就会被重新计算或删除。参数<code>fill_interlace</code><a href="#Mode"><em><code>Mode</code></em></a>确定是否必须对偶数（“偶数”、“有效”）或奇数（“奇数”、“rmodd”）行号执行此操作。如果选择“偶数”或“奇数”，则生成的行中的灰度值将分别计算为当前像素上方或下方的直接相邻节点的平均值。如果选择“rmeven”或“rmodd”，则会删除偶数或奇数行数（在这种情况下，生成的图像仅是输入图像的一半）。的值“开关”<a href="#Mode"><em><code>Mode</code></em></a>使奇数线和偶数线被交换。</p>
+<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>请注意，如果使用域缩小的图像（即使用<em><code>reduce_domain</code></em>处理过的图像）作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
+<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在通道级别自动并行化。</li>
+<li>在域级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>ImageCamera</code></strong>（input_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
+<p>灰色图像，由两个半图像组成。</p>
+<p><strong><code>ImageFilled</code></strong>（output_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
+<p>带有插值/删除线的完整图像。</p>
+<p><strong><code>Mode</code></strong>（input_control）字符串<code>→</code> （字符串）</p>
+<p>指示是否应替换/删除偶数行或奇数行。</p>
+<p><strong>默认值：</strong> “奇数”</p>
+<p><strong>值列表：</strong>“偶数”，“奇数”，“精灵”、“rmodd”、“切换”</p>
+<h2 id="示例（软件开发）"><a href="#示例（软件开发）" class="headerlink" title="示例（软件开发）"></a>示例（软件开发）</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;video_image&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">fill_interlace</span><span class="params">(Image,New,<span class="string">&#x27;odd&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_amp</span><span class="params">(New,Sobel,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h2><p>对于每个像素：O（2）。</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>fill_interlace</code><a href="set_system.html"><code>set_system(&#39;no_object_result&#39;,)</code></a>.如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">read_image`,`grab_image</span><br></pre></td></tr></table></figure>
+<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><p>sobel_amp,edges_image,regiongrowing,diff_of_gauss,threshold,dyn_threshold,auto_threshold,mean_image,binomial_filter,gauss_filter,anisotropic_diffusion<code>sigma_image</code>median_image</p>
+<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">median_image`, , ,`binomial_filter``gauss_filter``crop_part</span><br></pre></td></tr></table></figure>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
+]]></content>
+  </entry>
+  <entry>
     <title>OCR初学习（一）</title>
     <url>/posts/59988675/</url>
     <content><![CDATA[<blockquote>
@@ -1964,28 +1705,285 @@ c &amp; c &amp; \cdots &amp; c<br>
       </tags>
   </entry>
   <entry>
-    <title>如何创建Active X控件及操作流程</title>
-    <url>/posts/cdc7432d/</url>
-    <content><![CDATA[<blockquote>
-<p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>
-问题点：</p>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="threshold（算子）"><a href="#threshold（算子）" class="headerlink" title="threshold（算子）"></a>threshold（算子）</h1><p><a href=".\OCR初学习(一">ddd</a>.md)</p>
+<h2 id="名字"><a href="#名字" class="headerlink" title="名字"></a>名字</h2><p><code>threshold</code>— 使用全局阈值分割图像。</p>
+<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p><strong>threshold</strong>(<em>Image</em> : <em>Region</em> : <em>MinGray</em>, <em>MaxGray</em> : )</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><code>threshold</code>从输入图像中选择灰度值 g 满足以下条件的像素：</p>
+<p>满足条件的图像的所有点都作为一个区域返回。如果传递了多个灰度值间隔（元组<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>），则为每个间隔返回一个单独的区域。对于矢量场图像，阈值不应用于灰度值，而是应用于矢量的长度。</p>
+<h2 id="注意力"><a href="#注意力" class="headerlink" title="注意力"></a>注意力</h2><p>对于整数类型的输入图像，浮点值<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>被截断。</p>
+<h2 id="执行信息"><a href="#执行信息" class="headerlink" title="执行信息"></a>执行信息</h2><ul>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在内部数据级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><strong><code>Image</code></strong>（input_object）单通道利马吉（-数组） 对象<code>→</code>（字节 / 方向 / 循环 / 整数1 / 整数2 / uint2 / int4 / int8 / 实数 / vector_field）</p>
+<p>输入图像。</p>
+<p><strong><code>Region</code></strong>（output_object）区域（-数组） 对象<code>→</code></p>
+<p>分段区域。</p>
+<p><strong><code>MinGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
+<p>灰度值的阈值较低。</p>
+<p><strong>默认值：</strong>128.0</p>
+<p><strong>建议值：</strong>0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
+<p><strong><code>MaxGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
+<p>灰度值的上限阈值。</p>
+<p><strong>默认值：</strong>255.0</p>
+<p><strong>建议值：</strong>0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
+<p><strong>限制：</strong><code>MaxGray &gt;= MinGray</code></p>
+<h2 id="示例（软件开发）"><a href="#示例（软件开发）" class="headerlink" title="示例（软件开发）"></a>示例（软件开发）</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;fabrik&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_dir</span><span class="params">(Image,EdgeAmp,EdgeDir,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">threshold</span><span class="params">(EdgeAmp,Seg,<span class="number">50</span>,<span class="number">255</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">skeleton</span><span class="params">(Seg,Rand)</span></span></span><br><span class="line"><span class="function"><span class="title">connection</span><span class="params">(Rand,Lines)</span></span></span><br><span class="line"><span class="function"><span class="title">select_shape</span><span class="params">(Lines,Edges,<span class="string">&#x27;area&#x27;</span>,<span class="string">&#x27;and&#x27;</span>,<span class="number">10</span>,<span class="number">1000000</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h2><p>设 A 为输入区域的面积。则运行时复杂度为 O（A）。</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><code>threshold</code>如果所有参数都正确，则返回 2 （H_MSG_TRUE）。有关输入图像和输出区域的行为可以通过设置标志的值来确定<em>“no_object_result”</em>,<em>“empty_region_result”</em>和<em>“store_empty_region”</em>跟<a href="set_system.html"><code>set_system</code></a>.如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a href="#可能的前身" class="headerlink" title="可能的前身"></a>可能的前身</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">histo_to_thresh`, , , , , ,`min_max_gray``sobel_amp``binomial_filter``gauss_filter``reduce_domain``fill_interlace</span><br></pre></td></tr></table></figure>
+<h2 id="可能的继任者"><a href="#可能的继任者" class="headerlink" title="可能的继任者"></a>可能的继任者</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">connection`, , , , , , ,`dilation1``erosion1``opening``closing``rank_region``shape_trans``skeleton</span><br></pre></td></tr></table></figure>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">class_2dim_sup`, , , , , ,`hysteresis_threshold``dyn_threshold``binary_threshold``char_threshold``auto_threshold``dual_threshold</span><br></pre></td></tr></table></figure>
+<h2 id="另请参见"><a href="#另请参见" class="headerlink" title="另请参见"></a>另请参见</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">zero_crossing`, ,`background_seg``regiongrowing</span><br></pre></td></tr></table></figure>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>基础</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<ol>
+<li>查看本地git绑定的用户名和邮箱：</li>
+</ol>
+<blockquote>
+<p><code>git config user.name</code></p>
+<p><code>git config user.email</code></p>
+</blockquote>
 <ol>
-<li>什么是Active x控件；</li>
-<li>能用它做哪些事情；</li>
-<li>从此次经历中学到什么；</li>
+<li>①  修改本地git绑定的用户名和邮箱(全局)：</li>
+</ol>
+<blockquote>
+<p><code>git config --global user.name “chustange”</code><br><code>git config --global user.email “chustange@163.com”</code></p>
+</blockquote>
+<p>​            ②  根据不同的项目绑定不同的用户名和邮箱：进入项目根目录(去掉–global即可)：</p>
+<blockquote>
+<p><code>git config  user.name “chustange”</code><br><code>git config  user.email “chustange@163.com”</code></p>
+</blockquote>
+<ol>
+<li>克隆现有的仓库，若没有自定义本地仓库名称，则默认远程仓库名称</li>
+</ol>
+<blockquote>
+<p><code>git clone 远程仓库URL （本地仓库自定义名称）</code></p>
+</blockquote>
+<ol>
+<li>查看仓库所有分支</li>
+</ol>
+<blockquote>
+<p><code>git branch -a</code></p>
+</blockquote>
+<ol>
+<li>新建分支并切换至新分支：</li>
+</ol>
+<blockquote>
+<p><code>git checkout -b 分支名</code></p>
+</blockquote>
+<ol>
+<li>推送本地分支到远程分支(远程分支与本地分支同名)：</li>
+</ol>
+<blockquote>
+<p> <code>git push origin 分支名:分支名</code></p>
+</blockquote>
+<ol>
+<li>让本地分支与远程分支建立关联：</li>
+</ol>
+<blockquote>
+<p> <code>git branch --set-upstream-to=origin/分支名</code></p>
+</blockquote>
+<p>注：如第七步操作未执行，拉取远程代码需执行：<em><code>git pull origin</code></em> 分支名，需标明拉取远程的具体分支名。</p>
+<ol>
+<li>查询所有分支</li>
+</ol>
+<blockquote>
+<p><code>git branch -a</code></p>
+</blockquote>
+<ol>
+<li>切换至其他分支：</li>
+</ol>
+<blockquote>
+<p> <code>git checkout 分支名</code></p>
+</blockquote>
+<ol>
+<li>删除分支：先切换到非删除的分支，同个分支一般先删除远程分支再删除本地分支</li>
+</ol>
+<p>①删除远程分支</p>
+<blockquote>
+<p><code>git push origin --delete 分支名</code></p>
+</blockquote>
+<p>②删除本地分支</p>
+<blockquote>
+<p><code>git branch -d XX ：普通删除分支</code><br><code>git branch -D XX ：强制删除分支</code></p>
+</blockquote>
+<ol>
+<li>查看本地仓库当前代码状态：</li>
+</ol>
+<blockquote>
+<p><code>git status</code></p>
+</blockquote>
+<ol>
+<li>添加要提交的代码文件</li>
+</ol>
+<p>①添加所有文件：</p>
+<blockquote>
+<p><code>git add .</code></p>
+</blockquote>
+<p>②自定义添加多个文件，文件之间用空格隔开：</p>
+<blockquote>
+<p> <code>git add file1 file2 file3</code></p>
+</blockquote>
+<ol>
+<li>提交到本地仓库：</li>
+</ol>
+<blockquote>
+<p> <code>git commit -m “描述语句”</code></p>
+</blockquote>
+<ol>
+<li>执行第13点后，要执行一下 <em><code>git pull</code></em>，合并分支最新代码，查看是否会冲突，若会冲突：</li>
+</ol>
+<p>方法①：点进冲突文件进行修改冲突的代码然后再重新执行第12点；</p>
+<p>方法②：回滚代码：</p>
+<blockquote>
+<ol>
+<li><em><code>git stash</code></em> //这是将本地代码回滚至上一次提交的时候，就是没有自己新改的代码；</li>
+<li><em><code>git pull origin 分支名</code></em>//将远程的代码拉下来,“origin 分支名”一般可以省略；</li>
+<li><em><code>git stash pop</code></em> //将上面git stash回滚的代码释放出来，相当于将自己修改的代码与下拉的代码合并；</li>
+<li>重新从第12点开始执行；</li>
 </ol>
 </blockquote>
-<h4 id="关于Active-x控件"><a class="header-anchor" href="#关于Active-x控件">¶</a>关于Active x控件</h4>
-<p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>
+<p>14、push到远程仓库：</p>
+<blockquote>
+<p><code>git push origin 分支名</code>//将远程的代码上传上去,“origin 分支名”一般可以省略；</p>
+</blockquote>
+<p>15、合并分支代码：如main分支合并至dev分支，则先切换至dev分支：</p>
+<blockquote>
+<p><code>git merge main</code> //表示将main分支合并至dev分支</p>
+</blockquote>
+<p>打开README.md修改冲突内容，然后再提交按第12、13、14、15点：</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>C# EF codefirst 迁移 Migrations问题记录</title>
+    <url>/posts/d75e1abd/</url>
+    <content><![CDATA[<div class="note info">
+            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
+          </div>
+<div class="note info">
+            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
+          </div>
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+<p>Migration的命令如下：</p>
+<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
+<h4 id="1-启动Migrations"><a href="#1-启动Migrations" class="headerlink" title="1 启动Migrations"></a>1 启动Migrations</h4><p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations</code> 进行 启用migration用来初始化数据库；</p>
+<p>​    如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
+<h4 id="2-迁移Migrations"><a href="#2-迁移Migrations" class="headerlink" title="2  迁移Migrations"></a>2  迁移Migrations</h4><p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
+<h4 id="3-更新到数据库"><a href="#3-更新到数据库" class="headerlink" title="3 更新到数据库"></a>3 更新到数据库</h4><p>  使用 <code>Update-Databse</code> 进行数据库更新；</p>
+<p>操作过程中遇到问题：</p>
+<h4 id="SQL-Server问题汇总："><a href="#SQL-Server问题汇总：" class="headerlink" title="SQL Server问题汇总："></a>SQL Server问题汇总：</h4><ol>
+<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1) </li>
+</ol>
+<p>分析原因：    <div class="note danger">
+            <p>Target database is: ‘<code>*****</code>‘ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
+          </div></p>
+<p>经断点调试发现：以下位置代码中的连接字符串</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>与下面的字符串不符</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>改正后，出现以下问题：</p>
+<div class="note danger">
+            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904): </p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
+          </div>
 ]]></content>
       <categories>
-        <category>C++</category>
-        <category>MFC</category>
+        <category>C#</category>
+        <category>Migrations</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>MFC</tag>
-        <tag>Active X</tag>
+        <tag>C#</tag>
+        <tag>migrations</tag>
+        <tag>sql server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>halcon</title>
+    <url>/posts/8239749c/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>halcon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo美化</title>
+    <url>/posts/5966023/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C#</title>
+    <url>/posts/59760/</url>
+    <content><![CDATA[<h1 id="关于C-相关问题的汇总"><a class="header-anchor" href="#关于C-相关问题的汇总">¶</a>关于C#相关问题的汇总</h1>
+<div class="tabs" id="贴吧"><ul class="nav-tabs"><li class="tab active"><a href="#贴吧-1">android开发吧</a></li><li class="tab"><a href="#贴吧-2">java吧</a></li><li class="tab"><a href="#贴吧-3">c++吧</a></li><li class="tab"><a href="#贴吧-4">c语言</a></li><li class="tab"><a href="#贴吧-5">神奇海螺</a></li></ul><div class="tab-content"><div class="tab-pane active" id="贴吧-1"><p>有问题为什么不先问问隔壁Java吧呢？</p></div><div class="tab-pane" id="贴吧-2"><p>有问题为什么不先问问隔壁C++吧呢？</p></div><div class="tab-pane" id="贴吧-3"><p>有问题为什么不先问问隔壁C语言吧呢？</p></div><div class="tab-pane" id="贴吧-4"><p>有问题为什么不先问问神奇海螺吧呢？</p></div><div class="tab-pane" id="贴吧-5"><p>有问必答不知道</p></div></div></div>
+<p>H<sub>2</sub>O  Hot<sup>TM</sup></p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL Server相关问题汇总</title>
+    <url>/posts/453677/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Sql Server</category>
+      </categories>
+      <tags>
+        <tag>Sql sever</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/16107/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
+<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Demo</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
