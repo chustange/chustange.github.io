@@ -6,7 +6,7 @@
   <link href="https://chustange.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://chustange.github.io/project/"/>
-  <updated>2022-11-01T08:55:52.181Z</updated>
+  <updated>2022-11-01T09:36:15.518Z</updated>
   <id>https://chustange.github.io/project/</id>
   
   <author>
@@ -17,15 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://chustange.github.io/project/posts/0/"/>
-    <id>https://chustange.github.io/project/posts/0/</id>
+    <title>如何创建Active X控件及操作流程</title>
+    <link href="https://chustange.github.io/project/posts/cdc7432d/"/>
+    <id>https://chustange.github.io/project/posts/cdc7432d/</id>
     <published>2022-11-01T08:46:26.383Z</published>
-    <updated>2022-11-01T08:55:52.181Z</updated>
+    <updated>2022-11-01T09:36:15.518Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>问题点：</p><ol><li>什么是Active x控件；</li><li>能用它做哪些事情；</li><li>从此次经历中学到什么；</li></ol></blockquote><h4 id="关于Active-x控件"><a class="header-anchor" href="#关于Active-x控件">¶</a>关于Active x控件</h4><p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>]]></content>
+    
+    
+    <summary type="html">以下是在了解创建Active X控件及显示简单图片的相关过程</summary>
     
     
     
+    <category term="C++" scheme="https://chustange.github.io/project/categories/C/"/>
     
+    <category term="MFC" scheme="https://chustange.github.io/project/categories/C/MFC/"/>
+    
+    
+    <category term="C++" scheme="https://chustange.github.io/project/tags/C/"/>
+    
+    <category term="MFC" scheme="https://chustange.github.io/project/tags/MFC/"/>
+    
+    <category term="Active X" scheme="https://chustange.github.io/project/tags/Active-X/"/>
     
   </entry>
   
@@ -97,7 +111,7 @@
     <link href="https://chustange.github.io/project/posts/59988675/"/>
     <id>https://chustange.github.io/project/posts/59988675/</id>
     <published>2022-10-24T08:48:12.668Z</published>
-    <updated>2022-11-01T09:05:49.338Z</updated>
+    <updated>2022-11-01T09:08:26.201Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>segment_characters<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>引用自 HALCON-19.05-Progress/doc/html/reference/operators/segment_characters.html，以下内容为机器翻译，以及个人理解，仅供参考。</p></blockquote><h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2><p><code>segment_characters</code>— 分割图像的给定区域中的字符。</p><h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2><p>**segment_characters ** (<em>Region</em>, <em>Image</em> : <em>ImageForeground</em>, <em>RegionForeground</em> : <em>Method</em>, <em>EliminateLines</em>, <em>DotPrint</em>, <em>StrokeWidth</em>, <em>CharWidth</em>, <em>CharHeight</em>, <em>ThresholdOffset</em>, <em>Contrast</em> : <em>UsedThreshold</em>)</p><h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2><p>此运算符用于对给定字符进行分段*<code>Region</code><em>的</em><code>Image</code><em>.这</em><code>Region</code><em>仅用于减少工作区域。分段的字符返回</em><code>RegionForeground</code>*.</p><p>提供了两种不同的方法来检测字符。所有分割方法都假定文本比背景更暗。如果不是这种情况，请将图像反转为<code>invert_image</code>.</p><p>参数*<code>Method</code>*确定文本分割的算法。可能的值为</p><ul><li><p><strong>‘local_contrast_best’</strong></p><p>此方法提取本地与背景不同的文本。因此，它适用于照明不均匀的图像。文本边框的增强，可以更准确地确定文本的轮廓。如果背景具有高度纹理，则特别有用。参数<a href="#Contrast"><em><code>Contrast</code></em></a>定义最小对比度，即符号和背景之间的最小灰度值差异。</p></li><li><p><strong>‘local_auto_shape’</strong></p><p>最小对比度是自动估计的，从而减少非常小的区域的数量。此方法特别适用于嘈杂的图像。参数*<code>ThresholdOffset</code><em>可用于调整阈值。设 g（x，y） 为输入中位置 （x，y） 处的灰度值</em><code>Image</code>*.阈值条件由以下因素确定：.</p></li></ul><p>选择*<code>EliminateLines</code><em>如果字符的提取受到相对于文本行的水平或垂直行的干扰，并将其值设置为“true”。消除受最大值的影响</em><code>CharWidth</code>*和最大值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.有关详细信息，请参阅这些参数的说明。</p><p><a href="#DotPrint"><em><code>DotPrint</code></em></a>：如果应读取点印，则应设置为“true”，否则应设置为“false”。</p><p><a href="#StrokeWidth"><em><code>StrokeWidth</code></em></a>：指定文本的描边宽度。它用于计算内部使用的掩码大小以确定字符。此掩模大小也受参数的影响<a href="#DotPrint"><em><code>DotPrint</code></em></a>，平均值<a href="#CharWidth"><em><code>CharWidth</code></em></a>和平均值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.</p><p><a href="#CharWidth"><em><code>CharWidth</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均宽度。第二个是字符的最小宽度，第三个是字符的最大宽度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharWidth"><em><code>CharWidth</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p><p>[10]将平均字符宽度设置为10，最小值和最大值由算子计算。</p><p>[10，-1，20] 将平均字符宽度设置为 10，最小值由系统计算，最大值设置为 20。</p><p>[10，5，20] 将平均字符宽度设置为 10，最小值设置为 5，最大值设置为 20。</p><p><a href="#CharHeight"><em><code>CharHeight</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均高度。第二个是字符的最小高度，第三个是字符的最大高度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p><p>[10] 将平均字符高度设置为 10，最小值和最大值由算子计算。</p><p>[10，-1，20] 将平均字符高度设置为 10，最小值由系统计算，最大值设置为 20。</p><p>[10，5，20]这会将平均字符高度设置为 10，最小值设置为 5，最大值设置为 20。</p><p><a href="#ThresholdOffset"><em><code>ThresholdOffset</code></em></a>：此参数可用于调整阈值，该阈值在分割方法时使用*“local_auto_shape”*被选中。</p><p><a href="#Contrast"><em><code>Contrast</code></em></a>：定义文本和背景之间的最小对比度。如果分段方法，则使用此参数*“local_contrast_best”*已选中。</p><p><a href="#UsedThreshold"><em><code>UsedThreshold</code></em></a>：执行后，此参数返回用于对字符进行分段的阈值。</p><p><a href="#ImageForeground"><em><code>ImageForeground</code></em></a>返回内部用于分割的图像。</p><h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2><ul><li>多线程类型：重入（与非独占运算符并行运行）。</li><li>多线程范围：全局（可以从任何线程调用）。</li><li>在元组级别自动并行化。</li></ul><h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2><p><strong><code>Region</code></strong>（input_object） region(-array) <code>→</code> object</p><p>图像中文本行所在的区域。</p><p><strong><code>Image</code></strong>（input_object）singlechannelimage <code>→</code> object (byte / uint2)</p><p>输入图像。</p><p><strong><code>ImageForeground</code></strong>（output_object）image(-array) <code>→</code> object (byte / uint2)</p><p>用于分割的图像。</p><p><strong><code>RegionForeground</code></strong>（output_object）singlechannelregion(-array) <code>→</code> object</p><p>字符的区域。</p><p><strong><code>Method</code></strong>（input_control）string <code>→</code> (string)</p><p>对字符进行分段的方法。</p><p><strong>默认值：</strong> ‘local_auto_shape’</p><p><strong>值列表：</strong>‘local_auto_shape’，‘local_contrast_best’</p><p><strong><code>EliminateLines</code></strong>（input_control）string <code>→</code> (string)</p><p>消除水平和垂直线？</p><p><strong>默认值：</strong> ‘false’</p><p><strong>值列表：</strong>‘false’, ‘true’</p><p><strong><code>DotPrint</code></strong>（input_control）string <code>→</code> (string)</p><p>是否应检测点打印字符？</p><p><strong>默认值：</strong> ‘false’</p><p><strong>值列表：</strong>‘false’, ‘true’</p><p><strong><code>StrokeWidth</code></strong>（input_control）string <code>→</code> (string)</p><p>字符的描边宽度。</p><p><strong>默认值：</strong> ‘medium’</p><p><strong>值列表：</strong> ‘bold’, ‘light’, ‘medium’, ‘ultra_light’</p><p><a href="#CharWidth"><strong><code>CharWidth</code></strong></a>（input_control）integer-array <code>→</code> (integer)</p><p>字符的宽度。</p><p>**默认值：**25</p><p><strong>典型值范围：</strong><code>1 ≤ CharWidth</code></p><p><strong>限制：</strong><code>CharWidth &gt;= 1</code></p><p><strong><code>CharHeight</code></strong>（input_control）integer <code>→</code> (integer)</p><p>字符的高度。</p><p>**默认值：**25</p><p><strong>典型值范围：</strong><code>1 ≤ CharHeight</code></p><p><strong>限制：</strong><code>CharHeight &gt;= 1</code></p><p><strong><code>ThresholdOffset</code></strong>（input_control）integer <code>→</code> (integer)</p><p>用于调整分段的值。</p><p>**默认值：**0</p><p><strong><code>Contrast</code></strong>（input_control）integer <code>→</code> (integer)</p><p>文本和背景之间的最小灰度值差异。</p><p>**默认值：**10</p><p><strong>典型值范围：</strong><code>1 ≤ Contrast</code></p><p><strong>限制：</strong><code>Contrast &gt;= 1</code></p><p><strong><code>UsedThreshold</code></strong>（output_control）integer(-array) <code>→</code> (integer)</p><p>用于对字符进行分段的阈值。</p><h2 id="示例（HDevelop）"><a class="header-anchor" href="#示例（HDevelop）">¶</a>示例（HDevelop）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for Index := 1 to 5 by 1</span><br><span class="line">  read_image (Image, &#x27;dot_print_rotated/dot_print_rotated_&#x27;+Index$&#x27;02d&#x27;)</span><br><span class="line">  text_line_orientation (Image, Image, 50, rad(-30), rad(30), OrientationAngle)</span><br><span class="line">  rotate_image (Image, ImageRotate, deg(-OrientationAngle), &#x27;constant&#x27;)</span><br><span class="line">  segment_characters (ImageRotate, ImageRotate, ImageForeground, \</span><br><span class="line">                      RegionForeground, &#x27;local_auto_shape&#x27;, &#x27;false&#x27;, &#x27;false&#x27;, &#x27;medium&#x27;, \</span><br><span class="line">                      25, 25, 0, 10, UsedThreshold)</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure><h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2><p>如果输入参数设置正确，则运算符返回值 2（H_MSG_TRUE）。否则将引发异常。<code>segment_characters</code></p><h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2><p><code>text_line_orientation</code></p><h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2><p><code>select_characters</code>,<code>connection</code></p><h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2><p><code>threshold</code></p><h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2><p><code>Foundation</code></p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>segment_characters（算子） <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
     
