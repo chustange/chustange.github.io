@@ -11,10 +11,10 @@
 <p>下载地址:<br>
 <a href="http://www.mitsubishielectric.co.jp/fa/download/software/detailsearch.do?mode=software&amp;kisyu=/plcq&amp;shiryoid=0000000165&amp;kisyuid=0&amp;lang=0&amp;select=0&amp;softid=0&amp;infostatus=0_0_0&amp;viewradio=0&amp;viewstatus=0&amp;viewpos=0">三菱MXComponent Version4</a></p>
 <p><a href="https://www.mitsubishielectric-fa.cn/site/file-software-detail?id=27">三菱MXComponent Version5</a><br>
-<img src="https://img-blog.csdnimg.cn/0f46095490c642838fd5cabb3f490d87.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136654.png" alt="在这里插入图片描述"><br>
 可供下载的是:MX组件版本4/5(中文版)<br>
 手册位置：<br>
-<img src="https://img-blog.csdnimg.cn/20210319142329206.png" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136670.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注3:本说明主要使用的是MX组件版本4编程手册(英文版),通信要用到的参数请在此手册中去查询.该手册支持FX5U相关参数,如有需要<a href="https://www.mitsubishielectric-fa.cn/site/file-manual?catalog=261&amp;explicitId=1053">中文版本</a>,可在三菱中文官网上自行下载.</p>
 </blockquote>
@@ -26,10 +26,10 @@
 <h2 id="2-1-PLC以太网地址设置："><a class="header-anchor" href="#2-1-PLC以太网地址设置：">¶</a>2.1 PLC以太网地址设置：</h2>
 <h3 id="2-11-查询电脑的IP地址："><a class="header-anchor" href="#2-11-查询电脑的IP地址：">¶</a>2.11 查询电脑的IP地址：</h3>
 <p>在win7 系统左下方，点击开始按钮，然后在搜索程序和文件选框中输入CMD,打开命令提示符窗口;<br>
-<img src="https://img-blog.csdnimg.cn/20210319142635790.png" alt="图2.11-1 打开命令提示符窗口"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136281.png" alt="图2.11-1 打开命令提示符窗口"><br>
 在命令提示符中输入 ipconfig,然后按回车键：<br>
 显示当前电脑的IP地址：<br>
-<img src="https://img-blog.csdnimg.cn/2021031914271116.png" alt="图2.11-2 在命令提示符窗口查询IP地址"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137585.png" alt="图2.11-2 在命令提示符窗口查询IP地址"><br>
 因为当前样例的电脑IP为192.168.1.171;那么设置PLC的IP段则在192.168.1.0~192.168.1.255这个范围里。</p>
 <blockquote>
 <p>注4：必须与电脑IP区别开来，不能写成一样的</p>
@@ -39,52 +39,52 @@
 <p>注5：使用USB或串口（不能用网线）与电脑直连进行PLC的IP设置</p>
 </blockquote>
 <p>打开GX Works2软件，然后点击新建（Ctrl+N）：<br>
-<img src="https://img-blog.csdnimg.cn/20210319142841196.png" alt="图2.12-1 打开GX Works2软件"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137751.png" alt="图2.12-1 打开GX Works2软件"><br>
 选择与目标PLC相同的型号，然后点击确定：<br>
-<img src="https://img-blog.csdnimg.cn/20210319143902380.png" alt="图2.12-2 选择系列与机型"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137472.png" alt="图2.12-2 选择系列与机型"></p>
 <blockquote>
 <p>注6：本样例是以Q26UDV为例来测试.</p>
 </blockquote>
 <p>然后在导航栏选定连接目标，然后双击Connection1:<br>
-<img src="https://img-blog.csdnimg.cn/20210319144005407.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137324.png" alt="在这里插入图片描述"><br>
 打开连接目标设置Connection1窗口进行设置：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144030577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137096.png" alt="在这里插入图片描述"><br>
 双击计算机侧I/F的 Serial USB 图标：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144045593.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137205.png" alt="在这里插入图片描述"><br>
 选择USB连接选项，然后点击确定。<br>
 双击可编程控制器侧I/F栏 PLC Module图标：</p>
-<p><img src="https://img-blog.csdnimg.cn/20210319144056704.png" alt="在这里插入图片描述"><br>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137031.png" alt="在这里插入图片描述"><br>
 在CPU模式的下拉选框里，选择QCPU（Q模式），然后点击确定。<br>
-双击其他站指定栏 No Specification 图标：<img src="https://img-blog.csdnimg.cn/20210319144112836.png" alt="在这里插入图片描述"><br>
+双击其他站指定栏 No Specification 图标：<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137412.png" alt="在这里插入图片描述"><br>
 根据需要来设定，然后点击确定。</p>
 <blockquote>
 <p>注7：无特殊要求的话，选择默认即可</p>
 </blockquote>
 <p>以上的设置完成后，然后单击通信测试（T）按钮，如果弹出以下的提示，则说明USB连接成功：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144153942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137760.png" alt="在这里插入图片描述"><br>
 点击确定后，退出该设置界面。<br>
 然后在导航栏选定工程，然后双击PLC参数:<br>
-<img src="https://img-blog.csdnimg.cn/20210319144211514.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137809.png" alt="在这里插入图片描述"><br>
 打开PLC参数设置界面，选择内置以太网端口设置，如下图所示：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144222621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137012.png" alt="在这里插入图片描述"><br>
 当前样例的IP地址设置为192.168.1.39，其它的选择默认。</p>
 <blockquote>
 <p>注8：保证IP地址的范围在【192.168.1.0~192.168.1.255】之间，且不与电脑IP相同即可</p>
 </blockquote>
 <p>如果不确定你的输入是否与其它PLC地址有冲突，可点击检查进行确认。<br>
 如果输入无冲突将会有如下提示：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144301777.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137786.png" alt="在这里插入图片描述"><br>
 确认无误后，点击设置结束按钮退出PLC参数设置界面。</p>
 <p>点击转换/编译（C）,选择转换+编译（C）或者按F4快捷键进行编译转换。<br>
-<img src="https://img-blog.csdnimg.cn/20210319144312969.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138396.png" alt="在这里插入图片描述"><br>
 然后点击PLC写入（W）按钮进行地址写入：<br>
-<img src="https://img-blog.csdnimg.cn/2021031914432973.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138113.png" alt="在这里插入图片描述"><br>
 然后选择参数+程序选项，点击执行进行写入操作：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144342344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138169.png" alt="在这里插入图片描述"><br>
 操作完成后，关闭GX Works2软件。拔掉USB线，换上网线，然后进行下一步操作。</p>
 <h3 id="2-13-测试PLC-IP地址："><a class="header-anchor" href="#2-13-测试PLC-IP地址：">¶</a>2.13 测试PLC IP地址：</h3>
 <p>在命令提示符中输入 ping 192.168.1.39 测试连接状态：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144412449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138752.png" alt="在这里插入图片描述"><br>
 出现以上的信息，则说是电脑与PLC连接成功。</p>
 <h2 id="2-2-打开MX-Version4-软件进行组件与PLC间通信测试"><a class="header-anchor" href="#2-2-打开MX-Version4-软件进行组件与PLC间通信测试">¶</a>2.2 打开MX Version4 软件进行组件与PLC间通信测试</h2>
 <h3 id="2-21-MX-Version4软件"><a class="header-anchor" href="#2-21-MX-Version4软件">¶</a>2.21 MX Version4软件</h3>
@@ -92,39 +92,39 @@
 <blockquote>
 <p>注：以下软件测试步骤Mx Component Version4与Mx Component Version5 没有多大区别。</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/2021031914445768.png" alt="在这里插入图片描述"></p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139323.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注9：为防止出现不必要的权限问题，请右键以管理员权限运行</p>
 </blockquote>
 <p>打开如下图所示：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144607596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139036.png" alt="在这里插入图片描述"><br>
 点击Wizard按钮，将出现以下界面：<br>
-<img src="https://img-blog.csdnimg.cn/20210319144623439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139499.png" alt="在这里插入图片描述"><br>
 Logical station number输入数字1即可,然后点击Next。<br>
-<img src="https://img-blog.csdnimg.cn/20210319144634961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139689.png" alt="在这里插入图片描述"><br>
 在PC side I/F 选择Ethernet board,如上图所示:<br>
-<img src="https://img-blog.csdnimg.cn/20210319152826460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139530.png" alt="在这里插入图片描述"><br>
 在Connect module 下拉选框中选择 CPU module,如上图所示，<br>
-<img src="https://img-blog.csdnimg.cn/20210319152848645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139912.png" alt="在这里插入图片描述"><br>
 在 Protocol 下拉选框中选择TCP。<br>
 下面的Time Out的值 默认值就可以了，也可以选填为10000ms<br>
 然后点击NEXT按钮，弹出如下图所示：<br>
-<img src="https://img-blog.csdnimg.cn/20210319152917556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139271.png" alt="在这里插入图片描述"><br>
 可以在Host(IP Address)一栏中输入192.168.1.39，或者点击Find CPU(Built-in Ethernet port) on network 按钮进行自动查找。出现如下图所示：<br>
-<img src="https://img-blog.csdnimg.cn/20210319152932106.png?x-ossprocess=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="图2.21-8 Find CPU(Built-in Ethernet port"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139776.png" alt="图2.21-8 Find CPU(Built-in Ethernet port"><br>
 选中目标PLC的型号，然后点击OK.</p>
 <blockquote>
 <p>注10：如有多个同时连接的话，请注意所选目标PLC是否匹配</p>
 </blockquote>
 <p>如进行Find CPU(Built-in Ethernet port)这个动作的话，下图所示的界面的相关参数会自动填写，如没有，则需要手动进行选择。<br>
-<img src="https://img-blog.csdnimg.cn/20210319153035107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139594.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注11：如有多个CPU同时组合的话，请确定当前目标放在几号位置，如只有单个的话，默认为None.</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20210319153057829.png" alt="在这里插入图片描述"><br>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139074.png" alt="在这里插入图片描述"><br>
 与之前的的Logical station number 保持一致。点击Finish按钮，返回。</p>
 <p>在connetion test 界面，点击Test按钮 进行测试，如出现以下信息，则说明通信连接成功。</p>
-<p><img src="https://img-blog.csdnimg.cn/20210319153109991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139682.png" alt="在这里插入图片描述"><br>
 完成上面所示操作，如果流程没有出错，且出现上图所示信息，说明MX Component Version4/5的组件完全可用于上位机上。</p>
 <h1 id="第三节：C-与PLC通信测试"><a class="header-anchor" href="#第三节：C-与PLC通信测试">¶</a>第三节：C# 与PLC通信测试</h1>
 <h2 id="3-1-以太网连接用到的参数列表"><a class="header-anchor" href="#3-1-以太网连接用到的参数列表">¶</a>3.1 以太网连接用到的参数列表:</h2>
@@ -138,25 +138,25 @@ ActDestinationPortNumber 端口号 int类型<br>
 <h4 id="1-ActCpuType："><a class="header-anchor" href="#1-ActCpuType：">¶</a>1.ActCpuType：</h4>
 <p>查手册可得：<br>
 ActCpuType=0xD5; 转换成十进制 ActCpuType=213<br>
-<img src="https://img-blog.csdnimg.cn/20210319153156541.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139405.png" alt="在这里插入图片描述"></p>
 <h4 id="2-ActUnitType："><a class="header-anchor" href="#2-ActUnitType：">¶</a>2.ActUnitType：</h4>
 <p>查手册可得：<br>
 ActCpuType=0x2c; 转换成十进制 ActCpuType=44</p>
-<p><img src="https://img-blog.csdnimg.cn/20210319153239476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139376.png" alt="在这里插入图片描述"></p>
 <h4 id="3-ActProtocolType"><a class="header-anchor" href="#3-ActProtocolType">¶</a>3.ActProtocolType</h4>
 <p>查手册可得：<br>
 ActProtocolType=0x05; 转换成十进制 ActProtocolType =5</p>
-<p><img src="https://img-blog.csdnimg.cn/20210319153258711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139060.png" alt="在这里插入图片描述"></p>
 <h4 id="4-ActTimeOut"><a class="header-anchor" href="#4-ActTimeOut">¶</a>4.ActTimeOut</h4>
 <p>查手册可得：<br>
 ActTimeOut=10000 ms;<br>
-<img src="https://img-blog.csdnimg.cn/20210319153313777.png" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139020.png" alt="在这里插入图片描述"></p>
 <h4 id="5-ActHostAddress"><a class="header-anchor" href="#5-ActHostAddress">¶</a>5.ActHostAddress</h4>
 <p>之前设置的PLC的IP地址为：192.168.1.39;</p>
 <h4 id="6-ActDestinationPortNumber"><a class="header-anchor" href="#6-ActDestinationPortNumber">¶</a>6.ActDestinationPortNumber</h4>
 <p>查手册可得：<br>
 ActDestinationPortNumber=5562;默认值为0;可以自己设定,但是对数据进行读写操作时,端口号要保持一致.<br>
-<img src="https://img-blog.csdnimg.cn/2021031915340140.png" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140978.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注：以上参数可通用，Mx Component Version4与Mx Component Version5 不同在于dll的引用方法不一样，具体方法可借鉴官方样例文档。<br>
 注：官方样例路径在 C:\MELSEC\Act\Samples\<a href="http://Vcs.NET">Vcs.NET</a>\Act_2019文件夹下</p>
@@ -166,34 +166,34 @@ ActDestinationPortNumber=5562;默认值为0;可以自己设定,但是对数据�
 <p>32位引用方法：<br>
 <img src="https://img-blog.csdnimg.cn/20210319153430645.png" alt="在这里插入图片描述"><br>
 与PLC通信相关的组件具体两个文件在文件夹中体现的是:<br>
-<img src="https://img-blog.csdnimg.cn/20210319153451354.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140433.png" alt="在这里插入图片描述"><br>
 工具箱中添加选项卡:</p>
-<p><img src="https://img-blog.csdnimg.cn/20210319153511898.png" alt="在这里插入图片描述"><br>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140712.png" alt="在这里插入图片描述"><br>
 选择ActProgType Control v1.0 组件<br>
-<img src="https://img-blog.csdnimg.cn/20210319153538251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140385.png" alt="在这里插入图片描述"><br>
 点击确定后，在工具箱中会多出如下图所示的控件：<br>
-<img src="https://img-blog.csdnimg.cn/20210319153554154.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140960.png" alt="在这里插入图片描述"><br>
 将如上图所示的控件用鼠标拖到窗体中,系统将自动引用如下图所示的两个组件:<br>
-<img src="https://img-blog.csdnimg.cn/20210319153717915.png" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140352.png" alt="在这里插入图片描述"><br>
 其他的具体参考样例原代码</p>
 <p>64位引用：<br>
-<img src="https://img-blog.csdnimg.cn/2aaa287749814c7388da750336b2c446.png" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140172.png" alt="在这里插入图片描述"></p>
 <p>右键点击引用，选择浏览，找到上面的ActProgType64.exe文件，点击确定，将出现以下组件：<br>
-<img src="https://img-blog.csdnimg.cn/540bdcf156cf4823bf539bd2d0948e29.png" alt="在这里插入图片描述"></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140358.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注I：如以上操作在文件执行时出现异常，强烈建议关闭杀毒软件；<br>
 注II：如在类库中引用此ActProgType64.exe文件,生成可引用的dll时，请将目标平台设成Any CPU，不要设置成X64（如果您现在使用的是最新的VS2022,请无视此注）;</p>
 </blockquote>
 <h3 id="3-22-C-Demo样例窗体"><a class="header-anchor" href="#3-22-C-Demo样例窗体">¶</a>3.22 C# Demo样例窗体:</h3>
-<p><img src="https://img-blog.csdnimg.cn/20210319153841889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140583.png" alt="在这里插入图片描述"><br>
 样例程序代码如下：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">Demo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">Form1</span> : <span class="title">Form</span></span><br><span class="line">    &#123;</span><br><span class="line">        ActProg actprog = <span class="keyword">new</span> ActProg();</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Form1</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_CpuType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            actprog.CpuType = Convert.ToInt32(TB_CpuType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_UnitType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.UnitType = Convert.ToInt32(TB_UnitType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_HostAddress_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.HostAddress = TB_HostAddress.Text.Trim();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_ProtocolType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.ProtocolType = Convert.ToInt32(TB_ProtocolType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_TimeOut_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.TimeOut = Convert.ToInt32(TB_TimeOut.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (actprog.Open()==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接失败&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">            textBox1.Text= actprog.Read(<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button3_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">           <span class="built_in">string</span> send= actprog.Write(textBox2.Text.Trim(),<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">           MessageBox.Show(send);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_DestinationPortNumber_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.DestinationPortNumber = Convert.ToInt32(TB_DestinationPortNumber.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>测试连接结果如下：<br>
-<img src="https://img-blog.csdnimg.cn/20210319154142891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140847.png" alt="在这里插入图片描述"><br>
 写发送：<br>
-<img src="https://img-blog.csdnimg.cn/20210319154247470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140538.png" alt="在这里插入图片描述"><br>
 读接收：<br>
-<img src="https://img-blog.csdnimg.cn/20210319154300975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R4YjEzMTQ1ODI2MTA2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140280.png" alt="在这里插入图片描述"><br>
 ActProgTypeLib类使用代码如下：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">CL_Enet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ActProg</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> ActProgTypeClass Aptc= <span class="keyword">new</span> ActProgTypeClass();      </span><br><span class="line">        <span class="meta">#<span class="keyword">region</span> //定义参数</span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _cpuType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;CPU型号&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> CpuType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _cpuType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _cpuType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _unitType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;设备连接方式&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> UnitType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _unitType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _unitType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _protocolType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;TCP/UDP&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> ProtocolType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _protocolType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _protocolType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _timeOut;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;连接超时时间&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> TimeOut</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _timeOut; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _timeOut = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> _hostAddress;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;设备IP地址&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> HostAddress</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _hostAddress; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _hostAddress = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="keyword">endregion</span></span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _destinationPortNumber;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> DestinationPortNumber</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _destinationPortNumber; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _destinationPortNumber = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="keyword">region</span> //定义连接状态</span></span><br><span class="line">        <span class="comment">//int CpuType, int UnitType, int ProtocolType,int TimeOut,string HostAddress</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Open</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                Aptc.ActCpuType = _cpuType;</span><br><span class="line">                Aptc.ActUnitType = _unitType;</span><br><span class="line">                Aptc.ActProtocolType = _protocolType;</span><br><span class="line">                Aptc.ActTimeOut = _timeOut;</span><br><span class="line">                Aptc.ActHostAddress = _hostAddress;</span><br><span class="line">                Aptc.ActDestinationPortNumber = _destinationPortNumber;</span><br><span class="line">                <span class="keyword">return</span> Aptc.Open();</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (System.Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Close</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Aptc.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Read</span>(<span class="params"><span class="built_in">string</span> RegiseterName</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> iReturnCode = <span class="number">-1</span>;<span class="comment">//返回值=0表示读取成功</span></span><br><span class="line">            <span class="built_in">int</span> length = System.Text.RegularExpressions.Regex.Split(RegiseterName, <span class="string">&quot;\n&quot;</span>).Length;</span><br><span class="line">            <span class="built_in">int</span> iNumberOfData = length;</span><br><span class="line">            <span class="built_in">int</span>[] iData = <span class="keyword">new</span> <span class="built_in">int</span>[length];<span class="comment">//读取软元件值</span></span><br><span class="line">            iReturnCode = Aptc.ReadDeviceRandom(RegiseterName, iNumberOfData, <span class="keyword">out</span> iData[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">if</span> (iReturnCode == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> iData[<span class="number">0</span>].ToString();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Write</span>(<span class="params"><span class="built_in">string</span> <span class="keyword">value</span>,<span class="built_in">string</span> RegiseterName</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">                <span class="built_in">int</span> iReturnCode = <span class="number">-1</span>;<span class="comment">//返回值=0表示写入成功</span></span><br><span class="line">                <span class="built_in">string</span>[] strArray = System.Text.RegularExpressions.Regex.Split(<span class="keyword">value</span>, <span class="string">&quot;\n&quot;</span>);<span class="comment">//拆分写入寄存器列表</span></span><br><span class="line">                <span class="built_in">int</span> iNumberOfData = strArray.Length;<span class="comment">//szLabel.IndexOf(&quot;\n&quot;, 0) + 1;//写入点数</span></span><br><span class="line">                <span class="built_in">int</span>[] iData = <span class="keyword">new</span> <span class="built_in">int</span>[strArray.Length];<span class="comment">//写入软元件值</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; strArray.Length; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    iData[i] = Int32.Parse(strArray[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                iReturnCode = Aptc.WriteDeviceRandom(RegiseterName, iNumberOfData, <span class="keyword">ref</span> iData[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">if</span> (iReturnCode == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">value</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="结束语"><a class="header-anchor" href="#结束语">¶</a>结束语</h3>
@@ -585,12 +585,12 @@ ActProgTypeLib类使用代码如下：</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\sum_1^n$</td>
+<td style="text-align:center"><code>$\sum_1^n$</code></td>
 <td style="text-align:center">$\sum_1^n$</td>
 <td style="text-align:center">累加</td>
 </tr>
 <tr>
-<td style="text-align:center">$\prod_{i=0}^n$</td>
+<td style="text-align:center"><code>$\prod_&#123;i=0&#125;^n$</code></td>
 <td style="text-align:center">$\prod_{i=0}^n$</td>
 <td style="text-align:center">累乘</td>
 </tr>
@@ -1990,21 +1990,21 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
+    <title>欢迎使用Hexo</title>
     <url>/posts/16107/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
-<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
+<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
+<h3 id="创建一个新帖子"><a class="header-anchor" href="#创建一个新帖子">¶</a>创建一个新帖子</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="运行服务器"><a class="header-anchor" href="#运行服务器">¶</a>运行服务器</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server    or      $ hexo  s</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="生成静态文件"><a class="header-anchor" href="#生成静态文件">¶</a>生成静态文件</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate  or      $ hexo g</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="部署到远程站点"><a class="header-anchor" href="#部署到远程站点">¶</a>部署到远程站点</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    or     $ hexo d</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
