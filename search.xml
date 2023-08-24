@@ -218,6 +218,68 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h2 id="关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法"><a class="header-anchor" href="#关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法">¶</a>关于三菱RJ71EIP91 FB模块从Class1升级到Class3的办法</h2>
+<blockquote>
+<p>近期有客户咨询相关FB模块如何升级的问题，已经解决了相关问题，在此做个记录</p>
+</blockquote>
+<h4 id="准备工作"><a class="header-anchor" href="#准备工作">¶</a>准备工作</h4>
+<h5 id="1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用"><a class="header-anchor" href="#1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用">¶</a>1、此次 RJEIP91 FB模块是基于GX Works3软件上面使用</h5>
+<blockquote>
+<p>GX Works3 的版本建议使用最新版</p>
+</blockquote>
+<h5 id="2、由三菱提供的最新的RJ71EIP91-Class3对应文件"><a class="header-anchor" href="#2、由三菱提供的最新的RJ71EIP91-Class3对应文件">¶</a>2、由三菱提供的最新的<code>RJ71EIP91_Class3对应</code>文件</h5>
+<blockquote>
+<p>如有需要的客户，请致电联系深圳市海蓝智能科技有限公司索取</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191407450.png" alt="image-20230519140735200" style="zoom:50%;" />
+以上`Manual`文件夹中包含 `RJ71EIP91_Class3TAG_手册` 以及`UnitLabelFB`文件夹中包含的此次所需的FB模块文件 `RJ71EIP91.mslu`
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191411780.png" alt="image-20230519141107822" style="zoom:50%;" />
+<p>上述文件中，在<code>UnitLabelFB</code>文件夹中包含了批处理文件，由于GX Works3安装的位置不同，会导致批处理无法生效；将上述文件提供给客户，可能会因为权限或者安装路径等问题不能成功安装；</p>
+<p>在此提供一个简单有效的方法，就是把上面的FB模块文件 <code>RJ71EIP91.mslu</code>直接复制到相应的位置，这也是上面bat批处理文件中所做的事情；</p>
+<h4 id="软件流程操作"><a class="header-anchor" href="#软件流程操作">¶</a>软件流程操作</h4>
+<blockquote>
+<p>如果对GX Works3软件的操作非常熟悉请直接跳过此过程；</p>
+</blockquote>
+<h5 id="1、检查当前的RJ71EIP91模块流程"><a class="header-anchor" href="#1、检查当前的RJ71EIP91模块流程">¶</a>1、检查当前的RJ71EIP91模块流程</h5>
+<h6 id="1、新建空白工程，如下图所示："><a class="header-anchor" href="#1、新建空白工程，如下图所示：">¶</a>1、新建空白工程，如下图所示：</h6>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338804.png" alt="image-20230519112104785" style="zoom:50%;" />
+###### 2、在左侧导航栏中找到模块信息栏，如下图所示
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338118.png" alt="image-20230519112459323" style="zoom:50%;" />
+###### 3、右键鼠标`添加新模块（U）`，如下图所示
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340371.png" alt="image-20230519112306240" style="zoom:50%;" />
+###### 4、直接搜索`RJ71EIP91`,或者选择模块的类型为`网络模块`,然后在模块型号的下拉列表中选择`RJ71EIP91`点击确定,如下图所示；
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340006.png" alt="image-20230519112345942" style="zoom:50%;" />
+###### 5、在`部件选择`栏的`模块`栏中可以看到`模块FB`中的`RJ71EIP91`内容，如下图所示：
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340715.png" alt="image-20230519112017606" style="zoom:50%;" />
+<h4 id="替换操作"><a class="header-anchor" href="#替换操作">¶</a>替换操作</h4>
+<blockquote>
+<p>如果电脑中安装了<code>Listary</code> 或者 <code>Everything</code>软件的话，直接打开软件搜索 <code>RJ71EIP91.mslu</code>或者<code>.mslu</code>直接定位到对应的目录,相对路径是<code>\MSF\Common\Library\UNITFB\</code></p>
+</blockquote>
+<p>根据安装路径去到相应位置查找，三菱软件的安装目录默认一般在<code>C:\Program Files (x86)\MELSOFT</code><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191436511.png" alt="image-20230519143649100" style="zoom:50%;" /></p>
+<p>也有可能在<code>C:\MELSEC</code>,如下图所示</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191439293.png" alt="image-20230519143945701" style="zoom:50%;" />
+<p>查询到的内容如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340760.png" alt="image-20230519113846229" style="zoom: 50%;" />
+<p>然后将上述的RJ71EIP91.mslu文件进行覆盖替换</p>
+<blockquote>
+<p>替换前，请将之前的RJ71EIP91.mslu做好备份，如不需要，再替换回去即可</p>
+</blockquote>
+<blockquote>
+<p>如果上述路径都不存在，也没有安装<code>Listary</code> 或者 <code>Everything</code>软件请在电脑中全局搜索<code>RJ71EIP91.mslu</code>或者<code>.mslu</code>，此过程比较慢，请耐心等待</p>
+</blockquote>
+<p>替换完成后，请跳转到 <code>C:\Program Files (x86)\MELSOFT\GPPW3</code>,如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191526943.png" alt="image-20230519152609919" style="zoom:50%;" />
+<p>请执行一次<code>GXW3PluginPreloader.exe</code>将此插件进行预加载，然后打开GX Works3软件添加此模块，然后在<code>部件选择</code>栏的<code>模块</code>栏中可以看到<code>模块FB</code>中的<code>RJ71EIP91</code>更新后的内容，如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191341959.png" alt="image-20230519114301121" style="zoom:50%;" />
+<blockquote>
+<p>执行完成后，如果还没有更新出以上的内容，请记得关机重启再试一次</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>存储区更新、插入或删除语句影响到了意外的行数(0)。实体在加载后可能被修改或删除</title>
     <url>/posts/453677/</url>
     <content><![CDATA[<p>1、在进行数据库表更新时出现以下错误提示</p>
@@ -257,30 +319,29 @@
     <content><![CDATA[<blockquote>
 <p>在执行备份数据库是看不到Backup文件下的备份文件</p>
 </blockquote>
-<p>1、右键当前数据库，然后点击 <code>任务(T)</code> ,在扩展候选中选择<code>备份(B)</code>:<br>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201057871.png"   style="zoom:75%;" /></p>
+<p>1、右键当前数据库，然后点击 <code>任务(T)</code> ,在扩展候选中选择<code>备份(B)</code>:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201057871.png"   style="zoom:75%;" /></p>
 <p>2、在备份数据库页面，选择<code>添加(D)...</code>按钮：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201100772.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201100772.png"   style="zoom:75%;" /></p>
 <p>3、在选择备份目标页面，选择<code>...</code>按钮，打开选择目标路径：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201103917.png"   style="zoom:80%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201103917.png"   style="zoom:80%;" /></p>
 <p>4、 选择<code>MSSQL16.MSSQLSERVER</code> 下面的<code>MSSQL</code> 的<code>Backup</code>文件夹下:输入所需要的备份名称</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201105606.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201105606.png"   style="zoom:75%;" /></p>
 <p>正常情况下应该是这样的：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201108623.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201108623.png"   style="zoom:75%;" /></p>
 <p>原因分析：由于MSSQLSERVER没有相应的权限，导致不能正常显示</p>
 <p>打开目录所在位置<code>C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL</code></p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201116435.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201116435.png"   style="zoom:75%;" /></p>
 <p>右键选择<code>属性</code>：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201117971.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201117971.png"   style="zoom:75%;" /></p>
 <p>在Backup属性页面中选择<code>编辑(E)...</code>,然后点击<code>添加(D)...</code>:</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201124755.png"   style="zoom:75%;" />
-<p>在选择用户或组页面中<code>输入对象名称来选择(示例)(E)</code>中输入  <code> NT SERVICE\MSSQLSERVER</code> 后点击 <code>确定</code>：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201133079.png"   style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201124755.png"   style="zoom:75%;" /></p>
+<p>在选择用户或组页面中<code>输入对象名称来选择(示例)(E)</code>中输入  <code>NT SERVICE\MSSQLSERVER</code> 后点击 <code>确定</code>：</p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201133079.png"   style="zoom:75%;" /></p>
 <p>选择 <code>MSSQLSERVER</code>然后点击 <code>确定</code>，然后附加权限，点击<code>应用(A)</code>：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201135886.png" style="zoom:75%;" />
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201135886.png" style="zoom:75%;" /></p>
 <p>再次打开，就可以正常显示Buckup里面的内容</p>
 <blockquote>
-<p>注：如果当前用户下无法打开文件夹，请按照以上的操作来添加相应的用户和组，比如我的用户名为<code>汤雄后(chustange@outlook.com)</code>，添加后就可以打开了</p>
+<p>注：如果当前用户下无法打开文件夹，请按照以上的操作来添加相应的用户和组，比如我的用户名为<code>汤雄兵(chustange@outlook.com)</code>，添加后就可以打开了</p>
 </blockquote>
 ]]></content>
       <categories>
