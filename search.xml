@@ -97,17 +97,30 @@
 <p><code>git config user.name</code></p>
 <p><code>git config user.email</code></p>
 </blockquote>
+<blockquote>
+<p>生成<code>SSH</code>密钥</p>
+<p>1、查看是否已经有了<code>ssh</code>密钥</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>​     如果没有密钥则不会有此文件夹,如果有,请按需操作</p>
+<p>2、生成<code>SSH</code>密钥文件</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;user.email&quot;</span><br></pre></td></tr></table></figure>
+<p>​     请将<code>user.email</code> 替换成你自己的邮箱</p>
+<p>3、默认密码为空,一直按<code>Enter</code>,直到生成文件为止;</p>
+<p>4、在<code>github</code>上添加<code>ssh</code>,将生成的<code>id_rsa.pub</code>里面的公钥内容复制到git库中我的<code>SSHKEYS</code>中</p>
+<p>5、测试：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+</blockquote>
 <ol start="2">
 <li>①  修改本地git绑定的用户名和邮箱(全局)：</li>
 </ol>
 <blockquote>
-<p><code>git config --global user.name “chustange”</code><br>
-<code>git config --global user.email “chustange@163.com”</code></p>
+<p><code>git config --global user.name “chustange”</code></p>
+<p><code>git config --global user.email “chustange@163.com”</code></p>
 </blockquote>
 <p>​			②  根据不同的项目绑定不同的用户名和邮箱：进入项目根目录(去掉–global即可)：</p>
 <blockquote>
-<p><code>git config  user.name “chustange”</code><br>
-<code>git config  user.email “chustange@163.com”</code></p>
+<p><code>git config  user.name “chustange”</code></p>
+<p><code>git config  user.email “chustange@163.com”</code></p>
 </blockquote>
 <ol start="3">
 <li>克隆现有的仓库，若没有自定义本地仓库名称，则默认远程仓库名称</li>
