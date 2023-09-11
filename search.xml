@@ -1,41 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>欢迎使用Hexo</title>
+    <url>/posts/16107/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
+<h3 id="创建一个新帖子"><a class="header-anchor" href="#创建一个新帖子">¶</a>创建一个新帖子</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="运行服务器"><a class="header-anchor" href="#运行服务器">¶</a>运行服务器</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server    or      $ hexo  s</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态文件"><a class="header-anchor" href="#生成静态文件">¶</a>生成静态文件</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate  or      $ hexo g</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程站点"><a class="header-anchor" href="#部署到远程站点">¶</a>部署到远程站点</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    or     $ hexo d</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Demo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h2 id="关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法"><a class="header-anchor" href="#关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法">¶</a>关于三菱RJ71EIP91 FB模块从Class1升级到Class3的办法</h2>
+<blockquote>
+<p>近期有客户咨询相关FB模块如何升级的问题，已经解决了相关问题，在此做个记录</p>
+</blockquote>
+<h4 id="准备工作"><a class="header-anchor" href="#准备工作">¶</a>准备工作</h4>
+<h5 id="1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用"><a class="header-anchor" href="#1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用">¶</a>1、此次 RJEIP91 FB模块是基于GX Works3软件上面使用</h5>
+<blockquote>
+<p>GX Works3 的版本建议使用最新版</p>
+</blockquote>
+<h5 id="2、由三菱提供的最新的RJ71EIP91-Class3对应文件"><a class="header-anchor" href="#2、由三菱提供的最新的RJ71EIP91-Class3对应文件">¶</a>2、由三菱提供的最新的<code>RJ71EIP91_Class3对应</code>文件</h5>
+<blockquote>
+<p>如有需要的客户，请致电联系深圳市海蓝智能科技有限公司索取</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191407450.png" alt="image-20230519140735200" style="zoom:50%;" />
+以上`Manual`文件夹中包含 `RJ71EIP91_Class3TAG_手册` 以及`UnitLabelFB`文件夹中包含的此次所需的FB模块文件 `RJ71EIP91.mslu`
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191411780.png" alt="image-20230519141107822" style="zoom:50%;" />
+<p>上述文件中，在<code>UnitLabelFB</code>文件夹中包含了批处理文件，由于GX Works3安装的位置不同，会导致批处理无法生效；将上述文件提供给客户，可能会因为权限或者安装路径等问题不能成功安装；</p>
+<p>在此提供一个简单有效的方法，就是把上面的FB模块文件 <code>RJ71EIP91.mslu</code>直接复制到相应的位置，这也是上面bat批处理文件中所做的事情；</p>
+<h4 id="软件流程操作"><a class="header-anchor" href="#软件流程操作">¶</a>软件流程操作</h4>
+<blockquote>
+<p>如果对GX Works3软件的操作非常熟悉请直接跳过此过程；</p>
+</blockquote>
+<h5 id="1、检查当前的RJ71EIP91模块流程"><a class="header-anchor" href="#1、检查当前的RJ71EIP91模块流程">¶</a>1、检查当前的RJ71EIP91模块流程</h5>
+<h6 id="1、新建空白工程，如下图所示："><a class="header-anchor" href="#1、新建空白工程，如下图所示：">¶</a>1、新建空白工程，如下图所示：</h6>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338804.png" alt="image-20230519112104785" style="zoom:50%;" />
+###### 2、在左侧导航栏中找到模块信息栏，如下图所示
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338118.png" alt="image-20230519112459323" style="zoom:50%;" />
+###### 3、右键鼠标`添加新模块（U）`，如下图所示
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340371.png" alt="image-20230519112306240" style="zoom:50%;" />
+###### 4、直接搜索`RJ71EIP91`,或者选择模块的类型为`网络模块`,然后在模块型号的下拉列表中选择`RJ71EIP91`点击确定,如下图所示；
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340006.png" alt="image-20230519112345942" style="zoom:50%;" />
+###### 5、在`部件选择`栏的`模块`栏中可以看到`模块FB`中的`RJ71EIP91`内容，如下图所示：
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340715.png" alt="image-20230519112017606" style="zoom:50%;" />
+<h4 id="替换操作"><a class="header-anchor" href="#替换操作">¶</a>替换操作</h4>
+<blockquote>
+<p>如果电脑中安装了<code>Listary</code> 或者 <code>Everything</code>软件的话，直接打开软件搜索 <code>RJ71EIP91.mslu</code>或者<code>.mslu</code>直接定位到对应的目录,相对路径是<code>\MSF\Common\Library\UNITFB\</code></p>
+</blockquote>
+<p>根据安装路径去到相应位置查找，三菱软件的安装目录默认一般在<code>C:\Program Files (x86)\MELSOFT</code><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191436511.png" alt="image-20230519143649100" style="zoom:50%;" /></p>
+<p>也有可能在<code>C:\MELSEC</code>,如下图所示</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191439293.png" alt="image-20230519143945701" style="zoom:50%;" />
+<p>查询到的内容如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340760.png" alt="image-20230519113846229" style="zoom: 50%;" />
+<p>然后将上述的RJ71EIP91.mslu文件进行覆盖替换</p>
+<blockquote>
+<p>替换前，请将之前的RJ71EIP91.mslu做好备份，如不需要，再替换回去即可</p>
+</blockquote>
+<blockquote>
+<p>如果上述路径都不存在，也没有安装<code>Listary</code> 或者 <code>Everything</code>软件请在电脑中全局搜索<code>RJ71EIP91.mslu</code>或者<code>.mslu</code>，此过程比较慢，请耐心等待</p>
+</blockquote>
+<p>替换完成后，请跳转到 <code>C:\Program Files (x86)\MELSOFT\GPPW3</code>,如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191526943.png" alt="image-20230519152609919" style="zoom:50%;" />
+<p>请执行一次<code>GXW3PluginPreloader.exe</code>将此插件进行预加载，然后打开GX Works3软件添加此模块，然后在<code>部件选择</code>栏的<code>模块</code>栏中可以看到<code>模块FB</code>中的<code>RJ71EIP91</code>更新后的内容，如下图所示：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191341959.png" alt="image-20230519114301121" style="zoom:50%;" />
+<blockquote>
+<p>执行完成后，如果还没有更新出以上的内容，请记得关机重启再试一次</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>上位机通过MX component version4组件与三菱PLC通信解决办法，最新MX component version5支持X64</title>
     <url>/posts/0/</url>
     <content><![CDATA[<blockquote>
-<p>注1：适用编程语言: VC/C++、VB、C#、LabView等<br>注2：本说明仅提供C#编写的样板实例及原代码，仅用于通信测试，而其它编程语言请参考C#实例的参数设置，自行研习：</p>
-<h1 id="第一节：MX-Component-Version软件与手册下载"><a href="#第一节：MX-Component-Version软件与手册下载" class="headerlink" title="第一节：MX Component Version软件与手册下载"></a>第一节：MX Component Version软件与手册下载</h1></blockquote>
-<p>下载地址:<br><a href="http://www.mitsubishielectric.co.jp/fa/download/software/detailsearch.do?mode=software&amp;kisyu=/plcq&amp;shiryoid=0000000165&amp;kisyuid=0&amp;lang=0&amp;select=0&amp;softid=0&amp;infostatus=0_0_0&amp;viewradio=0&amp;viewstatus=0&amp;viewpos=0">三菱MXComponent Version4</a></p>
-<p><a href="https://www.mitsubishielectric-fa.cn/site/file-software-detail?id=27">三菱MXComponent Version5</a><br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136654.png" alt="在这里插入图片描述"><br>可供下载的是:MX组件版本4/5(中文版)<br>手册位置：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136670.png" alt="在这里插入图片描述"></p>
+<p>注1：适用编程语言: VC/C++、VB、C#、LabView等<br>
+注2：本说明仅提供C#编写的样板实例及原代码，仅用于通信测试，而其它编程语言请参考C#实例的参数设置，自行研习：</p>
+</blockquote>
+<h1 id="第一节：MX-Component-Version软件与手册下载"><a class="header-anchor" href="#第一节：MX-Component-Version软件与手册下载">¶</a>第一节：MX Component Version软件与手册下载</h1>
+<p>下载地址:<br>
+<a href="http://www.mitsubishielectric.co.jp/fa/download/software/detailsearch.do?mode=software&amp;kisyu=/plcq&amp;shiryoid=0000000165&amp;kisyuid=0&amp;lang=0&amp;select=0&amp;softid=0&amp;infostatus=0_0_0&amp;viewradio=0&amp;viewstatus=0&amp;viewpos=0">三菱MXComponent Version4</a></p>
+<p><a href="https://www.mitsubishielectric-fa.cn/site/file-software-detail?id=27">三菱MXComponent Version5</a><br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136654.png" alt="在这里插入图片描述"><br>
+可供下载的是:MX组件版本4/5(中文版)<br>
+手册位置：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136670.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注3:本说明主要使用的是MX组件版本4编程手册(英文版),通信要用到的参数请在此手册中去查询.该手册支持FX5U相关参数,如有需要<a href="https://www.mitsubishielectric-fa.cn/site/file-manual?catalog=261&amp;explicitId=1053">中文版本</a>,可在三菱中文官网上自行下载.</p>
 </blockquote>
-<h1 id="第二节：MX-Component-Version-软件的使用与通信测试"><a href="#第二节：MX-Component-Version-软件的使用与通信测试" class="headerlink" title="第二节：MX Component Version 软件的使用与通信测试"></a>第二节：MX Component Version 软件的使用与通信测试</h1><p>在与上位机通信测试之前，首先与MX Component Version软件进行通信测试。</p>
+<h1 id="第二节：MX-Component-Version-软件的使用与通信测试"><a class="header-anchor" href="#第二节：MX-Component-Version-软件的使用与通信测试">¶</a>第二节：MX Component Version 软件的使用与通信测试</h1>
+<p>在与上位机通信测试之前，首先与MX Component Version软件进行通信测试。</p>
 <blockquote>
 <p>注：以下测试步骤Mx Component Version4与Mx Component Version5 没有多大区别</p>
-<h2 id="2-1-PLC以太网地址设置："><a href="#2-1-PLC以太网地址设置：" class="headerlink" title="2.1 PLC以太网地址设置："></a>2.1 PLC以太网地址设置：</h2><h3 id="2-11-查询电脑的IP地址："><a href="#2-11-查询电脑的IP地址：" class="headerlink" title="2.11 查询电脑的IP地址："></a>2.11 查询电脑的IP地址：</h3><p>在win7 系统左下方，点击开始按钮，然后在搜索程序和文件选框中输入CMD,打开命令提示符窗口;<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136281.png" alt="图2.11-1 打开命令提示符窗口"><br>在命令提示符中输入 ipconfig,然后按回车键：<br>显示当前电脑的IP地址：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137585.png" alt="图2.11-2 在命令提示符窗口查询IP地址"><br>因为当前样例的电脑IP为192.168.1.171;那么设置PLC的IP段则在192.168.1.0~192.168.1.255这个范围里。<br>注4：必须与电脑IP区别开来，不能写成一样的</p>
 </blockquote>
-<h3 id="2-12-打开GX-works2-与PLC进行通信测试"><a href="#2-12-打开GX-works2-与PLC进行通信测试" class="headerlink" title="2.12 打开GX works2 与PLC进行通信测试"></a>2.12 打开GX works2 与PLC进行通信测试</h3><blockquote>
+<h2 id="2-1-PLC以太网地址设置："><a class="header-anchor" href="#2-1-PLC以太网地址设置：">¶</a>2.1 PLC以太网地址设置：</h2>
+<h3 id="2-11-查询电脑的IP地址："><a class="header-anchor" href="#2-11-查询电脑的IP地址：">¶</a>2.11 查询电脑的IP地址：</h3>
+<p>在win7 系统左下方，点击开始按钮，然后在搜索程序和文件选框中输入CMD,打开命令提示符窗口;<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121136281.png" alt="图2.11-1 打开命令提示符窗口"><br>
+在命令提示符中输入 ipconfig,然后按回车键：<br>
+显示当前电脑的IP地址：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137585.png" alt="图2.11-2 在命令提示符窗口查询IP地址"><br>
+因为当前样例的电脑IP为192.168.1.171;那么设置PLC的IP段则在192.168.1.0~192.168.1.255这个范围里。</p>
+<blockquote>
+<p>注4：必须与电脑IP区别开来，不能写成一样的</p>
+</blockquote>
+<h3 id="2-12-打开GX-works2-与PLC进行通信测试"><a class="header-anchor" href="#2-12-打开GX-works2-与PLC进行通信测试">¶</a>2.12 打开GX works2 与PLC进行通信测试</h3>
+<blockquote>
 <p>注5：使用USB或串口（不能用网线）与电脑直连进行PLC的IP设置</p>
 </blockquote>
-<p>打开GX Works2软件，然后点击新建（Ctrl+N）：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137751.png" alt="图2.12-1 打开GX Works2软件"><br>选择与目标PLC相同的型号，然后点击确定：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137472.png" alt="图2.12-2 选择系列与机型"></p>
+<p>打开GX Works2软件，然后点击新建（Ctrl+N）：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137751.png" alt="图2.12-1 打开GX Works2软件"><br>
+选择与目标PLC相同的型号，然后点击确定：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137472.png" alt="图2.12-2 选择系列与机型"></p>
 <blockquote>
 <p>注6：本样例是以Q26UDV为例来测试.</p>
 </blockquote>
-<p>然后在导航栏选定连接目标，然后双击Connection1:<br> <img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137324.png" alt="在这里插入图片描述"><br> 打开连接目标设置Connection1窗口进行设置：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137096.png" alt="在这里插入图片描述"><br>双击计算机侧I/F的 Serial USB 图标：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137205.png" alt="在这里插入图片描述"><br>选择USB连接选项，然后点击确定。<br>双击可编程控制器侧I/F栏 PLC Module图标：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137031.png" alt="在这里插入图片描述"><br>在CPU模式的下拉选框里，选择QCPU（Q模式），然后点击确定。<br>双击其他站指定栏 No Specification 图标：<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137412.png" alt="在这里插入图片描述"><br>根据需要来设定，然后点击确定。</p>
+<p>然后在导航栏选定连接目标，然后双击Connection1:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137324.png" alt="在这里插入图片描述"><br>
+打开连接目标设置Connection1窗口进行设置：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137096.png" alt="在这里插入图片描述"><br>
+双击计算机侧I/F的 Serial USB 图标：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137205.png" alt="在这里插入图片描述"><br>
+选择USB连接选项，然后点击确定。<br>
+双击可编程控制器侧I/F栏 PLC Module图标：</p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137031.png" alt="在这里插入图片描述"><br>
+在CPU模式的下拉选框里，选择QCPU（Q模式），然后点击确定。<br>
+双击其他站指定栏 No Specification 图标：<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137412.png" alt="在这里插入图片描述"><br>
+根据需要来设定，然后点击确定。</p>
 <blockquote>
 <p>注7：无特殊要求的话，选择默认即可</p>
 </blockquote>
-<p>以上的设置完成后，然后单击通信测试（T）按钮，如果弹出以下的提示，则说明USB连接成功：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137760.png" alt="在这里插入图片描述"><br>点击确定后，退出该设置界面。<br>然后在导航栏选定工程，然后双击PLC参数:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137809.png" alt="在这里插入图片描述"><br>打开PLC参数设置界面，选择内置以太网端口设置，如下图所示：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137012.png" alt="在这里插入图片描述"><br>当前样例的IP地址设置为192.168.1.39，其它的选择默认。</p>
+<p>以上的设置完成后，然后单击通信测试（T）按钮，如果弹出以下的提示，则说明USB连接成功：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137760.png" alt="在这里插入图片描述"><br>
+点击确定后，退出该设置界面。<br>
+然后在导航栏选定工程，然后双击PLC参数:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137809.png" alt="在这里插入图片描述"><br>
+打开PLC参数设置界面，选择内置以太网端口设置，如下图所示：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137012.png" alt="在这里插入图片描述"><br>
+当前样例的IP地址设置为192.168.1.39，其它的选择默认。</p>
 <blockquote>
 <p>注8：保证IP地址的范围在【192.168.1.0~192.168.1.255】之间，且不与电脑IP相同即可</p>
 </blockquote>
-<p>如果不确定你的输入是否与其它PLC地址有冲突，可点击检查进行确认。<br>如果输入无冲突将会有如下提示：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137786.png" alt="在这里插入图片描述"><br>确认无误后，点击设置结束按钮退出PLC参数设置界面。</p>
-<p>点击转换/编译（C）,选择转换+编译（C）或者按F4快捷键进行编译转换。<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138396.png" alt="在这里插入图片描述"><br>然后点击PLC写入（W）按钮进行地址写入：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138113.png" alt="在这里插入图片描述"><br>然后选择参数+程序选项，点击执行进行写入操作：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138169.png" alt="在这里插入图片描述"><br>操作完成后，关闭GX Works2软件。拔掉USB线，换上网线，然后进行下一步操作。</p>
-<h3 id="2-13-测试PLC-IP地址："><a href="#2-13-测试PLC-IP地址：" class="headerlink" title="2.13 测试PLC IP地址："></a>2.13 测试PLC IP地址：</h3><p>在命令提示符中输入 ping 192.168.1.39 测试连接状态：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138752.png" alt="在这里插入图片描述"><br>出现以上的信息，则说是电脑与PLC连接成功。</p>
-<h2 id="2-2-打开MX-Version4-软件进行组件与PLC间通信测试"><a href="#2-2-打开MX-Version4-软件进行组件与PLC间通信测试" class="headerlink" title="2.2 打开MX Version4 软件进行组件与PLC间通信测试"></a>2.2 打开MX Version4 软件进行组件与PLC间通信测试</h2><h3 id="2-21-MX-Version4软件"><a href="#2-21-MX-Version4软件" class="headerlink" title="2.21 MX Version4软件"></a>2.21 MX Version4软件</h3><p>在win7 系统左下方，点击开始按钮，然后单击所有程序，在下拉菜单中选择MELSOFT-MX Component-Communication Setup Utility,打开软件设置窗口：</p>
+<p>如果不确定你的输入是否与其它PLC地址有冲突，可点击检查进行确认。<br>
+如果输入无冲突将会有如下提示：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121137786.png" alt="在这里插入图片描述"><br>
+确认无误后，点击设置结束按钮退出PLC参数设置界面。</p>
+<p>点击转换/编译（C）,选择转换+编译（C）或者按F4快捷键进行编译转换。<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138396.png" alt="在这里插入图片描述"><br>
+然后点击PLC写入（W）按钮进行地址写入：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138113.png" alt="在这里插入图片描述"><br>
+然后选择参数+程序选项，点击执行进行写入操作：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138169.png" alt="在这里插入图片描述"><br>
+操作完成后，关闭GX Works2软件。拔掉USB线，换上网线，然后进行下一步操作。</p>
+<h3 id="2-13-测试PLC-IP地址："><a class="header-anchor" href="#2-13-测试PLC-IP地址：">¶</a>2.13 测试PLC IP地址：</h3>
+<p>在命令提示符中输入 ping 192.168.1.39 测试连接状态：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121138752.png" alt="在这里插入图片描述"><br>
+出现以上的信息，则说是电脑与PLC连接成功。</p>
+<h2 id="2-2-打开MX-Version4-软件进行组件与PLC间通信测试"><a class="header-anchor" href="#2-2-打开MX-Version4-软件进行组件与PLC间通信测试">¶</a>2.2 打开MX Version4 软件进行组件与PLC间通信测试</h2>
+<h3 id="2-21-MX-Version4软件"><a class="header-anchor" href="#2-21-MX-Version4软件">¶</a>2.21 MX Version4软件</h3>
+<p>在win7 系统左下方，点击开始按钮，然后单击所有程序，在下拉菜单中选择MELSOFT-MX Component-Communication Setup Utility,打开软件设置窗口：</p>
 <blockquote>
 <p>注：以下软件测试步骤Mx Component Version4与Mx Component Version5 没有多大区别。</p>
 </blockquote>
@@ -43,39 +185,108 @@
 <blockquote>
 <p>注9：为防止出现不必要的权限问题，请右键以管理员权限运行</p>
 </blockquote>
-<p>打开如下图所示：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139036.png" alt="在这里插入图片描述"><br>点击Wizard按钮，将出现以下界面：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139499.png" alt="在这里插入图片描述"><br>Logical station number输入数字1即可,然后点击Next。<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139689.png" alt="在这里插入图片描述"><br>在PC side I/F 选择Ethernet board,如上图所示:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139530.png" alt="在这里插入图片描述"><br>在Connect module 下拉选框中选择 CPU module,如上图所示，<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139912.png" alt="在这里插入图片描述"><br>在 Protocol 下拉选框中选择TCP。<br>下面的Time Out的值 默认值就可以了，也可以选填为10000ms<br>然后点击NEXT按钮，弹出如下图所示：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139271.png" alt="在这里插入图片描述"><br>可以在Host(IP Address)一栏中输入192.168.1.39，或者点击Find CPU(Built-in Ethernet port) on network 按钮进行自动查找。出现如下图所示：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139776.png" alt="图2.21-8 Find CPU(Built-in Ethernet port"><br>选中目标PLC的型号，然后点击OK.</p>
+<p>打开如下图所示：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139036.png" alt="在这里插入图片描述"><br>
+点击Wizard按钮，将出现以下界面：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139499.png" alt="在这里插入图片描述"><br>
+Logical station number输入数字1即可,然后点击Next。<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139689.png" alt="在这里插入图片描述"><br>
+在PC side I/F 选择Ethernet board,如上图所示:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139530.png" alt="在这里插入图片描述"><br>
+在Connect module 下拉选框中选择 CPU module,如上图所示，<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139912.png" alt="在这里插入图片描述"><br>
+在 Protocol 下拉选框中选择TCP。<br>
+下面的Time Out的值 默认值就可以了，也可以选填为10000ms<br>
+然后点击NEXT按钮，弹出如下图所示：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139271.png" alt="在这里插入图片描述"><br>
+可以在Host(IP Address)一栏中输入192.168.1.39，或者点击Find CPU(Built-in Ethernet port) on network 按钮进行自动查找。出现如下图所示：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139776.png" alt="图2.21-8 Find CPU(Built-in Ethernet port"><br>
+选中目标PLC的型号，然后点击OK.</p>
 <blockquote>
 <p>注10：如有多个同时连接的话，请注意所选目标PLC是否匹配</p>
 </blockquote>
-<p>如进行Find CPU(Built-in Ethernet port)这个动作的话，下图所示的界面的相关参数会自动填写，如没有，则需要手动进行选择。<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139594.png" alt="在这里插入图片描述"></p>
+<p>如进行Find CPU(Built-in Ethernet port)这个动作的话，下图所示的界面的相关参数会自动填写，如没有，则需要手动进行选择。<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139594.png" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>注11：如有多个CPU同时组合的话，请确定当前目标放在几号位置，如只有单个的话，默认为None.</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139074.png" alt="在这里插入图片描述"><br>与之前的的Logical station number 保持一致。点击Finish按钮，返回。</p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139074.png" alt="在这里插入图片描述"><br>
+与之前的的Logical station number 保持一致。点击Finish按钮，返回。</p>
 <p>在connetion test 界面，点击Test按钮 进行测试，如出现以下信息，则说明通信连接成功。</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139682.png" alt="在这里插入图片描述"><br>完成上面所示操作，如果流程没有出错，且出现上图所示信息，说明MX Component Version4/5的组件完全可用于上位机上。</p>
-<h1 id="第三节：C-与PLC通信测试"><a href="#第三节：C-与PLC通信测试" class="headerlink" title="第三节：C# 与PLC通信测试"></a>第三节：C# 与PLC通信测试</h1><h2 id="3-1-以太网连接用到的参数列表"><a href="#3-1-以太网连接用到的参数列表" class="headerlink" title="3.1 以太网连接用到的参数列表:"></a>3.1 以太网连接用到的参数列表:</h2><p>ActCpuType  CPU型号 int类型<br>ActUnitType 设备连接方式 int类型（即设备型号）<br>ActProtocolType TCP/UDP int类型<br>ActTimeOut 连接超时时间 int类型<br>ActHostAddress 设备IP地址 string类型<br>ActDestinationPortNumber 端口号 int类型<br>本样例以Q26UDV为例，可在MX Component Version4 编程手册中查询相关参数信息：</p>
-<h4 id="1-ActCpuType："><a href="#1-ActCpuType：" class="headerlink" title="1.ActCpuType："></a>1.ActCpuType：</h4><p>查手册可得：<br>ActCpuType=0xD5; 转换成十进制 ActCpuType=213<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139405.png" alt="在这里插入图片描述"></p>
-<h4 id="2-ActUnitType："><a href="#2-ActUnitType：" class="headerlink" title="2.ActUnitType："></a>2.ActUnitType：</h4><p>查手册可得：<br>ActCpuType=0x2c; 转换成十进制 ActCpuType=44</p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139682.png" alt="在这里插入图片描述"><br>
+完成上面所示操作，如果流程没有出错，且出现上图所示信息，说明MX Component Version4/5的组件完全可用于上位机上。</p>
+<h1 id="第三节：C-与PLC通信测试"><a class="header-anchor" href="#第三节：C-与PLC通信测试">¶</a>第三节：C# 与PLC通信测试</h1>
+<h2 id="3-1-以太网连接用到的参数列表"><a class="header-anchor" href="#3-1-以太网连接用到的参数列表">¶</a>3.1 以太网连接用到的参数列表:</h2>
+<p>ActCpuType  CPU型号 int类型<br>
+ActUnitType 设备连接方式 int类型（即设备型号）<br>
+ActProtocolType TCP/UDP int类型<br>
+ActTimeOut 连接超时时间 int类型<br>
+ActHostAddress 设备IP地址 string类型<br>
+ActDestinationPortNumber 端口号 int类型<br>
+本样例以Q26UDV为例，可在MX Component Version4 编程手册中查询相关参数信息：</p>
+<h4 id="1-ActCpuType："><a class="header-anchor" href="#1-ActCpuType：">¶</a>1.ActCpuType：</h4>
+<p>查手册可得：<br>
+ActCpuType=0xD5; 转换成十进制 ActCpuType=213<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139405.png" alt="在这里插入图片描述"></p>
+<h4 id="2-ActUnitType："><a class="header-anchor" href="#2-ActUnitType：">¶</a>2.ActUnitType：</h4>
+<p>查手册可得：<br>
+ActCpuType=0x2c; 转换成十进制 ActCpuType=44</p>
 <p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139376.png" alt="在这里插入图片描述"></p>
-<h4 id="3-ActProtocolType"><a href="#3-ActProtocolType" class="headerlink" title="3.ActProtocolType"></a>3.ActProtocolType</h4><p>查手册可得：<br>ActProtocolType=0x05; 转换成十进制 ActProtocolType =5</p>
+<h4 id="3-ActProtocolType"><a class="header-anchor" href="#3-ActProtocolType">¶</a>3.ActProtocolType</h4>
+<p>查手册可得：<br>
+ActProtocolType=0x05; 转换成十进制 ActProtocolType =5</p>
 <p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139060.png" alt="在这里插入图片描述"></p>
-<h4 id="4-ActTimeOut"><a href="#4-ActTimeOut" class="headerlink" title="4.ActTimeOut"></a>4.ActTimeOut</h4><p>查手册可得：<br>ActTimeOut=10000 ms;<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139020.png" alt="在这里插入图片描述"></p>
-<h4 id="5-ActHostAddress"><a href="#5-ActHostAddress" class="headerlink" title="5.ActHostAddress"></a>5.ActHostAddress</h4><p>之前设置的PLC的IP地址为：192.168.1.39;</p>
-<h4 id="6-ActDestinationPortNumber"><a href="#6-ActDestinationPortNumber" class="headerlink" title="6.ActDestinationPortNumber"></a>6.ActDestinationPortNumber</h4><p>查手册可得：<br>ActDestinationPortNumber=5562;默认值为0;可以自己设定,但是对数据进行读写操作时,端口号要保持一致.<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140978.png" alt="在这里插入图片描述"></p>
+<h4 id="4-ActTimeOut"><a class="header-anchor" href="#4-ActTimeOut">¶</a>4.ActTimeOut</h4>
+<p>查手册可得：<br>
+ActTimeOut=10000 ms;<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121139020.png" alt="在这里插入图片描述"></p>
+<h4 id="5-ActHostAddress"><a class="header-anchor" href="#5-ActHostAddress">¶</a>5.ActHostAddress</h4>
+<p>之前设置的PLC的IP地址为：192.168.1.39;</p>
+<h4 id="6-ActDestinationPortNumber"><a class="header-anchor" href="#6-ActDestinationPortNumber">¶</a>6.ActDestinationPortNumber</h4>
+<p>查手册可得：<br>
+ActDestinationPortNumber=5562;默认值为0;可以自己设定,但是对数据进行读写操作时,端口号要保持一致.<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140978.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>注：以上参数可通用，Mx Component Version4与Mx Component Version5 不同在于dll的引用方法不一样，具体方法可借鉴官方样例文档。<br>注：官方样例路径在 C:\MELSEC\Act\Samples\Vcs.NET\Act_2019文件夹下</p>
+<p>注：以上参数可通用，Mx Component Version4与Mx Component Version5 不同在于dll的引用方法不一样，具体方法可借鉴官方样例文档。<br>
+注：官方样例路径在 C:\MELSEC\Act\Samples\<a href="http://Vcs.NET">Vcs.NET</a>\Act_2019文件夹下</p>
 </blockquote>
-<h2 id="3-2-C-winform界面"><a href="#3-2-C-winform界面" class="headerlink" title="3.2 C# winform界面"></a>3.2 C# winform界面</h2><h3 id="3-21-C-程序实现组件引用"><a href="#3-21-C-程序实现组件引用" class="headerlink" title="3.21 C# 程序实现组件引用"></a>3.21 C# 程序实现组件引用</h3><p>32位引用方法：<br><img src="https://img-blog.csdnimg.cn/20210319153430645.png" alt="在这里插入图片描述"><br>与PLC通信相关的组件具体两个文件在文件夹中体现的是:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140433.png" alt="在这里插入图片描述"><br>工具箱中添加选项卡:</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140712.png" alt="在这里插入图片描述"><br>选择ActProgType Control v1.0 组件<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140385.png" alt="在这里插入图片描述"><br>点击确定后，在工具箱中会多出如下图所示的控件：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140960.png" alt="在这里插入图片描述"><br>将如上图所示的控件用鼠标拖到窗体中,系统将自动引用如下图所示的两个组件:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140352.png" alt="在这里插入图片描述"><br>其他的具体参考样例原代码</p>
-<p>64位引用：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140172.png" alt="在这里插入图片描述"></p>
-<p>右键点击引用，选择浏览，找到上面的ActProgType64.exe文件，点击确定，将出现以下组件：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140358.png" alt="在这里插入图片描述"></p>
+<h2 id="3-2-C-winform界面"><a class="header-anchor" href="#3-2-C-winform界面">¶</a>3.2 C# winform界面</h2>
+<h3 id="3-21-C-程序实现组件引用"><a class="header-anchor" href="#3-21-C-程序实现组件引用">¶</a>3.21 C# 程序实现组件引用</h3>
+<p>32位引用方法：<br>
+<img src="https://img-blog.csdnimg.cn/20210319153430645.png" alt="在这里插入图片描述"><br>
+与PLC通信相关的组件具体两个文件在文件夹中体现的是:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140433.png" alt="在这里插入图片描述"><br>
+工具箱中添加选项卡:</p>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140712.png" alt="在这里插入图片描述"><br>
+选择ActProgType Control v1.0 组件<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140385.png" alt="在这里插入图片描述"><br>
+点击确定后，在工具箱中会多出如下图所示的控件：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140960.png" alt="在这里插入图片描述"><br>
+将如上图所示的控件用鼠标拖到窗体中,系统将自动引用如下图所示的两个组件:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140352.png" alt="在这里插入图片描述"><br>
+其他的具体参考样例原代码</p>
+<p>64位引用：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140172.png" alt="在这里插入图片描述"></p>
+<p>右键点击引用，选择浏览，找到上面的ActProgType64.exe文件，点击确定，将出现以下组件：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140358.png" alt="在这里插入图片描述"></p>
 <blockquote>
-<p>注I：如以上操作在文件执行时出现异常，强烈建议关闭杀毒软件；<br>注II：如在类库中引用此ActProgType64.exe文件,生成可引用的dll时，请将目标平台设成Any CPU，不要设置成X64（如果您现在使用的是最新的VS2022,请无视此注）;</p>
+<p>注I：如以上操作在文件执行时出现异常，强烈建议关闭杀毒软件；<br>
+注II：如在类库中引用此ActProgType64.exe文件,生成可引用的dll时，请将目标平台设成Any CPU，不要设置成X64（如果您现在使用的是最新的VS2022,请无视此注）;</p>
 </blockquote>
-<h3 id="3-22-C-Demo样例窗体"><a href="#3-22-C-Demo样例窗体" class="headerlink" title="3.22 C# Demo样例窗体:"></a>3.22 C# Demo样例窗体:</h3><p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140583.png" alt="在这里插入图片描述"><br>样例程序代码如下：<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">Demo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">Form1</span> : <span class="title">Form</span></span><br><span class="line">    &#123;</span><br><span class="line">        ActProg actprog = <span class="keyword">new</span> ActProg();</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Form1</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_CpuType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            actprog.CpuType = Convert.ToInt32(TB_CpuType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_UnitType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.UnitType = Convert.ToInt32(TB_UnitType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_HostAddress_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.HostAddress = TB_HostAddress.Text.Trim();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_ProtocolType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.ProtocolType = Convert.ToInt32(TB_ProtocolType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_TimeOut_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.TimeOut = Convert.ToInt32(TB_TimeOut.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (actprog.Open()==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接失败&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">            textBox1.Text= actprog.Read(<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button3_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">           <span class="built_in">string</span> send= actprog.Write(textBox2.Text.Trim(),<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">           MessageBox.Show(send);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_DestinationPortNumber_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.DestinationPortNumber = Convert.ToInt32(TB_DestinationPortNumber.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>测试连接结果如下：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140847.png" alt="在这里插入图片描述"><br>写发送：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140538.png" alt="在这里插入图片描述"><br>读接收：<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140280.png" alt="在这里插入图片描述"><br>ActProgTypeLib类使用代码如下：</p>
+<h3 id="3-22-C-Demo样例窗体"><a class="header-anchor" href="#3-22-C-Demo样例窗体">¶</a>3.22 C# Demo样例窗体:</h3>
+<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140583.png" alt="在这里插入图片描述"><br>
+样例程序代码如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">Demo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">Form1</span> : <span class="title">Form</span></span><br><span class="line">    &#123;</span><br><span class="line">        ActProg actprog = <span class="keyword">new</span> ActProg();</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Form1</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_CpuType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            actprog.CpuType = Convert.ToInt32(TB_CpuType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_UnitType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.UnitType = Convert.ToInt32(TB_UnitType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_HostAddress_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.HostAddress = TB_HostAddress.Text.Trim();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_ProtocolType_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.ProtocolType = Convert.ToInt32(TB_ProtocolType.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_TimeOut_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.TimeOut = Convert.ToInt32(TB_TimeOut.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (actprog.Open()==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                MessageBox.Show(<span class="string">&quot;连接失败&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">            textBox1.Text= actprog.Read(<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button3_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.Open();</span><br><span class="line">           <span class="built_in">string</span> send= actprog.Write(textBox2.Text.Trim(),<span class="string">&quot;D1000&quot;</span>);</span><br><span class="line">           MessageBox.Show(send);</span><br><span class="line">            actprog.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TB_DestinationPortNumber_TextChanged</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            actprog.DestinationPortNumber = Convert.ToInt32(TB_DestinationPortNumber.Text.Trim());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>测试连接结果如下：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140847.png" alt="在这里插入图片描述"><br>
+写发送：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140538.png" alt="在这里插入图片描述"><br>
+读接收：<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304121140280.png" alt="在这里插入图片描述"><br>
+ActProgTypeLib类使用代码如下：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">CL_Enet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ActProg</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> ActProgTypeClass Aptc= <span class="keyword">new</span> ActProgTypeClass();      </span><br><span class="line">        <span class="meta">#<span class="keyword">region</span> //定义参数</span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _cpuType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;CPU型号&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> CpuType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _cpuType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _cpuType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _unitType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;设备连接方式&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> UnitType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _unitType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _unitType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _protocolType;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;TCP/UDP&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> ProtocolType</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _protocolType; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _protocolType = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _timeOut;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;连接超时时间&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> TimeOut</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _timeOut; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _timeOut = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> _hostAddress;</span><br><span class="line">        [<span class="meta">Description(<span class="string">&quot;设备IP地址&quot;</span>)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> HostAddress</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _hostAddress; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _hostAddress = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="keyword">endregion</span></span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">int</span> _destinationPortNumber;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> DestinationPortNumber</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> &#123; <span class="keyword">return</span> _destinationPortNumber; &#125;</span><br><span class="line">            <span class="keyword">set</span> &#123; _destinationPortNumber = <span class="keyword">value</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="keyword">region</span> //定义连接状态</span></span><br><span class="line">        <span class="comment">//int CpuType, int UnitType, int ProtocolType,int TimeOut,string HostAddress</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Open</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                Aptc.ActCpuType = _cpuType;</span><br><span class="line">                Aptc.ActUnitType = _unitType;</span><br><span class="line">                Aptc.ActProtocolType = _protocolType;</span><br><span class="line">                Aptc.ActTimeOut = _timeOut;</span><br><span class="line">                Aptc.ActHostAddress = _hostAddress;</span><br><span class="line">                Aptc.ActDestinationPortNumber = _destinationPortNumber;</span><br><span class="line">                <span class="keyword">return</span> Aptc.Open();</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (System.Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Close</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Aptc.Close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Read</span>(<span class="params"><span class="built_in">string</span> RegiseterName</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> iReturnCode = <span class="number">-1</span>;<span class="comment">//返回值=0表示读取成功</span></span><br><span class="line">            <span class="built_in">int</span> length = System.Text.RegularExpressions.Regex.Split(RegiseterName, <span class="string">&quot;\n&quot;</span>).Length;</span><br><span class="line">            <span class="built_in">int</span> iNumberOfData = length;</span><br><span class="line">            <span class="built_in">int</span>[] iData = <span class="keyword">new</span> <span class="built_in">int</span>[length];<span class="comment">//读取软元件值</span></span><br><span class="line">            iReturnCode = Aptc.ReadDeviceRandom(RegiseterName, iNumberOfData, <span class="keyword">out</span> iData[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">if</span> (iReturnCode == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> iData[<span class="number">0</span>].ToString();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Write</span>(<span class="params"><span class="built_in">string</span> <span class="keyword">value</span>,<span class="built_in">string</span> RegiseterName</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">                <span class="built_in">int</span> iReturnCode = <span class="number">-1</span>;<span class="comment">//返回值=0表示写入成功</span></span><br><span class="line">                <span class="built_in">string</span>[] strArray = System.Text.RegularExpressions.Regex.Split(<span class="keyword">value</span>, <span class="string">&quot;\n&quot;</span>);<span class="comment">//拆分写入寄存器列表</span></span><br><span class="line">                <span class="built_in">int</span> iNumberOfData = strArray.Length;<span class="comment">//szLabel.IndexOf(&quot;\n&quot;, 0) + 1;//写入点数</span></span><br><span class="line">                <span class="built_in">int</span>[] iData = <span class="keyword">new</span> <span class="built_in">int</span>[strArray.Length];<span class="comment">//写入软元件值</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; strArray.Length; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    iData[i] = Int32.Parse(strArray[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                iReturnCode = Aptc.WriteDeviceRandom(RegiseterName, iNumberOfData, <span class="keyword">ref</span> iData[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">if</span> (iReturnCode == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">value</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>此样例仅提供思路参考，上述样例代码仅适用三菱PLC与上位机软件</p>
+<h3 id="结束语"><a class="header-anchor" href="#结束语">¶</a>结束语</h3>
+<p>此样例仅提供思路参考，上述样例代码仅适用三菱PLC与上位机软件</p>
 ]]></content>
       <categories>
         <category>PLC</category>
@@ -85,6 +296,76 @@
         <tag>C#</tag>
         <tag>PLC</tag>
         <tag>MX Component</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# 读写文件时文件正由另一进程使用，因此该进程无法访问该文件</title>
+    <url>/posts/d75e1abd/</url>
+    <content><![CDATA[<p>在使用Json序列化到本地文件时出现读写文件时文件正由另一进程使用，因此该进程无法访问该文件<br>
+具体代码实现如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存Json</span></span><br><span class="line"><span class="built_in">string</span> strJson = GlobalPath.SavePath.ModelJsonPath + <span class="string">&quot;\\&quot;</span> + textBox_name.Text + <span class="string">&quot;.json&quot;</span>;</span><br><span class="line">RunData.VisionParam inspectParam = InitParam();</span><br><span class="line">strJson.SerializeJson(inspectParam);</span><br></pre></td></tr></table></figure>
+<p>序列化方法如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>将对象序列化成string,并写入到json文件中<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>通过将 DataContractAttribute 属性 (Attribute) 应用于类，而将 DataMemberAttribute 属性 (Attribute) 应用于类成员，可以指定要序列化的属性 (Property) 和字段。或者添加SerializableAttribute属性 (Attribute) 应用于类<span class="doctag">&lt;/para&gt;</span>    </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>例如:<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataContract]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public struct demo<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>&#123;<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember(Order = 0)]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public string name;<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public string note;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember()]<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public int id;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>&#125;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>待序列化的对象类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;path&quot;&gt;</span>文件路径<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;value&quot;&gt;</span>待序列化的对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;ArgumentNullException&quot;&gt;</span>文件路径为空<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;SecurityException&quot;&gt;</span> 调用方没有所要求的权限。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;IOException&quot;&gt;</span>打开文件时发生 I/O 错误。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;UnauthorizedAccessException&quot;&gt;</span>path 指定了一个只读文件。 或 - 当前平台不支持此操作。 或 - path 指定了一个目录。 或 - 调用方没有所要求的权限。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;ArgumentException&quot;&gt;</span>path 是一个长度为零的字符串，仅包含空格，或包含一个或多个由 InvalidPathChars 定义的无效字符。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SerializeJson</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">this</span> <span class="built_in">string</span> path, T <span class="keyword">value</span></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (path.IsNullOrEmpty())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, <span class="string">&quot;文件路径为空&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                JsonLock.EnterWriteLock();</span><br><span class="line">                <span class="keyword">if</span> (!File.Exists(path))</span><br><span class="line">                &#123;</span><br><span class="line">                    File.Create(path);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">var</span> serializer = <span class="keyword">new</span> DataContractJsonSerializer(<span class="keyword">typeof</span>(T));</span><br><span class="line">                <span class="keyword">using</span> <span class="keyword">var</span> stream = <span class="keyword">new</span> MemoryStream();</span><br><span class="line">                serializer.WriteObject(stream, <span class="keyword">value</span>);</span><br><span class="line">                File.WriteAllText(path, Encoding.UTF8.GetString(stream.ToArray()));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (SecurityException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (UnauthorizedAccessException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> UnauthorizedAccessException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (ArgumentException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">finally</span></span><br><span class="line">            &#123;</span><br><span class="line">                JsonLock.ExitWriteLock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>经分析可能是由于 <code>File.Create(path);</code>引起的文件进程占用。</p>
+<p>代码优化：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SerializeJson</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">this</span> <span class="built_in">string</span> path, T <span class="keyword">value</span></span>)</span></span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">try</span></span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">if</span> (path.IsNullOrEmpty())</span><br><span class="line">               &#123;</span><br><span class="line">                   <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, <span class="string">&quot;文件路径为空&quot;</span>);</span><br><span class="line">               &#125;</span><br><span class="line">               JsonLock.EnterWriteLock();</span><br><span class="line">               <span class="keyword">var</span> serializer = <span class="keyword">new</span> DataContractJsonSerializer(<span class="keyword">typeof</span>(T));</span><br><span class="line">               <span class="keyword">using</span> <span class="keyword">var</span> stream = <span class="keyword">new</span> FileStream(path, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);</span><br><span class="line">               serializer.WriteObject(stream, <span class="keyword">value</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (SecurityException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (IOException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (UnauthorizedAccessException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> UnauthorizedAccessException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (ArgumentException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">finally</span></span><br><span class="line">           &#123;</span><br><span class="line">               JsonLock.ExitWriteLock();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>Json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# EF codefirst 迁移 Migrations问题记录</title>
+    <url>/posts/d75e1abd/</url>
+    <content><![CDATA[<div class="note info">
+            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
+          </div>
+<div class="note info">
+            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
+          </div>
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+<p>Migration的命令如下：</p>
+<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
+<h4 id="1-启动Migrations"><a class="header-anchor" href="#1-启动Migrations">¶</a>1 启动Migrations</h4>
+<p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations </code> 进行 启用migration用来初始化数据库；</p>
+<p>​	如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
+<h4 id="2-迁移Migrations"><a class="header-anchor" href="#2-迁移Migrations">¶</a>2  迁移Migrations</h4>
+<p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
+<h4 id="3-更新到数据库"><a class="header-anchor" href="#3-更新到数据库">¶</a>3 更新到数据库</h4>
+<p>使用 <code> Update-Databse</code> 进行数据库更新；</p>
+<p>操作过程中遇到问题：</p>
+<h4 id="SQL-Server问题汇总："><a class="header-anchor" href="#SQL-Server问题汇总：">¶</a>SQL Server问题汇总：</h4>
+<ol>
+<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1)</li>
+</ol>
+<p>分析原因：	<div class="note danger">
+            <p>Target database is: ‘<code>*****</code>’ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
+          </div></p>
+<p>经断点调试发现：以下位置代码中的连接字符串</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>与下面的字符串不符</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>改正后，出现以下问题：</p>
+<div class="note danger">
+            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904):</p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
+          </div>
+]]></content>
+      <categories>
+        <category>C#</category>
+        <category>Migrations</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>migrations</tag>
+        <tag>sql server</tag>
       </tags>
   </entry>
   <entry>
@@ -231,77 +512,148 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h2 id="关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法"><a class="header-anchor" href="#关于三菱RJ71EIP91-FB模块从Class1升级到Class3的办法">¶</a>关于三菱RJ71EIP91 FB模块从Class1升级到Class3的办法</h2>
-<blockquote>
-<p>近期有客户咨询相关FB模块如何升级的问题，已经解决了相关问题，在此做个记录</p>
+    <title>OCR初学习（一）</title>
+    <url>/posts/59988675/</url>
+    <content><![CDATA[<blockquote>
+<p>segment_characters<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>引用自 HALCON-19.05-Progress/doc/html/reference/operators/segment_characters.html，以下内容为机器翻译，以及个人理解，仅供参考。</p>
 </blockquote>
-<h4 id="准备工作"><a class="header-anchor" href="#准备工作">¶</a>准备工作</h4>
-<h5 id="1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用"><a class="header-anchor" href="#1、此次-RJEIP91-FB模块是基于GX-Works3软件上面使用">¶</a>1、此次 RJEIP91 FB模块是基于GX Works3软件上面使用</h5>
-<blockquote>
-<p>GX Works3 的版本建议使用最新版</p>
-</blockquote>
-<h5 id="2、由三菱提供的最新的RJ71EIP91-Class3对应文件"><a class="header-anchor" href="#2、由三菱提供的最新的RJ71EIP91-Class3对应文件">¶</a>2、由三菱提供的最新的<code>RJ71EIP91_Class3对应</code>文件</h5>
-<blockquote>
-<p>如有需要的客户，请致电联系深圳市海蓝智能科技有限公司索取</p>
-</blockquote>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191407450.png" alt="image-20230519140735200" style="zoom:50%;" />
-以上`Manual`文件夹中包含 `RJ71EIP91_Class3TAG_手册` 以及`UnitLabelFB`文件夹中包含的此次所需的FB模块文件 `RJ71EIP91.mslu`
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191411780.png" alt="image-20230519141107822" style="zoom:50%;" />
-<p>上述文件中，在<code>UnitLabelFB</code>文件夹中包含了批处理文件，由于GX Works3安装的位置不同，会导致批处理无法生效；将上述文件提供给客户，可能会因为权限或者安装路径等问题不能成功安装；</p>
-<p>在此提供一个简单有效的方法，就是把上面的FB模块文件 <code>RJ71EIP91.mslu</code>直接复制到相应的位置，这也是上面bat批处理文件中所做的事情；</p>
-<h4 id="软件流程操作"><a class="header-anchor" href="#软件流程操作">¶</a>软件流程操作</h4>
-<blockquote>
-<p>如果对GX Works3软件的操作非常熟悉请直接跳过此过程；</p>
-</blockquote>
-<h5 id="1、检查当前的RJ71EIP91模块流程"><a class="header-anchor" href="#1、检查当前的RJ71EIP91模块流程">¶</a>1、检查当前的RJ71EIP91模块流程</h5>
-<h6 id="1、新建空白工程，如下图所示："><a class="header-anchor" href="#1、新建空白工程，如下图所示：">¶</a>1、新建空白工程，如下图所示：</h6>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338804.png" alt="image-20230519112104785" style="zoom:50%;" />
-###### 2、在左侧导航栏中找到模块信息栏，如下图所示
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191338118.png" alt="image-20230519112459323" style="zoom:50%;" />
-###### 3、右键鼠标`添加新模块（U）`，如下图所示
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340371.png" alt="image-20230519112306240" style="zoom:50%;" />
-###### 4、直接搜索`RJ71EIP91`,或者选择模块的类型为`网络模块`,然后在模块型号的下拉列表中选择`RJ71EIP91`点击确定,如下图所示；
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340006.png" alt="image-20230519112345942" style="zoom:50%;" />
-###### 5、在`部件选择`栏的`模块`栏中可以看到`模块FB`中的`RJ71EIP91`内容，如下图所示：
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340715.png" alt="image-20230519112017606" style="zoom:50%;" />
-<h4 id="替换操作"><a class="header-anchor" href="#替换操作">¶</a>替换操作</h4>
-<blockquote>
-<p>如果电脑中安装了<code>Listary</code> 或者 <code>Everything</code>软件的话，直接打开软件搜索 <code>RJ71EIP91.mslu</code>或者<code>.mslu</code>直接定位到对应的目录,相对路径是<code>\MSF\Common\Library\UNITFB\</code></p>
-</blockquote>
-<p>根据安装路径去到相应位置查找，三菱软件的安装目录默认一般在<code>C:\Program Files (x86)\MELSOFT</code><br>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191436511.png" alt="image-20230519143649100" style="zoom:50%;" /></p>
-<p>也有可能在<code>C:\MELSEC</code>,如下图所示</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191439293.png" alt="image-20230519143945701" style="zoom:50%;" />
-<p>查询到的内容如下图所示：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191340760.png" alt="image-20230519113846229" style="zoom: 50%;" />
-<p>然后将上述的RJ71EIP91.mslu文件进行覆盖替换</p>
-<blockquote>
-<p>替换前，请将之前的RJ71EIP91.mslu做好备份，如不需要，再替换回去即可</p>
-</blockquote>
-<blockquote>
-<p>如果上述路径都不存在，也没有安装<code>Listary</code> 或者 <code>Everything</code>软件请在电脑中全局搜索<code>RJ71EIP91.mslu</code>或者<code>.mslu</code>，此过程比较慢，请耐心等待</p>
-</blockquote>
-<p>替换完成后，请跳转到 <code>C:\Program Files (x86)\MELSOFT\GPPW3</code>,如下图所示：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191526943.png" alt="image-20230519152609919" style="zoom:50%;" />
-<p>请执行一次<code>GXW3PluginPreloader.exe</code>将此插件进行预加载，然后打开GX Works3软件添加此模块，然后在<code>部件选择</code>栏的<code>模块</code>栏中可以看到<code>模块FB</code>中的<code>RJ71EIP91</code>更新后的内容，如下图所示：</p>
-<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202305191341959.png" alt="image-20230519114301121" style="zoom:50%;" />
-<blockquote>
-<p>执行完成后，如果还没有更新出以上的内容，请记得关机重启再试一次</p>
-</blockquote>
+<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
+<p><code>segment_characters</code>— 分割图像的给定区域中的字符。</p>
+<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
+<p>**segment_characters ** (<em>Region</em>, <em>Image</em> : <em>ImageForeground</em>, <em>RegionForeground</em> : <em>Method</em>, <em>EliminateLines</em>, <em>DotPrint</em>, <em>StrokeWidth</em>, <em>CharWidth</em>, <em>CharHeight</em>, <em>ThresholdOffset</em>, <em>Contrast</em> : <em>UsedThreshold</em>)</p>
+<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
+<p>此运算符用于对给定字符进行分段*<code>Region</code><em>的</em><code>Image</code><em>.这</em><code>Region</code><em>仅用于减少工作区域。分段的字符返回</em><code>RegionForeground</code>*.</p>
+<p>提供了两种不同的方法来检测字符。所有分割方法都假定文本比背景更暗。如果不是这种情况，请将图像反转为<code>invert_image</code>.</p>
+<p>参数*<code>Method</code>*确定文本分割的算法。可能的值为</p>
+<ul>
+<li>
+<p><strong>‘local_contrast_best’</strong></p>
+<p>此方法提取本地与背景不同的文本。因此，它适用于照明不均匀的图像。文本边框的增强，可以更准确地确定文本的轮廓。如果背景具有高度纹理，则特别有用。参数<a href="#Contrast"><em><code>Contrast</code></em></a>定义最小对比度，即符号和背景之间的最小灰度值差异。</p>
+</li>
+<li>
+<p><strong>‘local_auto_shape’</strong></p>
+<p>最小对比度是自动估计的，从而减少非常小的区域的数量。此方法特别适用于嘈杂的图像。参数*<code>ThresholdOffset</code><em>可用于调整阈值。设 g（x，y） 为输入中位置 （x，y） 处的灰度值</em><code>Image</code>*.阈值条件由以下因素确定：.</p>
+</li>
+</ul>
+<p>选择*<code>EliminateLines</code><em>如果字符的提取受到相对于文本行的水平或垂直行的干扰，并将其值设置为“true”。消除受最大值的影响</em><code>CharWidth</code>*和最大值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.有关详细信息，请参阅这些参数的说明。</p>
+<p><a href="#DotPrint"><em><code>DotPrint</code></em></a>：如果应读取点印，则应设置为“true”，否则应设置为“false”。</p>
+<p><a href="#StrokeWidth"><em><code>StrokeWidth</code></em></a>：指定文本的描边宽度。它用于计算内部使用的掩码大小以确定字符。此掩模大小也受参数的影响<a href="#DotPrint"><em><code>DotPrint</code></em></a>，平均值<a href="#CharWidth"><em><code>CharWidth</code></em></a>和平均值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.</p>
+<p><a href="#CharWidth"><em><code>CharWidth</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均宽度。第二个是字符的最小宽度，第三个是字符的最大宽度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharWidth"><em><code>CharWidth</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p>
+<p>[10]将平均字符宽度设置为10，最小值和最大值由算子计算。</p>
+<p>[10，-1，20] 将平均字符宽度设置为 10，最小值由系统计算，最大值设置为 20。</p>
+<p>[10，5，20] 将平均字符宽度设置为 10，最小值设置为 5，最大值设置为 20。</p>
+<p><a href="#CharHeight"><em><code>CharHeight</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均高度。第二个是字符的最小高度，第三个是字符的最大高度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p>
+<p>[10] 将平均字符高度设置为 10，最小值和最大值由算子计算。</p>
+<p>[10，-1，20] 将平均字符高度设置为 10，最小值由系统计算，最大值设置为 20。</p>
+<p>[10，5，20]这会将平均字符高度设置为 10，最小值设置为 5，最大值设置为 20。</p>
+<p><a href="#ThresholdOffset"><em><code>ThresholdOffset</code></em></a>：此参数可用于调整阈值，该阈值在分割方法时使用*“local_auto_shape”*被选中。</p>
+<p><a href="#Contrast"><em><code>Contrast</code></em></a>：定义文本和背景之间的最小对比度。如果分段方法，则使用此参数*“local_contrast_best”*已选中。</p>
+<p><a href="#UsedThreshold"><em><code>UsedThreshold</code></em></a>：执行后，此参数返回用于对字符进行分段的阈值。</p>
+<p><a href="#ImageForeground"><em><code>ImageForeground</code></em></a>返回内部用于分割的图像。</p>
+<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
+<ul>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
+<p><strong><code>Region</code></strong>（input_object） region(-array) <code>→</code> object</p>
+<p>图像中文本行所在的区域。</p>
+<p><strong><code>Image</code></strong>（input_object）singlechannelimage <code>→</code> object (byte / uint2)</p>
+<p>输入图像。</p>
+<p><strong><code>ImageForeground</code></strong>（output_object）image(-array) <code>→</code> object (byte / uint2)</p>
+<p>用于分割的图像。</p>
+<p><strong><code>RegionForeground</code></strong>（output_object）singlechannelregion(-array) <code>→</code> object</p>
+<p>字符的区域。</p>
+<p><strong><code>Method</code></strong>（input_control）string <code>→</code> (string)</p>
+<p>对字符进行分段的方法。</p>
+<p><strong>默认值：</strong> ‘local_auto_shape’</p>
+<p><strong>值列表：</strong>‘local_auto_shape’，‘local_contrast_best’</p>
+<p><strong><code>EliminateLines</code></strong>（input_control）string <code>→</code> (string)</p>
+<p>消除水平和垂直线？</p>
+<p><strong>默认值：</strong> ‘false’</p>
+<p><strong>值列表：</strong>‘false’, ‘true’</p>
+<p><strong><code>DotPrint</code></strong>（input_control）string <code>→</code> (string)</p>
+<p>是否应检测点打印字符？</p>
+<p><strong>默认值：</strong> ‘false’</p>
+<p><strong>值列表：</strong>‘false’, ‘true’</p>
+<p><strong><code>StrokeWidth</code></strong>（input_control）string <code>→</code> (string)</p>
+<p>字符的描边宽度。</p>
+<p><strong>默认值：</strong> ‘medium’</p>
+<p><strong>值列表：</strong> ‘bold’, ‘light’, ‘medium’, ‘ultra_light’</p>
+<p><a href="#CharWidth"><strong><code>CharWidth</code></strong></a>（input_control）integer-array <code>→</code> (integer)</p>
+<p>字符的宽度。</p>
+<p>**默认值：**25</p>
+<p><strong>典型值范围：</strong><code>1 ≤ CharWidth</code></p>
+<p><strong>限制：</strong><code>CharWidth &gt;= 1</code></p>
+<p><strong><code>CharHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>字符的高度。</p>
+<p>**默认值：**25</p>
+<p><strong>典型值范围：</strong><code>1 ≤ CharHeight</code></p>
+<p><strong>限制：</strong><code>CharHeight &gt;= 1</code></p>
+<p><strong><code>ThresholdOffset</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>用于调整分段的值。</p>
+<p>**默认值：**0</p>
+<p><strong><code>Contrast</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>文本和背景之间的最小灰度值差异。</p>
+<p>**默认值：**10</p>
+<p><strong>典型值范围：</strong><code>1 ≤ Contrast</code></p>
+<p><strong>限制：</strong><code>Contrast &gt;= 1</code></p>
+<p><strong><code>UsedThreshold</code></strong>（output_control）integer(-array) <code>→</code> (integer)</p>
+<p>用于对字符进行分段的阈值。</p>
+<h2 id="示例（HDevelop）"><a class="header-anchor" href="#示例（HDevelop）">¶</a>示例（HDevelop）</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for Index := 1 to 5 by 1</span><br><span class="line">  read_image (Image, &#x27;dot_print_rotated/dot_print_rotated_&#x27;+Index$&#x27;02d&#x27;)</span><br><span class="line">  text_line_orientation (Image, Image, 50, rad(-30), rad(30), OrientationAngle)</span><br><span class="line">  rotate_image (Image, ImageRotate, deg(-OrientationAngle), &#x27;constant&#x27;)</span><br><span class="line">  segment_characters (ImageRotate, ImageRotate, ImageForeground, \</span><br><span class="line">                      RegionForeground, &#x27;local_auto_shape&#x27;, &#x27;false&#x27;, &#x27;false&#x27;, &#x27;medium&#x27;, \</span><br><span class="line">                      25, 25, 0, 10, UsedThreshold)</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
+<p>如果输入参数设置正确，则运算符返回值 2（H_MSG_TRUE）。否则将引发异常。<code>segment_characters</code></p>
+<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
+<p><code>text_line_orientation</code></p>
+<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
+<p><code>select_characters</code>,<code>connection</code></p>
+<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
+<p><code>threshold</code></p>
+<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
+<p><code>Foundation</code></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>segment_characters（算子） <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
+      <categories>
+        <category>Halcon</category>
+      </categories>
+      <tags>
+        <tag>Halcon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo美化</title>
+    <url>/posts/5966023/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>存储区更新、插入或删除语句影响到了意外的行数(0)。实体在加载后可能被修改或删除</title>
     <url>/posts/453677/</url>
     <content><![CDATA[<p>1、在进行数据库表更新时出现以下错误提示</p>
 <blockquote>
-<p>Database operation expected to affect 1 row(s) but actually affected 0 row(s).<br>存储区更新、插入或删除语句影响到了意外的行数(0)。实体在加载后可能被修改或删除。</p>
+<p>Database operation expected to affect 1 row(s) but actually affected 0 row(s).<br>
+存储区更新、插入或删除语句影响到了意外的行数(0)。实体在加载后可能被修改或删除。</p>
 </blockquote>
-<p>贴出来的出错代码如下：<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//配方表信息</span></span><br><span class="line">TempVisionFormula = <span class="keyword">new</span> Entities.VisionFormula()</span><br><span class="line">&#123;</span><br><span class="line">    DateTime = exists.Content[<span class="number">0</span>].DateTime,</span><br><span class="line">    Guid = exists.Content[<span class="number">0</span>].Guid,</span><br><span class="line">    Name = exists.Content[<span class="number">0</span>].Name,</span><br><span class="line">    Description = richTextBox1.Text,</span><br><span class="line">    Width = width,</span><br><span class="line">    Height = height,</span><br><span class="line">    HoleCount = holecount,</span><br><span class="line">    XOffset = <span class="number">0</span>d,</span><br><span class="line">    UpdateDateTime = DateTime.Now,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//将此配方添加至数据库中</span></span><br><span class="line"><span class="keyword">var</span> result = sql.Update(TempVisionFormula);</span><br></pre></td></tr></table></figure><br>数据库的更新方法如下：<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> Result <span class="title">Update</span>(<span class="params">VisionFormula data</span>)</span></span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">try</span></span><br><span class="line">           &#123;</span><br><span class="line">               interlocked.Enter();</span><br><span class="line">               <span class="keyword">if</span> (data.IsNullOrEmpty()) <span class="keyword">return</span> Result.Error();</span><br><span class="line">               <span class="keyword">using</span> <span class="keyword">var</span> context = <span class="keyword">new</span> HiContext();</span><br><span class="line">               context.Formulas.Attach(data);</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Guid).IsModified = <span class="literal">false</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.DateTime).IsModified = <span class="literal">false</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Name).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.UpdateDateTime).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Description).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.XOffset).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Width).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Height).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Count).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.SaveChanges();</span><br><span class="line">               <span class="keyword">return</span> Result.Successed();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">           &#123;</span><br><span class="line">               ex.Error(StackTrace.LineNumber());</span><br><span class="line">               <span class="keyword">return</span> Result.Error(ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">finally</span></span><br><span class="line">           &#123;</span><br><span class="line">               interlocked.Exit();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure><br>错误分析：</p>
-<p>由于更新时，没有将表的Id填写上去<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//配方表信息</span></span><br><span class="line">TempVisionFormula = <span class="keyword">new</span> Entities.VisionFormula()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//添加此项就OK了</span></span><br><span class="line">    FormulaId = exists.Content[<span class="number">0</span>].FormulaId,</span><br><span class="line">    DateTime = exists.Content[<span class="number">0</span>].DateTime,</span><br><span class="line">    Guid = exists.Content[<span class="number">0</span>].Guid,</span><br><span class="line">    Name = exists.Content[<span class="number">0</span>].Name,</span><br><span class="line">    Description = richTextBox1.Text,</span><br><span class="line">    Width = width,</span><br><span class="line">    Height = height,</span><br><span class="line">    HoleCount = holecount,</span><br><span class="line">    XOffset = <span class="number">0</span>d,</span><br><span class="line">    UpdateDateTime = DateTime.Now,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//将此配方添加至数据库中</span></span><br><span class="line"><span class="keyword">var</span> result = sql.Update(TempVisionFormula);</span><br></pre></td></tr></table></figure></p>
-]]></content>
+<p>贴出来的出错代码如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//配方表信息</span></span><br><span class="line">TempVisionFormula = <span class="keyword">new</span> Entities.VisionFormula()</span><br><span class="line">&#123;</span><br><span class="line">    DateTime = exists.Content[<span class="number">0</span>].DateTime,</span><br><span class="line">    Guid = exists.Content[<span class="number">0</span>].Guid,</span><br><span class="line">    Name = exists.Content[<span class="number">0</span>].Name,</span><br><span class="line">    Description = richTextBox1.Text,</span><br><span class="line">    Width = width,</span><br><span class="line">    Height = height,</span><br><span class="line">    HoleCount = holecount,</span><br><span class="line">    XOffset = <span class="number">0</span>d,</span><br><span class="line">    UpdateDateTime = DateTime.Now,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//将此配方添加至数据库中</span></span><br><span class="line"><span class="keyword">var</span> result = sql.Update(TempVisionFormula);</span><br></pre></td></tr></table></figure>
+<p>数据库的更新方法如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> Result <span class="title">Update</span>(<span class="params">VisionFormula data</span>)</span></span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">try</span></span><br><span class="line">           &#123;</span><br><span class="line">               interlocked.Enter();</span><br><span class="line">               <span class="keyword">if</span> (data.IsNullOrEmpty()) <span class="keyword">return</span> Result.Error();</span><br><span class="line">               <span class="keyword">using</span> <span class="keyword">var</span> context = <span class="keyword">new</span> HiContext();</span><br><span class="line">               context.Formulas.Attach(data);</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Guid).IsModified = <span class="literal">false</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.DateTime).IsModified = <span class="literal">false</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Name).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.UpdateDateTime).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Description).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.XOffset).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Width).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Height).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.Entry(data).Property(l =&gt; l.Count).IsModified = <span class="literal">true</span>;</span><br><span class="line">               context.SaveChanges();</span><br><span class="line">               <span class="keyword">return</span> Result.Successed();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">           &#123;</span><br><span class="line">               ex.Error(StackTrace.LineNumber());</span><br><span class="line">               <span class="keyword">return</span> Result.Error(ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">finally</span></span><br><span class="line">           &#123;</span><br><span class="line">               interlocked.Exit();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>错误分析：</p>
+<p>由于更新时，没有将表的Id填写上去</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//配方表信息</span></span><br><span class="line">TempVisionFormula = <span class="keyword">new</span> Entities.VisionFormula()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//添加此项就OK了</span></span><br><span class="line">    FormulaId = exists.Content[<span class="number">0</span>].FormulaId,</span><br><span class="line">    DateTime = exists.Content[<span class="number">0</span>].DateTime,</span><br><span class="line">    Guid = exists.Content[<span class="number">0</span>].Guid,</span><br><span class="line">    Name = exists.Content[<span class="number">0</span>].Name,</span><br><span class="line">    Description = richTextBox1.Text,</span><br><span class="line">    Width = width,</span><br><span class="line">    Height = height,</span><br><span class="line">    HoleCount = holecount,</span><br><span class="line">    XOffset = <span class="number">0</span>d,</span><br><span class="line">    UpdateDateTime = DateTime.Now,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//将此配方添加至数据库中</span></span><br><span class="line"><span class="keyword">var</span> result = sql.Update(TempVisionFormula);</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Sql Server</category>
       </categories>
@@ -332,26 +684,27 @@
     <content><![CDATA[<blockquote>
 <p>在执行备份数据库是看不到Backup文件下的备份文件</p>
 </blockquote>
-<p>1、右键当前数据库，然后点击 <code>任务(T)</code> ,在扩展候选中选择<code>备份(B)</code>:<br><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201057871.png"   style="zoom:75%;" /></p>
+<p>1、右键当前数据库，然后点击 <code>任务(T)</code> ,在扩展候选中选择<code>备份(B)</code>:<br>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201057871.png"   style="zoom:75%;" /></p>
 <p>2、在备份数据库页面，选择<code>添加(D)...</code>按钮：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201100772.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201100772.png"   style="zoom:75%;" />
 <p>3、在选择备份目标页面，选择<code>...</code>按钮，打开选择目标路径：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201103917.png"   style="zoom:80%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201103917.png"   style="zoom:80%;" />
 <p>4、 选择<code>MSSQL16.MSSQLSERVER</code> 下面的<code>MSSQL</code> 的<code>Backup</code>文件夹下:输入所需要的备份名称</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201105606.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201105606.png"   style="zoom:75%;" />
 <p>正常情况下应该是这样的：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201108623.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201108623.png"   style="zoom:75%;" />
 <p>原因分析：由于MSSQLSERVER没有相应的权限，导致不能正常显示</p>
 <p>打开目录所在位置<code>C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL</code></p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201116435.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201116435.png"   style="zoom:75%;" />
 <p>右键选择<code>属性</code>：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201117971.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201117971.png"   style="zoom:75%;" />
 <p>在Backup属性页面中选择<code>编辑(E)...</code>,然后点击<code>添加(D)...</code>:</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201124755.png"   style="zoom:75%;" /></p>
-<p>在选择用户或组页面中<code>输入对象名称来选择(示例)(E)</code>中输入  <code>NT SERVICE\MSSQLSERVER</code> 后点击 <code>确定</code>：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201133079.png"   style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201124755.png"   style="zoom:75%;" />
+<p>在选择用户或组页面中<code>输入对象名称来选择(示例)(E)</code>中输入  <code> NT SERVICE\MSSQLSERVER</code> 后点击 <code>确定</code>：</p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201133079.png"   style="zoom:75%;" />
 <p>选择 <code>MSSQLSERVER</code>然后点击 <code>确定</code>，然后附加权限，点击<code>应用(A)</code>：</p>
-<p><img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201135886.png" style="zoom:75%;" /></p>
+<img src="https://raw.githubusercontent.com/chustange/image/main/couldImage/202304201135886.png" style="zoom:75%;" />
 <p>再次打开，就可以正常显示Buckup里面的内容</p>
 <blockquote>
 <p>注：如果当前用户下无法打开文件夹，请按照以上的操作来添加相应的用户和组，比如我的用户名为<code>汤雄兵(chustange@outlook.com)</code>，添加后就可以打开了</p>
@@ -365,29 +718,239 @@
       </tags>
   </entry>
   <entry>
-    <title>如何创建Active X控件及操作流程</title>
-    <url>/posts/cdc7432d/</url>
-    <content><![CDATA[<blockquote>
-<p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>
-问题点：</p>
-<ol>
-<li>什么是Active x控件；</li>
-<li>能用它做哪些事情；</li>
-<li>从此次经历中学到什么；</li>
-</ol>
-</blockquote>
-<h4 id="关于Active-x控件"><a class="header-anchor" href="#关于Active-x控件">¶</a>关于Active x控件</h4>
-<p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="fill-interlace（算子）"><a class="header-anchor" href="#fill-interlace（算子）">¶</a>fill_interlace（算子）</h1>
+<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
+<p><code>fill_interlace</code>— 插值 2 个视频半图像。</p>
+<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
+<p><strong>fill_interlace</strong>(<em>ImageCamera</em> : <em>ImageFilled</em> : <em>Mode</em> : )</p>
+<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
+<p>算子计算插值的完整图像，或从由两个半图像组成的视频图像中删除奇数/偶数行。如果使用摄像机记录图像，则它由在不同时间记录的两半图像组成，但以数字形式存储在一个图像中。这可能会导致进一步处理中的多个错误。为了减少这些错误，修改了视频图像。每隔一行就会被重新计算或删除。参数<code>fill_interlace</code><a href="#Mode"><em><code>Mode</code></em></a>确定是否必须对偶数（“偶数”、“有效”）或奇数（“奇数”、“rmodd”）行号执行此操作。如果选择“偶数”或“奇数”，则生成的行中的灰度值将分别计算为当前像素上方或下方的直接相邻节点的平均值。如果选择“rmeven”或“rmodd”，则会删除偶数或奇数行数（在这种情况下，生成的图像仅是输入图像的一半）。的值“开关”<a href="#Mode"><em><code>Mode</code></em></a>使奇数线和偶数线被交换。</p>
+<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
+<h2 id="注意"><a class="header-anchor" href="#注意">¶</a>注意</h2>
+<p>请注意，如果使用域缩小的图像（即使用*<code>reduce_domain</code>*处理过的图像）作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
+<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
+<ul>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在通道级别自动并行化。</li>
+<li>在域级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
+<p><strong><code>ImageCamera</code></strong>（input_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
+<p>灰色图像，由两个半图像组成。</p>
+<p><strong><code>ImageFilled</code></strong>（output_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
+<p>带有插值/删除线的完整图像。</p>
+<p><strong><code>Mode</code></strong>（input_control）字符串<code>→</code> （字符串）</p>
+<p>指示是否应替换/删除偶数行或奇数行。</p>
+<p><strong>默认值：</strong> “奇数”</p>
+<p><strong>值列表：</strong>“偶数”，“奇数”，“精灵”、“rmodd”、“切换”</p>
+<h2 id="示例（软件开发）"><a class="header-anchor" href="#示例（软件开发）">¶</a>示例（软件开发）</h2>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;video_image&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">fill_interlace</span><span class="params">(Image,New,<span class="string">&#x27;odd&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_amp</span><span class="params">(New,Sobel,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="复杂性"><a class="header-anchor" href="#复杂性">¶</a>复杂性</h2>
+<p>对于每个像素：O（2）。</p>
+<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
+<p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>fill_interlace</code><a href="set_system.html"><code>set_system('no_object_result',)</code></a>.如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">read_image`,`grab_image</span><br></pre></td></tr></table></figure>
+<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
+<p>sobel_amp,edges_image,regiongrowing,diff_of_gauss,threshold,dyn_threshold,auto_threshold,mean_image,binomial_filter,gauss_filter,anisotropic_diffusion<code>sigma_image</code>median_image</p>
+<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">median_image`, , ,`binomial_filter``gauss_filter``crop_part</span><br></pre></td></tr></table></figure>
+<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
+<p>基础</p>
 ]]></content>
-      <categories>
-        <category>C++</category>
-        <category>MFC</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>MFC</tag>
-        <tag>Active X</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="binomial-filter（操作员）"><a class="header-anchor" href="#binomial-filter（操作员）">¶</a>binomial_filter（操作员）</h1>
+<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
+<p><code>binomial_filter</code>— 使用二项式滤镜平滑图像。</p>
+<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">**binomial_filter**</span>(<span class="strong">*Image*</span> : <span class="strong">*ImageBinomial*</span> : <span class="strong">*MaskWidth*</span>, <span class="strong">*MaskHeight*</span> : )</span><br></pre></td></tr></table></figure>
+<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述:</h2>
+<p><code>binomial_filter</code>平滑图像<a href="#Image"><em><code>Image</code></em></a>使用掩码大小为<a href="#MaskWidth"><em><code>MaskWidth</code></em></a> * <a href="#MaskHeight"><em><code>MaskHeight</code></em></a>像素，并返回<a href="#ImageBinomial"><em><code>ImageBinomial</code></em></a>.二项式滤波器是高斯滤波器的一个非常好的近似值，仅使用整数运算即可非常有效地实现。因此，非常快。设 m =<code>binomial_filter</code><a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和 n =<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>.然后，滤波系数$b_ij$由二项式系数$(^l_k)=\frac{l!}{k!({1-k})!}$给出</p>
+<p>如下：</p>
+<p>$b_ij=\frac{1}{2<sup>{n+m-2}}(</sup>{m-1}_i)(^{n-1}_j)$</p>
+<p>在这里，i = 0， …， m-1 和 j = 0， …， n-1。二项式滤波器执行与高斯滤波器大致相同的平滑处理，其$\sigma={\sqrt{n-1}\over{2}}$，其中为简单起见，假定 m = n。具体而言，n和$\sigma$之间的关系是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center">$\sigma$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0.7523</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1.0317</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1.2505</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1.4365</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1.6010</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">1.7502</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">1.8876</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">2.0157</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">2.1361</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">2.2501</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">2.3586</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">2.4623</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">2.5618</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:center">2.6576</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">2.7500</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">2.8395</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">2.9262</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">3.0104</td>
+</tr>
+</tbody>
+</table>
+<p>如果为<a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>，n 和$\sigma$之间的上述关系仍然保持并引用行和列方向中的平滑量。</p>
+<p><code>binomial_filter</code>可以在 OpenCL 设备上为所有受支持的映像类型执行。</p>
+<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
+<h2 id="注意"><a class="header-anchor" href="#注意">¶</a>注意</h2>
+<p>请注意，如果使用具有简化域的图像作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
+<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
+<ul>
+<li>支持开放CL计算设备。</li>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在通道级别自动并行化。</li>
+<li>在域级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
+<p><strong><code>Image</code></strong>（input_object）（(multichannel-)image(-array) object<code>→</code> (byte* / uint2* / real*) *<em>允许用于计算设备</em></p>
+<p>输入图像。</p>
+<p><strong><code>ImageBinomial</code></strong>（output_object）(multichannel-)image(-array) object<code>→</code> (byte / uint2 / real)</p>
+<p>平滑图像。</p>
+<p><strong><code>MaskWidth</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>筛选器宽度。</p>
+<p>**默认值：**5</p>
+<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
+<p><strong><code>MaskHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
+<p>滤镜高度。</p>
+<p>**默认值：**5</p>
+<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
+<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
+<p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>binomial_filter</code>[<code>set_system('no_object_result',&lt;Result&gt;)</code>].如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
+<p>read_image<code>,</code>grab_image</p>
+<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
+<p>regiongrowing ,threshold,sub_image,dyn_threshold,auto_threshold</p>
+<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
+<p>gauss_filter,smooth_image,derivate_gauss,isotropic_diffusion</p>
+<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
+<p>mean_image,anisotropic_diffusion,sigma_image,gen_lowpass</p>
+<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
+<p>基础</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<h1 id="threshold（算子）"><a class="header-anchor" href="#threshold（算子）">¶</a>threshold（算子）</h1>
+<p><a href=".%5COCR%E5%88%9D%E5%AD%A6%E4%B9%A0(%E4%B8%80).md">ddd</a></p>
+<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
+<p><code>threshold</code>— 使用全局阈值分割图像。</p>
+<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
+<p><strong>threshold</strong>(<em>Image</em> : <em>Region</em> : <em>MinGray</em>, <em>MaxGray</em> : )</p>
+<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
+<p><code>threshold</code>从输入图像中选择灰度值 g 满足以下条件的像素：</p>
+<p>满足条件的图像的所有点都作为一个区域返回。如果传递了多个灰度值间隔（元组<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>），则为每个间隔返回一个单独的区域。对于矢量场图像，阈值不应用于灰度值，而是应用于矢量的长度。</p>
+<h2 id="注意力"><a class="header-anchor" href="#注意力">¶</a>注意力</h2>
+<p>对于整数类型的输入图像，浮点值<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>被截断。</p>
+<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
+<ul>
+<li>多线程类型：重入（与非独占运算符并行运行）。</li>
+<li>多线程范围：全局（可以从任何线程调用）。</li>
+<li>在元组级别自动并行化。</li>
+<li>在内部数据级别自动并行化。</li>
+</ul>
+<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
+<p><strong><code>Image</code></strong>（input_object）单通道利马吉（-数组） 对象<code>→</code>（字节 / 方向 / 循环 / 整数1 / 整数2 / uint2 / int4 / int8 / 实数 / vector_field）</p>
+<p>输入图像。</p>
+<p><strong><code>Region</code></strong>（output_object）区域（-数组） 对象<code>→</code></p>
+<p>分段区域。</p>
+<p><strong><code>MinGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
+<p>灰度值的阈值较低。</p>
+<p>**默认值：**128.0</p>
+<p>**建议值：**0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
+<p><strong><code>MaxGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
+<p>灰度值的上限阈值。</p>
+<p>**默认值：**255.0</p>
+<p>**建议值：**0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
+<p><strong>限制：</strong><code>MaxGray &gt;= MinGray</code></p>
+<h2 id="示例（软件开发）"><a class="header-anchor" href="#示例（软件开发）">¶</a>示例（软件开发）</h2>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;fabrik&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_dir</span><span class="params">(Image,EdgeAmp,EdgeDir,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">threshold</span><span class="params">(EdgeAmp,Seg,<span class="number">50</span>,<span class="number">255</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">skeleton</span><span class="params">(Seg,Rand)</span></span></span><br><span class="line"><span class="function"><span class="title">connection</span><span class="params">(Rand,Lines)</span></span></span><br><span class="line"><span class="function"><span class="title">select_shape</span><span class="params">(Lines,Edges,<span class="string">&#x27;area&#x27;</span>,<span class="string">&#x27;and&#x27;</span>,<span class="number">10</span>,<span class="number">1000000</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="复杂性"><a class="header-anchor" href="#复杂性">¶</a>复杂性</h2>
+<p>设 A 为输入区域的面积。则运行时复杂度为 O（A）。</p>
+<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
+<p><code>threshold</code>如果所有参数都正确，则返回 2 （H_MSG_TRUE）。有关输入图像和输出区域的行为可以通过设置标志的值来确定*“no_object_result”<em>,</em>“empty_region_result”<em>和</em>“store_empty_region”*跟<a href="set_system.html"><code>set_system</code></a>.如有必要，将引发异常。</p>
+<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">histo_to_thresh`, , , , , ,`min_max_gray``sobel_amp``binomial_filter``gauss_filter``reduce_domain``fill_interlace</span><br></pre></td></tr></table></figure>
+<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">connection`, , , , , , ,`dilation1``erosion1``opening``closing``rank_region``shape_trans``skeleton</span><br></pre></td></tr></table></figure>
+<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">class_2dim_sup`, , , , , ,`hysteresis_threshold``dyn_threshold``binary_threshold``char_threshold``auto_threshold``dual_threshold</span><br></pre></td></tr></table></figure>
+<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">zero_crossing`, ,`background_seg``regiongrowing</span><br></pre></td></tr></table></figure>
+<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
+<p>基础</p>
+]]></content>
   </entry>
   <entry>
     <title>MarkDown数学公式资料归档</title>
@@ -1590,459 +2153,28 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="binomial-filter（操作员）"><a class="header-anchor" href="#binomial-filter（操作员）">¶</a>binomial_filter（操作员）</h1>
-<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
-<p><code>binomial_filter</code>— 使用二项式滤镜平滑图像。</p>
-<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">**binomial_filter**</span>(<span class="strong">*Image*</span> : <span class="strong">*ImageBinomial*</span> : <span class="strong">*MaskWidth*</span>, <span class="strong">*MaskHeight*</span> : )</span><br></pre></td></tr></table></figure>
-<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述:</h2>
-<p><code>binomial_filter</code>平滑图像<a href="#Image"><em><code>Image</code></em></a>使用掩码大小为<a href="#MaskWidth"><em><code>MaskWidth</code></em></a> * <a href="#MaskHeight"><em><code>MaskHeight</code></em></a>像素，并返回<a href="#ImageBinomial"><em><code>ImageBinomial</code></em></a>.二项式滤波器是高斯滤波器的一个非常好的近似值，仅使用整数运算即可非常有效地实现。因此，非常快。设 m =<code>binomial_filter</code><a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和 n =<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>.然后，滤波系数$b_ij$由二项式系数$(^l_k)=\frac{l!}{k!({1-k})!}$给出</p>
-<p>如下：</p>
-<p>$b_ij=\frac{1}{2<sup>{n+m-2}}(</sup>{m-1}_i)(^{n-1}_j)$</p>
-<p>在这里，i = 0， …， m-1 和 j = 0， …， n-1。二项式滤波器执行与高斯滤波器大致相同的平滑处理，其$\sigma={\sqrt{n-1}\over{2}}$，其中为简单起见，假定 m = n。具体而言，n和$\sigma$之间的关系是：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">n</th>
-<th style="text-align:center">$\sigma$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">0.7523</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1.0317</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">1.2505</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">1.4365</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1.6010</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">1.7502</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">1.8876</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">2.0157</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">2.1361</td>
-</tr>
-<tr>
-<td style="text-align:center">21</td>
-<td style="text-align:center">2.2501</td>
-</tr>
-<tr>
-<td style="text-align:center">23</td>
-<td style="text-align:center">2.3586</td>
-</tr>
-<tr>
-<td style="text-align:center">25</td>
-<td style="text-align:center">2.4623</td>
-</tr>
-<tr>
-<td style="text-align:center">27</td>
-<td style="text-align:center">2.5618</td>
-</tr>
-<tr>
-<td style="text-align:center">29</td>
-<td style="text-align:center">2.6576</td>
-</tr>
-<tr>
-<td style="text-align:center">31</td>
-<td style="text-align:center">2.7500</td>
-</tr>
-<tr>
-<td style="text-align:center">33</td>
-<td style="text-align:center">2.8395</td>
-</tr>
-<tr>
-<td style="text-align:center">35</td>
-<td style="text-align:center">2.9262</td>
-</tr>
-<tr>
-<td style="text-align:center">37</td>
-<td style="text-align:center">3.0104</td>
-</tr>
-</tbody>
-</table>
-<p>如果为<a href="#MaskHeight"><em><code>MaskHeight</code></em></a>和<a href="#MaskWidth"><em><code>MaskWidth</code></em></a>，n 和$\sigma$之间的上述关系仍然保持并引用行和列方向中的平滑量。</p>
-<p><code>binomial_filter</code>可以在 OpenCL 设备上为所有受支持的映像类型执行。</p>
-<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
-<h2 id="注意"><a class="header-anchor" href="#注意">¶</a>注意</h2>
-<p>请注意，如果使用具有简化域的图像作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
-<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
-<ul>
-<li>支持开放CL计算设备。</li>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在通道级别自动并行化。</li>
-<li>在域级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
-<p><strong><code>Image</code></strong>（input_object）（(multichannel-)image(-array) object<code>→</code> (byte* / uint2* / real*) *<em>允许用于计算设备</em></p>
-<p>输入图像。</p>
-<p><strong><code>ImageBinomial</code></strong>（output_object）(multichannel-)image(-array) object<code>→</code> (byte / uint2 / real)</p>
-<p>平滑图像。</p>
-<p><strong><code>MaskWidth</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>筛选器宽度。</p>
-<p>**默认值：**5</p>
-<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
-<p><strong><code>MaskHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>滤镜高度。</p>
-<p>**默认值：**5</p>
-<p><strong>值列表：</strong> 1， 3， 5， 7， 9， 11， 13， 15， 17， 19， 21， 23， 25， 27， 29， 31， 33， 35， 37</p>
-<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
-<p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>binomial_filter</code>[<code>set_system('no_object_result',&lt;Result&gt;)</code>].如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
-<p>read_image<code>,</code>grab_image</p>
-<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
-<p>regiongrowing ,threshold,sub_image,dyn_threshold,auto_threshold</p>
-<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
-<p>gauss_filter,smooth_image,derivate_gauss,isotropic_diffusion</p>
-<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
-<p>mean_image,anisotropic_diffusion,sigma_image,gen_lowpass</p>
-<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
-<p>基础</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="fill-interlace（算子）"><a class="header-anchor" href="#fill-interlace（算子）">¶</a>fill_interlace（算子）</h1>
-<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
-<p><code>fill_interlace</code>— 插值 2 个视频半图像。</p>
-<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
-<p><strong>fill_interlace</strong>(<em>ImageCamera</em> : <em>ImageFilled</em> : <em>Mode</em> : )</p>
-<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
-<p>算子计算插值的完整图像，或从由两个半图像组成的视频图像中删除奇数/偶数行。如果使用摄像机记录图像，则它由在不同时间记录的两半图像组成，但以数字形式存储在一个图像中。这可能会导致进一步处理中的多个错误。为了减少这些错误，修改了视频图像。每隔一行就会被重新计算或删除。参数<code>fill_interlace</code><a href="#Mode"><em><code>Mode</code></em></a>确定是否必须对偶数（“偶数”、“有效”）或奇数（“奇数”、“rmodd”）行号执行此操作。如果选择“偶数”或“奇数”，则生成的行中的灰度值将分别计算为当前像素上方或下方的直接相邻节点的平均值。如果选择“rmeven”或“rmodd”，则会删除偶数或奇数行数（在这种情况下，生成的图像仅是输入图像的一半）。的值“开关”<a href="#Mode"><em><code>Mode</code></em></a>使奇数线和偶数线被交换。</p>
-<p>有关平滑滤镜概念的说明，请参阅“<a href="toc_filters_smoothing.html">滤镜/平滑</a>”一章的介绍。</p>
-<h2 id="注意"><a class="header-anchor" href="#注意">¶</a>注意</h2>
-<p>请注意，如果使用域缩小的图像（即使用*<code>reduce_domain</code>*处理过的图像）作为输入，则滤镜运算符可能会返回意外结果。请参阅<a href="toc_filters.html">过滤器</a>一章。</p>
-<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
-<ul>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在通道级别自动并行化。</li>
-<li>在域级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
-<p><strong><code>ImageCamera</code></strong>（input_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
-<p>灰色图像，由两个半图像组成。</p>
-<p><strong><code>ImageFilled</code></strong>（output_object）（多通道）图像（数组）对象<code>→</code>（字节/新 2）</p>
-<p>带有插值/删除线的完整图像。</p>
-<p><strong><code>Mode</code></strong>（input_control）字符串<code>→</code> （字符串）</p>
-<p>指示是否应替换/删除偶数行或奇数行。</p>
-<p><strong>默认值：</strong> “奇数”</p>
-<p><strong>值列表：</strong>“偶数”，“奇数”，“精灵”、“rmodd”、“切换”</p>
-<h2 id="示例（软件开发）"><a class="header-anchor" href="#示例（软件开发）">¶</a>示例（软件开发）</h2>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;video_image&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">fill_interlace</span><span class="params">(Image,New,<span class="string">&#x27;odd&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_amp</span><span class="params">(New,Sobel,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂性"><a class="header-anchor" href="#复杂性">¶</a>复杂性</h2>
-<p>对于每个像素：O（2）。</p>
-<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
-<p>如果参数值正确，则运算符返回值 2（H_MSG_TRUE）。空输入（没有可用的输入图像）时的行为通过运算符设置<code>fill_interlace</code><a href="set_system.html"><code>set_system('no_object_result',)</code></a>.如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">read_image`,`grab_image</span><br></pre></td></tr></table></figure>
-<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
-<p>sobel_amp,edges_image,regiongrowing,diff_of_gauss,threshold,dyn_threshold,auto_threshold,mean_image,binomial_filter,gauss_filter,anisotropic_diffusion<code>sigma_image</code>median_image</p>
-<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">median_image`, , ,`binomial_filter``gauss_filter``crop_part</span><br></pre></td></tr></table></figure>
-<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
-<p>基础</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>OCR初学习（一）</title>
-    <url>/posts/59988675/</url>
+    <title>如何创建Active X控件及操作流程</title>
+    <url>/posts/cdc7432d/</url>
     <content><![CDATA[<blockquote>
-<p>segment_characters<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>引用自 HALCON-19.05-Progress/doc/html/reference/operators/segment_characters.html，以下内容为机器翻译，以及个人理解，仅供参考。</p>
-</blockquote>
-<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
-<p><code>segment_characters</code>— 分割图像的给定区域中的字符。</p>
-<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
-<p>**segment_characters ** (<em>Region</em>, <em>Image</em> : <em>ImageForeground</em>, <em>RegionForeground</em> : <em>Method</em>, <em>EliminateLines</em>, <em>DotPrint</em>, <em>StrokeWidth</em>, <em>CharWidth</em>, <em>CharHeight</em>, <em>ThresholdOffset</em>, <em>Contrast</em> : <em>UsedThreshold</em>)</p>
-<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
-<p>此运算符用于对给定字符进行分段*<code>Region</code><em>的</em><code>Image</code><em>.这</em><code>Region</code><em>仅用于减少工作区域。分段的字符返回</em><code>RegionForeground</code>*.</p>
-<p>提供了两种不同的方法来检测字符。所有分割方法都假定文本比背景更暗。如果不是这种情况，请将图像反转为<code>invert_image</code>.</p>
-<p>参数*<code>Method</code>*确定文本分割的算法。可能的值为</p>
-<ul>
-<li>
-<p><strong>‘local_contrast_best’</strong></p>
-<p>此方法提取本地与背景不同的文本。因此，它适用于照明不均匀的图像。文本边框的增强，可以更准确地确定文本的轮廓。如果背景具有高度纹理，则特别有用。参数<a href="#Contrast"><em><code>Contrast</code></em></a>定义最小对比度，即符号和背景之间的最小灰度值差异。</p>
-</li>
-<li>
-<p><strong>‘local_auto_shape’</strong></p>
-<p>最小对比度是自动估计的，从而减少非常小的区域的数量。此方法特别适用于嘈杂的图像。参数*<code>ThresholdOffset</code><em>可用于调整阈值。设 g（x，y） 为输入中位置 （x，y） 处的灰度值</em><code>Image</code>*.阈值条件由以下因素确定：.</p>
-</li>
-</ul>
-<p>选择*<code>EliminateLines</code><em>如果字符的提取受到相对于文本行的水平或垂直行的干扰，并将其值设置为“true”。消除受最大值的影响</em><code>CharWidth</code>*和最大值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.有关详细信息，请参阅这些参数的说明。</p>
-<p><a href="#DotPrint"><em><code>DotPrint</code></em></a>：如果应读取点印，则应设置为“true”，否则应设置为“false”。</p>
-<p><a href="#StrokeWidth"><em><code>StrokeWidth</code></em></a>：指定文本的描边宽度。它用于计算内部使用的掩码大小以确定字符。此掩模大小也受参数的影响<a href="#DotPrint"><em><code>DotPrint</code></em></a>，平均值<a href="#CharWidth"><em><code>CharWidth</code></em></a>和平均值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.</p>
-<p><a href="#CharWidth"><em><code>CharWidth</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均宽度。第二个是字符的最小宽度，第三个是字符的最大宽度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharWidth"><em><code>CharWidth</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p>
-<p>[10]将平均字符宽度设置为10，最小值和最大值由算子计算。</p>
-<p>[10，-1，20] 将平均字符宽度设置为 10，最小值由系统计算，最大值设置为 20。</p>
-<p>[10，5，20] 将平均字符宽度设置为 10，最小值设置为 5，最大值设置为 20。</p>
-<p><a href="#CharHeight"><em><code>CharHeight</code></em></a>：这可以是最多包含三个值的元组。第一个值是字符的平均高度。第二个是字符的最小高度，第三个是字符的最大高度。如果未设置最小值或等于 -1，则操作员根据平均值自动设置这些值<a href="#CharHeight"><em><code>CharHeight</code></em></a>.如果未设置最大值，情况也是如此。一些例子：</p>
-<p>[10] 将平均字符高度设置为 10，最小值和最大值由算子计算。</p>
-<p>[10，-1，20] 将平均字符高度设置为 10，最小值由系统计算，最大值设置为 20。</p>
-<p>[10，5，20]这会将平均字符高度设置为 10，最小值设置为 5，最大值设置为 20。</p>
-<p><a href="#ThresholdOffset"><em><code>ThresholdOffset</code></em></a>：此参数可用于调整阈值，该阈值在分割方法时使用*“local_auto_shape”*被选中。</p>
-<p><a href="#Contrast"><em><code>Contrast</code></em></a>：定义文本和背景之间的最小对比度。如果分段方法，则使用此参数*“local_contrast_best”*已选中。</p>
-<p><a href="#UsedThreshold"><em><code>UsedThreshold</code></em></a>：执行后，此参数返回用于对字符进行分段的阈值。</p>
-<p><a href="#ImageForeground"><em><code>ImageForeground</code></em></a>返回内部用于分割的图像。</p>
-<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
-<ul>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
-<p><strong><code>Region</code></strong>（input_object） region(-array) <code>→</code> object</p>
-<p>图像中文本行所在的区域。</p>
-<p><strong><code>Image</code></strong>（input_object）singlechannelimage <code>→</code> object (byte / uint2)</p>
-<p>输入图像。</p>
-<p><strong><code>ImageForeground</code></strong>（output_object）image(-array) <code>→</code> object (byte / uint2)</p>
-<p>用于分割的图像。</p>
-<p><strong><code>RegionForeground</code></strong>（output_object）singlechannelregion(-array) <code>→</code> object</p>
-<p>字符的区域。</p>
-<p><strong><code>Method</code></strong>（input_control）string <code>→</code> (string)</p>
-<p>对字符进行分段的方法。</p>
-<p><strong>默认值：</strong> ‘local_auto_shape’</p>
-<p><strong>值列表：</strong>‘local_auto_shape’，‘local_contrast_best’</p>
-<p><strong><code>EliminateLines</code></strong>（input_control）string <code>→</code> (string)</p>
-<p>消除水平和垂直线？</p>
-<p><strong>默认值：</strong> ‘false’</p>
-<p><strong>值列表：</strong>‘false’, ‘true’</p>
-<p><strong><code>DotPrint</code></strong>（input_control）string <code>→</code> (string)</p>
-<p>是否应检测点打印字符？</p>
-<p><strong>默认值：</strong> ‘false’</p>
-<p><strong>值列表：</strong>‘false’, ‘true’</p>
-<p><strong><code>StrokeWidth</code></strong>（input_control）string <code>→</code> (string)</p>
-<p>字符的描边宽度。</p>
-<p><strong>默认值：</strong> ‘medium’</p>
-<p><strong>值列表：</strong> ‘bold’, ‘light’, ‘medium’, ‘ultra_light’</p>
-<p><a href="#CharWidth"><strong><code>CharWidth</code></strong></a>（input_control）integer-array <code>→</code> (integer)</p>
-<p>字符的宽度。</p>
-<p>**默认值：**25</p>
-<p><strong>典型值范围：</strong><code>1 ≤ CharWidth</code></p>
-<p><strong>限制：</strong><code>CharWidth &gt;= 1</code></p>
-<p><strong><code>CharHeight</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>字符的高度。</p>
-<p>**默认值：**25</p>
-<p><strong>典型值范围：</strong><code>1 ≤ CharHeight</code></p>
-<p><strong>限制：</strong><code>CharHeight &gt;= 1</code></p>
-<p><strong><code>ThresholdOffset</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>用于调整分段的值。</p>
-<p>**默认值：**0</p>
-<p><strong><code>Contrast</code></strong>（input_control）integer <code>→</code> (integer)</p>
-<p>文本和背景之间的最小灰度值差异。</p>
-<p>**默认值：**10</p>
-<p><strong>典型值范围：</strong><code>1 ≤ Contrast</code></p>
-<p><strong>限制：</strong><code>Contrast &gt;= 1</code></p>
-<p><strong><code>UsedThreshold</code></strong>（output_control）integer(-array) <code>→</code> (integer)</p>
-<p>用于对字符进行分段的阈值。</p>
-<h2 id="示例（HDevelop）"><a class="header-anchor" href="#示例（HDevelop）">¶</a>示例（HDevelop）</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for Index := 1 to 5 by 1</span><br><span class="line">  read_image (Image, &#x27;dot_print_rotated/dot_print_rotated_&#x27;+Index$&#x27;02d&#x27;)</span><br><span class="line">  text_line_orientation (Image, Image, 50, rad(-30), rad(30), OrientationAngle)</span><br><span class="line">  rotate_image (Image, ImageRotate, deg(-OrientationAngle), &#x27;constant&#x27;)</span><br><span class="line">  segment_characters (ImageRotate, ImageRotate, ImageForeground, \</span><br><span class="line">                      RegionForeground, &#x27;local_auto_shape&#x27;, &#x27;false&#x27;, &#x27;false&#x27;, &#x27;medium&#x27;, \</span><br><span class="line">                      25, 25, 0, 10, UsedThreshold)</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
-<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
-<p>如果输入参数设置正确，则运算符返回值 2（H_MSG_TRUE）。否则将引发异常。<code>segment_characters</code></p>
-<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
-<p><code>text_line_orientation</code></p>
-<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
-<p><code>select_characters</code>,<code>connection</code></p>
-<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
-<p><code>threshold</code></p>
-<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
-<p><code>Foundation</code></p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>segment_characters（算子） <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>Halcon</category>
-      </categories>
-      <tags>
-        <tag>Halcon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<h1 id="threshold（算子）"><a class="header-anchor" href="#threshold（算子）">¶</a>threshold（算子）</h1>
-<p><a href=".%5COCR%E5%88%9D%E5%AD%A6%E4%B9%A0(%E4%B8%80).md">ddd</a></p>
-<h2 id="名字"><a class="header-anchor" href="#名字">¶</a>名字</h2>
-<p><code>threshold</code>— 使用全局阈值分割图像。</p>
-<h2 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h2>
-<p><strong>threshold</strong>(<em>Image</em> : <em>Region</em> : <em>MinGray</em>, <em>MaxGray</em> : )</p>
-<h2 id="描述"><a class="header-anchor" href="#描述">¶</a>描述</h2>
-<p><code>threshold</code>从输入图像中选择灰度值 g 满足以下条件的像素：</p>
-<p>满足条件的图像的所有点都作为一个区域返回。如果传递了多个灰度值间隔（元组<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>），则为每个间隔返回一个单独的区域。对于矢量场图像，阈值不应用于灰度值，而是应用于矢量的长度。</p>
-<h2 id="注意力"><a class="header-anchor" href="#注意力">¶</a>注意力</h2>
-<p>对于整数类型的输入图像，浮点值<a href="#MinGray"><em><code>MinGray</code></em></a>和<a href="#MaxGray"><em><code>MaxGray</code></em></a>被截断。</p>
-<h2 id="执行信息"><a class="header-anchor" href="#执行信息">¶</a>执行信息</h2>
-<ul>
-<li>多线程类型：重入（与非独占运算符并行运行）。</li>
-<li>多线程范围：全局（可以从任何线程调用）。</li>
-<li>在元组级别自动并行化。</li>
-<li>在内部数据级别自动并行化。</li>
-</ul>
-<h2 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h2>
-<p><strong><code>Image</code></strong>（input_object）单通道利马吉（-数组） 对象<code>→</code>（字节 / 方向 / 循环 / 整数1 / 整数2 / uint2 / int4 / int8 / 实数 / vector_field）</p>
-<p>输入图像。</p>
-<p><strong><code>Region</code></strong>（output_object）区域（-数组） 对象<code>→</code></p>
-<p>分段区域。</p>
-<p><strong><code>MinGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
-<p>灰度值的阈值较低。</p>
-<p>**默认值：**128.0</p>
-<p>**建议值：**0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
-<p><strong><code>MaxGray</code></strong>（input_control）数字（-数组）<code>→</code> （实数/整数）</p>
-<p>灰度值的上限阈值。</p>
-<p>**默认值：**255.0</p>
-<p>**建议值：**0.0、10.0、30.0、64.0、128.0、200.0、220.0、255.0</p>
-<p><strong>限制：</strong><code>MaxGray &gt;= MinGray</code></p>
-<h2 id="示例（软件开发）"><a class="header-anchor" href="#示例（软件开发）">¶</a>示例（软件开发）</h2>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">read_image</span><span class="params">(Image,<span class="string">&#x27;fabrik&#x27;</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">sobel_dir</span><span class="params">(Image,EdgeAmp,EdgeDir,<span class="string">&#x27;sum_abs&#x27;</span>,<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">threshold</span><span class="params">(EdgeAmp,Seg,<span class="number">50</span>,<span class="number">255</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">skeleton</span><span class="params">(Seg,Rand)</span></span></span><br><span class="line"><span class="function"><span class="title">connection</span><span class="params">(Rand,Lines)</span></span></span><br><span class="line"><span class="function"><span class="title">select_shape</span><span class="params">(Lines,Edges,<span class="string">&#x27;area&#x27;</span>,<span class="string">&#x27;and&#x27;</span>,<span class="number">10</span>,<span class="number">1000000</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂性"><a class="header-anchor" href="#复杂性">¶</a>复杂性</h2>
-<p>设 A 为输入区域的面积。则运行时复杂度为 O（A）。</p>
-<h2 id="结果"><a class="header-anchor" href="#结果">¶</a>结果</h2>
-<p><code>threshold</code>如果所有参数都正确，则返回 2 （H_MSG_TRUE）。有关输入图像和输出区域的行为可以通过设置标志的值来确定*“no_object_result”<em>,</em>“empty_region_result”<em>和</em>“store_empty_region”*跟<a href="set_system.html"><code>set_system</code></a>.如有必要，将引发异常。</p>
-<h2 id="可能的前身"><a class="header-anchor" href="#可能的前身">¶</a>可能的前身</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">histo_to_thresh`, , , , , ,`min_max_gray``sobel_amp``binomial_filter``gauss_filter``reduce_domain``fill_interlace</span><br></pre></td></tr></table></figure>
-<h2 id="可能的继任者"><a class="header-anchor" href="#可能的继任者">¶</a>可能的继任者</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">connection`, , , , , , ,`dilation1``erosion1``opening``closing``rank_region``shape_trans``skeleton</span><br></pre></td></tr></table></figure>
-<h2 id="选择"><a class="header-anchor" href="#选择">¶</a>选择</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">class_2dim_sup`, , , , , ,`hysteresis_threshold``dyn_threshold``binary_threshold``char_threshold``auto_threshold``dual_threshold</span><br></pre></td></tr></table></figure>
-<h2 id="另请参见"><a class="header-anchor" href="#另请参见">¶</a>另请参见</h2>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">zero_crossing`, ,`background_seg``regiongrowing</span><br></pre></td></tr></table></figure>
-<h2 id="模块"><a class="header-anchor" href="#模块">¶</a>模块</h2>
-<p>基础</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>C# EF codefirst 迁移 Migrations问题记录</title>
-    <url>/posts/d75e1abd/</url>
-    <content><![CDATA[<div class="note info">
-            <p>注1： 由于时间久远，之前的旧代码要求新增功能，需要升级，而之前的数据库不能放弃，想直接迁移到新电脑上直接使用</p>
-          </div>
-<div class="note info">
-            <p>注2：因为长时间未使用EF codefirst相关操作，为了方便问题追溯，以此来记录此次碰到的各种问题</p>
-          </div>
-<blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>此次迁移的指令操作全部都在VS Studio 2022中的程序包管理器控制台中操作</p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-<p>Migration的命令如下：</p>
-<div class="tabs" id="命令"><ul class="nav-tabs"><li class="tab active"><a href="#命令-1">启动Migrations</a></li><li class="tab"><a href="#命令-2">迁移Migrations</a></li><li class="tab"><a href="#命令-3">更新到数据库</a></li></ul><div class="tab-content"><div class="tab-pane active" id="命令-1"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enable-Migrations -Force</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-2"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Add-Migration</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="命令-3"><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Update-Databse -Verbose</span><br></pre></td></tr></table></figure></div></div></div>
-<h4 id="1-启动Migrations"><a class="header-anchor" href="#1-启动Migrations">¶</a>1 启动Migrations</h4>
-<p>​    如果是初始启动，且当前没有存在旧有的数据库，直接使用  <code>Enable-Migrations </code> 进行 启用migration用来初始化数据库；</p>
-<p>​	如果存在旧有的数据库，则需要使用 <code>Enable-Migrations -Force</code> 来定位数据库的位置；</p>
-<h4 id="2-迁移Migrations"><a class="header-anchor" href="#2-迁移Migrations">¶</a>2  迁移Migrations</h4>
-<p>​    使用  <code>Add-Migration</code> + 标签来标记数据库的记录；</p>
-<h4 id="3-更新到数据库"><a class="header-anchor" href="#3-更新到数据库">¶</a>3 更新到数据库</h4>
-<p>使用 <code> Update-Databse</code> 进行数据库更新；</p>
-<p>操作过程中遇到问题：</p>
-<h4 id="SQL-Server问题汇总："><a class="header-anchor" href="#SQL-Server问题汇总：">¶</a>SQL Server问题汇总：</h4>
+<p>记录此次经历的实现过程，目的是为了实现在不同软件上也可以显示相同的画面<br>
+问题点：</p>
 <ol>
-<li>error: 26 - 定位指定的服务器/实例时出错 (Microsoft SQL Server，错误: -1)</li>
+<li>什么是Active x控件；</li>
+<li>能用它做哪些事情；</li>
+<li>从此次经历中学到什么；</li>
 </ol>
-<p>分析原因：	<div class="note danger">
-            <p>Target database is: ‘<code>*****</code>’ (DataSource: .<code>\\</code>SQLEXPRESS, Provider: System.Data.SqlClient, Origin: Configuration).</p>
-          </div></p>
-<p>经断点调试发现：以下位置代码中的连接字符串</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HiContext</span>() : <span class="title">base</span>(<span class="params"><span class="string">&quot;Hi.Scanner&quot;</span></span>)</span></span><br><span class="line">     &#123;</span><br><span class="line">         System.Diagnostics.Debug.Write(Database.Connection.ConnectionString);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>与下面的字符串不符</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">&quot;HiContext&quot;</span> <span class="attr">connectionString</span>=<span class="string">&quot;Data Source=(localdb)\\ProjectV13;Initial Catalog=Hi.Scanner;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;MultipleActiveResultSets=true&quot;</span> <span class="attr">providerName</span>=<span class="string">&quot;System.Data.SqlClient&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>改正后，出现以下问题：</p>
-<div class="note danger">
-            <p>Target database is: ‘Hi.Scanner’ (DataSource: (localdb)<code>\\</code>ProjectV13, Provider: System.Data.SqlClient, Origin: Configuration).</p><p>System.Data.SqlClient.SqlException (0x80131904):</p><p>在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。(provider: SQL Network Interfaces, error: 50 - 发生了 Local Database Runtime 错误。指定的 LocalDB 实例名称无效。)</p>
-          </div>
+</blockquote>
+<h4 id="关于Active-x控件"><a class="header-anchor" href="#关于Active-x控件">¶</a>关于Active x控件</h4>
+<p>这是微软官方文档给出的定义：<a href="https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170">https://learn.microsoft.com/zh-cn/cpp/mfc/mfc-activex-controls?view=msvc-170</a></p>
 ]]></content>
       <categories>
-        <category>C#</category>
-        <category>Migrations</category>
+        <category>C++</category>
+        <category>MFC</category>
       </categories>
       <tags>
-        <tag>C#</tag>
-        <tag>migrations</tag>
-        <tag>sql server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C# 读写文件时文件正由另一进程使用，因此该进程无法访问该文件</title>
-    <url>/posts/d75e1abd/</url>
-    <content><![CDATA[<p>在使用Json序列化到本地文件时出现读写文件时文件正由另一进程使用，因此该进程无法访问该文件<br>具体代码实现如下：<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存Json</span></span><br><span class="line"><span class="built_in">string</span> strJson = GlobalPath.SavePath.ModelJsonPath + <span class="string">&quot;\\&quot;</span> + textBox_name.Text + <span class="string">&quot;.json&quot;</span>;</span><br><span class="line">RunData.VisionParam inspectParam = InitParam();</span><br><span class="line">strJson.SerializeJson(inspectParam);</span><br></pre></td></tr></table></figure><br>序列化方法如下：<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>将对象序列化成string,并写入到json文件中<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>通过将 DataContractAttribute 属性 (Attribute) 应用于类，而将 DataMemberAttribute 属性 (Attribute) 应用于类成员，可以指定要序列化的属性 (Property) 和字段。或者添加SerializableAttribute属性 (Attribute) 应用于类<span class="doctag">&lt;/para&gt;</span>    </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>例如:<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataContract]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public struct demo<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>&#123;<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember(Order = 0)]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public string name;<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember]<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public string note;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>[DataMember()]<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>public int id;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;para&gt;</span>&#125;<span class="doctag">&lt;/para&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>待序列化的对象类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;path&quot;&gt;</span>文件路径<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;value&quot;&gt;</span>待序列化的对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;ArgumentNullException&quot;&gt;</span>文件路径为空<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;SecurityException&quot;&gt;</span> 调用方没有所要求的权限。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;IOException&quot;&gt;</span>打开文件时发生 I/O 错误。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;UnauthorizedAccessException&quot;&gt;</span>path 指定了一个只读文件。 或 - 当前平台不支持此操作。 或 - path 指定了一个目录。 或 - 调用方没有所要求的权限。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;exception cref=&quot;ArgumentException&quot;&gt;</span>path 是一个长度为零的字符串，仅包含空格，或包含一个或多个由 InvalidPathChars 定义的无效字符。<span class="doctag">&lt;/exception&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SerializeJson</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">this</span> <span class="built_in">string</span> path, T <span class="keyword">value</span></span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (path.IsNullOrEmpty())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, <span class="string">&quot;文件路径为空&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                JsonLock.EnterWriteLock();</span><br><span class="line">                <span class="keyword">if</span> (!File.Exists(path))</span><br><span class="line">                &#123;</span><br><span class="line">                    File.Create(path);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">var</span> serializer = <span class="keyword">new</span> DataContractJsonSerializer(<span class="keyword">typeof</span>(T));</span><br><span class="line">                <span class="keyword">using</span> <span class="keyword">var</span> stream = <span class="keyword">new</span> MemoryStream();</span><br><span class="line">                serializer.WriteObject(stream, <span class="keyword">value</span>);</span><br><span class="line">                File.WriteAllText(path, Encoding.UTF8.GetString(stream.ToArray()));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (SecurityException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (UnauthorizedAccessException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> UnauthorizedAccessException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (ArgumentException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">finally</span></span><br><span class="line">            &#123;</span><br><span class="line">                JsonLock.ExitWriteLock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>经分析可能是由于 <code>File.Create(path);</code>引起的文件进程占用。</p>
-<p>代码优化：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SerializeJson</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">this</span> <span class="built_in">string</span> path, T <span class="keyword">value</span></span>)</span></span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">try</span></span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">if</span> (path.IsNullOrEmpty())</span><br><span class="line">               &#123;</span><br><span class="line">                   <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, <span class="string">&quot;文件路径为空&quot;</span>);</span><br><span class="line">               &#125;</span><br><span class="line">               JsonLock.EnterWriteLock();</span><br><span class="line">               <span class="keyword">var</span> serializer = <span class="keyword">new</span> DataContractJsonSerializer(<span class="keyword">typeof</span>(T));</span><br><span class="line">               <span class="keyword">using</span> <span class="keyword">var</span> stream = <span class="keyword">new</span> FileStream(path, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);</span><br><span class="line">               serializer.WriteObject(stream, <span class="keyword">value</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (SecurityException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (IOException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (UnauthorizedAccessException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> UnauthorizedAccessException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">catch</span> (ArgumentException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Json-&gt;SerializeJson&quot;</span>, ex);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">finally</span></span><br><span class="line">           &#123;</span><br><span class="line">               JsonLock.ExitWriteLock();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Json</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo美化</title>
-    <url>/posts/5966023/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎使用Hexo</title>
-    <url>/posts/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
-<h3 id="创建一个新帖子"><a class="header-anchor" href="#创建一个新帖子">¶</a>创建一个新帖子</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="运行服务器"><a class="header-anchor" href="#运行服务器">¶</a>运行服务器</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server    or      $ hexo  s</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态文件"><a class="header-anchor" href="#生成静态文件">¶</a>生成静态文件</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate  or      $ hexo g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程站点"><a class="header-anchor" href="#部署到远程站点">¶</a>部署到远程站点</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    or     $ hexo d</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Demo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>C#</tag>
+        <tag>C++</tag>
+        <tag>MFC</tag>
+        <tag>Active X</tag>
       </tags>
   </entry>
 </search>
